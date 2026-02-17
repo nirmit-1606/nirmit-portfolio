@@ -7,12 +7,12 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-neutral-200 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
+    <nav className="z-50 border-b border-neutral-200 bg-background">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 h-[5rem] content-center">
         <div className="flex items-center justify-between">
           <Link
             to="/"
-            className="text-xl text-neutral-900"
+            className="text-xl text-foreground"
             onClick={() => setMobileMenuOpen(false)}
           >
             Nirmit Patel
@@ -22,13 +22,13 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             <Link
               to="/work"
-              className="text-neutral-600 hover:text-neutral-900 transition-colors"
+              className="text-secondary-foreground hover:text-foreground transition-colors"
             >
               Work
             </Link>
             <Link
               to="/about"
-              className="text-neutral-600 hover:text-neutral-900 transition-colors"
+              className="text-secondary-foreground hover:text-foreground transition-colors"
             >
               About
             </Link>
@@ -39,7 +39,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-neutral-900"
+            className="md:hidden text-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -56,14 +56,14 @@ export function Navigation() {
           <div className="md:hidden mt-6 pt-6 border-t border-neutral-200 space-y-4">
             <Link
               to="/work"
-              className="block text-neutral-600 hover:text-neutral-900 transition-colors"
+              className="block text-secondary-foreground hover:text-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Work
             </Link>
             <Link
               to="/about"
-              className="block text-neutral-600 hover:text-neutral-900 transition-colors"
+              className="block text-secondary-foreground hover:text-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               About

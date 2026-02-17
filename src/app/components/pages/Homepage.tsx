@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { getFeaturedCaseStudies } from "../data/caseStudies";
+import { Button } from "../ui/button";
+import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { getFeaturedCaseStudies } from "../../data/caseStudies";
 
 const services = [
   "Web Design & UX",
@@ -34,7 +34,7 @@ export function Homepage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-32">
+      <section className="px-6 lg:px-8 pt-24 pb-32">
         <div className="max-w-3xl">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl text-neutral-900 mb-6 font-bold tracking-tight">
             I design{" "}
@@ -69,7 +69,7 @@ export function Homepage() {
       {/* Featured Work */}
       <section
         id="work"
-        className="max-w-7xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200"
+        className="px-6 lg:px-8 py-24 border-t border-neutral-200"
       >
         <div className="mb-16">
           <h2 className="text-3xl text-neutral-900 mb-3">Featured work</h2>
@@ -106,7 +106,7 @@ export function Homepage() {
       {/* What I Do */}
       <section
         id="about"
-        className="max-w-7xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200"
+        className="px-6 lg:px-8 py-24 border-t border-neutral-200"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
@@ -151,7 +151,7 @@ export function Homepage() {
       </section>
 
       {/* Credibility Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-24 border-t border-neutral-200">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div>
             <div className="text-4xl text-neutral-900 mb-2">8+</div>
@@ -171,7 +171,7 @@ export function Homepage() {
       {/* Final CTA */}
       <section
         id="contact"
-        className="max-w-7xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200"
+        className="px-6 lg:px-8 py-24 border-t border-neutral-200"
       >
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl text-neutral-900 mb-4">

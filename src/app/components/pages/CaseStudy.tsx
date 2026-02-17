@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { CaseStudySidebar } from "./CaseStudySidebar";
-import { getCaseStudyById, getAllCaseStudies } from "../data/caseStudies";
+import { Button } from "../ui/button";
+import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { CaseStudySidebar } from "../CaseStudySidebar";
+import { getCaseStudyById, getAllCaseStudies } from "../../data/caseStudies";
 
 export function CaseStudy() {
   const { id } = useParams<{ id: string }>();
@@ -37,7 +37,7 @@ export function CaseStudy() {
   return (
     <>
       {/* Hero Section */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-8 pt-12 pb-12">
+      <section className="px-6 lg:px-8 pt-12 pb-12">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl text-neutral-900 mb-4">
           {caseStudy.title}
         </h1>
@@ -47,7 +47,7 @@ export function CaseStudy() {
       </section>
 
       {/* Hero Image */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-24">
+      <section className="px-6 lg:px-8 mb-24">
         <div className="aspect-[16/9] bg-neutral-100 overflow-hidden">
           <ImageWithFallback
             src={caseStudy.images.hero}
@@ -58,7 +58,7 @@ export function CaseStudy() {
       </section>
 
       {/* Project Details */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-8 pb-16">
+      <section className="px-6 lg:px-8 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <div>
             <div className="text-sm text-neutral-500 mb-2">Role</div>
@@ -76,7 +76,7 @@ export function CaseStudy() {
       </section>
 
       {/* Problem */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-24 border-t border-neutral-200">
         <h2 className="text-3xl text-neutral-900 mb-6">
           {caseStudy.problem.title}
         </h2>
@@ -86,7 +86,7 @@ export function CaseStudy() {
       </section>
 
       {/* Approach */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-24 border-t border-neutral-200">
         <h2 className="text-3xl text-neutral-900 mb-6">
           {caseStudy.approach.title}
         </h2>
@@ -107,7 +107,7 @@ export function CaseStudy() {
       </section>
 
       {/* Screenshots */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <section className="px-6 lg:px-8 py-16">
         <div className="space-y-12">
           {caseStudy.images.screenshots.map((screenshot, index) => (
             <div
@@ -125,7 +125,7 @@ export function CaseStudy() {
       </section>
 
       {/* Outcome */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-24 border-t border-neutral-200">
         <h2 className="text-3xl text-neutral-900 mb-6">
           {caseStudy.outcome.title}
         </h2>
@@ -146,7 +146,7 @@ export function CaseStudy() {
       </section>
 
       {/* Next Project */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-24 border-t border-neutral-200">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <div className="text-sm text-neutral-500 mb-2">Next project</div>

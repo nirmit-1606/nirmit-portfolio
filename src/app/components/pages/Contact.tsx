@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Mail, MessageSquare } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export function Contact() {
   const [searchParams] = useSearchParams();

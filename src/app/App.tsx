@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Homepage } from "./components/Homepage";
-import { CaseStudy } from "./components/CaseStudy";
-import { About } from "./components/About";
-import { Work } from "./components/Work";
-import { Contact } from "./components/Contact";
+import { Homepage } from "./components/pages/Homepage";
+import { CaseStudy } from "./components/pages/CaseStudy";
+import { About } from "./components/pages/About";
+import { Work } from "./components/pages/Work";
+import { Contact } from "./components/pages/Contact";
 import { Layout } from "./components/Layout";
 
 export default function App() {

@@ -3,8 +3,8 @@ import { ArrowRight, Star } from "lucide-react";
 import {
   getFeaturedCaseStudies,
   getNonFeaturedCaseStudies,
-} from "../data/caseStudies";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+} from "../../data/caseStudies";
+import { ImageWithFallback } from "../figma/ImageWithFallback";
 
 export function Work() {
   const featuredCaseStudies = getFeaturedCaseStudies();
@@ -13,7 +13,7 @@ export function Work() {
   return (
     <>
       {/* Page Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-12">
+      <section className="px-6 lg:px-8 pt-24 pb-12">
         <h1 className="text-3xl sm:text-4xl text-neutral-900 mb-4">
           Selected work
         </h1>
@@ -25,7 +25,7 @@ export function Work() {
 
       {/* Featured Case Studies */}
       {featuredCaseStudies.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+        <section className="px-6 lg:px-8 pb-16">
           <div className="flex items-center gap-2 mb-8">
             <Star className="h-5 w-5 text-neutral-900 fill-neutral-900" />
             <h2 className="text-xl text-neutral-900">Featured Projects</h2>
@@ -75,7 +75,7 @@ export function Work() {
 
       {/* Other Case Studies */}
       {otherCaseStudies.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16 border-t border-neutral-200">
+        <section className="px-6 lg:px-8 py-16 border-t border-neutral-200">
           <h2 className="text-xl text-neutral-900 mb-8">More Projects</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -122,7 +122,7 @@ export function Work() {
       )}
 
       {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-24 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-24 border-t border-neutral-200">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl text-neutral-900 mb-4">Like what you see?</h2>
           <p className="text-lg text-neutral-600 mb-8">

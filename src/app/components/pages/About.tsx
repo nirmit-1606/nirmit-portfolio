@@ -1,7 +1,7 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import profileImage from "../../assets/309c85a80f16a6cd6d515d22d7d66bdcb6a4b28d.png";
+import profileImage from "../../../assets/309c85a80f16a6cd6d515d22d7d66bdcb6a4b28d.png";
 
 const processSteps = [
   {
@@ -47,7 +47,7 @@ export function About() {
           add a colored arrow along with the title 
           highlight keywords with some colors (dont oevrdo tho)
       */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-20">
+      <section className="px-6 lg:px-8 pt-24 pb-20">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           {/* Text Content */}
           <div className="max-w-3xl">
@@ -96,7 +96,7 @@ export function About() {
       </section>
 
       {/* How I Work */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-20 border-t border-neutral-200">
         <h2 className="text-2xl sm:text-3xl text-neutral-900 mb-12">
           How I work
         </h2>
@@ -119,7 +119,7 @@ export function About() {
       </section>
 
       {/* What I Value */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-20 border-t border-neutral-200">
         <h2 className="text-2xl sm:text-3xl text-neutral-900 mb-12">
           What I value
         </h2>
@@ -142,7 +142,7 @@ export function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-20 border-t border-neutral-200">
         <div className="max-w-2xl">
           <h2 className="text-3xl text-neutral-900 mb-4">
             Let's create something together
