@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import { Separator } from "./ui/separator";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="z-50 border-b border-neutral-200 bg-background">
+    <nav className="z-50 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 h-[5rem] content-center">
         <div className="flex items-center justify-between">
           <Link
@@ -78,6 +79,7 @@ export function Navigation() {
           </div>
         )}
       </div>
+      <Separator />
     </nav>
   );
 }

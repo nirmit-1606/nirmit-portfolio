@@ -1,6 +1,9 @@
+import { Separator } from "./ui/separator";
+
 export function Footer() {
   return (
-    <footer className={`border-t border-neutral-200`}>
+    <footer>
+      <Separator />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 lg:py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-neutral-600">

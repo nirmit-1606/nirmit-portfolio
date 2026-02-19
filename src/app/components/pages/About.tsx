@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import profileImage from "../../../assets/309c85a80f16a6cd6d515d22d7d66bdcb6a4b28d.png";
+import { Separator } from "../ui/separator";
 
 const processSteps = [
   {
@@ -51,11 +52,11 @@ export function About() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           {/* Text Content */}
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl text-neutral-900 mb-8">
+            <h1 className="text-3xl sm:text-4xl text-foreground mb-8">
               A bit about me
             </h1>
 
-            <div className="space-y-6 text-lg text-neutral-600 leading-relaxed">
+            <div className="space-y-6 text-lg text-foreground-secondary leading-relaxed">
               <p>
                 I'm a web designer who believes the best digital experiences are
                 the ones that feel effortless. My work focuses on clarity,
@@ -88,16 +89,17 @@ export function About() {
                 className="w-full h-auto"
               />
               {/* Subtle blur fade at bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
       </section>
 
+      <Separator />
       {/* How I Work */}
-      <section className="px-6 lg:px-8 py-20 border-t border-neutral-200">
-        <h2 className="text-2xl sm:text-3xl text-neutral-900 mb-12">
+      <section className="px-6 lg:px-8 py-20">
+        <h2 className="text-2xl sm:text-3xl text-foreground mb-12">
           How I work
         </h2>
 
@@ -108,9 +110,7 @@ export function About() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div>
-                <h3 className="text-lg text-neutral-900 mb-0.5">
-                  {step.title}
-                </h3>
+                <h3 className="text-lg text-foreground mb-0.5">{step.title}</h3>
                 <p className="text-neutral-500">{step.description}</p>
               </div>
             </div>
@@ -118,18 +118,19 @@ export function About() {
         </div>
       </section>
 
+      <Separator />
       {/* What I Value */}
-      <section className="px-6 lg:px-8 py-20 border-t border-neutral-200">
-        <h2 className="text-2xl sm:text-3xl text-neutral-900 mb-12">
+      <section className="px-6 lg:px-8 py-20">
+        <h2 className="text-2xl sm:text-3xl text-foreground mb-12">
           What I value
         </h2>
 
         <div className="space-y-8">
           {values.map((value) => (
             <div key={value.title} className="flex items-start gap-4">
-              <CheckCircle2 className="h-6 w-6 text-neutral-900 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-6 w-6 text-foreground flex-shrink-0 mt-0.5" />
               <div>
-                <h3 className="text-lg text-neutral-900 mb-0.5">
+                <h3 className="text-lg text-foreground mb-0.5">
                   {value.title}
                 </h3>
                 <p className="text-neutral-500 leading-relaxed">
@@ -141,13 +142,14 @@ export function About() {
         </div>
       </section>
 
+      <Separator />
       {/* CTA Section */}
-      <section className="px-6 lg:px-8 py-20 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-20">
         <div className="max-w-2xl">
-          <h2 className="text-3xl text-neutral-900 mb-4">
+          <h2 className="text-3xl text-foreground mb-4">
             Let's create something together
           </h2>
-          <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
+          <p className="text-lg text-foreground-secondary mb-8 leading-relaxed">
             I'm always interested in working with thoughtful teams and clients
             who value good design. Take a look at my work or reach out to start
             a conversation.

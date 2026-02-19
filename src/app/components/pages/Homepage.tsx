@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { getFeaturedCaseStudies } from "../../data/caseStudies";
+import { Separator } from "../ui/separator";
 
 const services = [
   "Web Design & UX",
@@ -36,7 +37,7 @@ export function Homepage() {
       {/* Hero Section */}
       <section className="px-6 lg:px-8 pt-24 pb-32">
         <div className="max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl text-neutral-900 mb-6 font-bold tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl text-foreground mb-6 font-bold tracking-tight">
             I design{" "}
             <span className="funky font-effect-shadow-multiple">clean</span>,{" "}
             <span className="funky font-effect-shadow-multiple">
@@ -44,7 +45,7 @@ export function Homepage() {
             </span>{" "}
             websites that look good and work well
           </h1>
-          <p className="text-lg sm:text-xl text-neutral-600 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-foreground-secondary mb-8 leading-relaxed">
             A freelance designer creating thoughtful digital experiences through
             strong UX, visual clarity, and modern aesthetics.
           </p>
@@ -66,14 +67,12 @@ export function Homepage() {
         </div>
       </section>
 
+      <Separator />
       {/* Featured Work */}
-      <section
-        id="work"
-        className="px-6 lg:px-8 py-24 border-t border-neutral-200"
-      >
+      <section id="work" className="px-6 lg:px-8 py-24">
         <div className="mb-16">
-          <h2 className="text-3xl text-neutral-900 mb-3">Featured work</h2>
-          <p className="text-lg text-neutral-600">
+          <h2 className="text-3xl text-foreground mb-3">Featured work</h2>
+          <p className="text-lg text-foreground-secondary">
             Recent projects across various industries
           </p>
         </div>
@@ -92,10 +91,10 @@ export function Homepage() {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <h3 className="text-xl md:text-2xl text-neutral-900 mb-1.5 md:mb-2 group-hover:text-neutral-600 transition-colors">
+              <h3 className="text-xl md:text-2xl text-foreground mb-1.5 md:mb-2 group-hover:text-foreground-secondary transition-colors">
                 {study.title}
               </h3>
-              <p className="text-sm md:text-base text-neutral-600">
+              <p className="text-sm md:text-base text-foreground-secondary">
                 {study.subtitle}
               </p>
             </Link>
@@ -103,15 +102,13 @@ export function Homepage() {
         </div>
       </section>
 
+      <Separator />
       {/* What I Do */}
-      <section
-        id="about"
-        className="px-6 lg:px-8 py-24 border-t border-neutral-200"
-      >
+      <section id="about" className="px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl text-neutral-900 mb-6">What I do</h2>
-            <p className="text-lg text-neutral-600 leading-relaxed mb-8">
+            <h2 className="text-3xl text-foreground mb-6">What I do</h2>
+            <p className="text-lg text-foreground-secondary leading-relaxed mb-8">
               I work with businesses of all sizes to create digital experiences
               that are both beautiful and functional. My approach focuses on
               understanding user needs, crafting clear visual systems, and
@@ -120,15 +117,15 @@ export function Homepage() {
             <div className="space-y-3">
               {services.map((service) => (
                 <div key={service} className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-neutral-900 flex-shrink-0" />
-                  <span className="text-neutral-900">{service}</span>
+                  <CheckCircle2 className="h-5 w-5 text-foreground flex-shrink-0" />
+                  <span className="text-foreground">{service}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="text-2xl text-neutral-900 mb-6">My process</h3>
+            <h3 className="text-2xl text-foreground mb-6">My process</h3>
             <div className="space-y-6">
               {processSteps.map((step, index) => (
                 <div key={step.title}>
@@ -137,10 +134,12 @@ export function Homepage() {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <h4 className="text-lg text-neutral-900 mb-1">
+                      <h4 className="text-lg text-foreground mb-1">
                         {step.title}
                       </h4>
-                      <p className="text-neutral-600">{step.description}</p>
+                      <p className="text-foreground-secondary">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -150,34 +149,31 @@ export function Homepage() {
         </div>
       </section>
 
+      <Separator />
       {/* Credibility Section */}
-      <section className="px-6 lg:px-8 py-24 border-t border-neutral-200">
+      <section className="px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div>
-            <div className="text-4xl text-neutral-900 mb-2">8+</div>
-            <div className="text-neutral-600">Years experience</div>
+            <div className="text-4xl text-foreground mb-2">8+</div>
+            <div className="text-foreground-secondary">Years experience</div>
           </div>
           <div>
-            <div className="text-4xl text-neutral-900 mb-2">50+</div>
-            <div className="text-neutral-600">Projects delivered</div>
+            <div className="text-4xl text-foreground mb-2">50+</div>
+            <div className="text-foreground-secondary">Projects delivered</div>
           </div>
           <div>
-            <div className="text-4xl text-neutral-900 mb-2">100%</div>
-            <div className="text-neutral-600">Client satisfaction</div>
+            <div className="text-4xl text-foreground mb-2">100%</div>
+            <div className="text-foreground-secondary">Client satisfaction</div>
           </div>
         </div>
       </section>
 
+      <Separator />
       {/* Final CTA */}
-      <section
-        id="contact"
-        className="px-6 lg:px-8 py-24 border-t border-neutral-200"
-      >
+      <section id="contact" className="px-6 lg:px-8 py-24">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl text-neutral-900 mb-4">
-            Let's work together
-          </h2>
-          <p className="text-lg text-neutral-600 mb-8">
+          <h2 className="text-4xl text-foreground mb-4">Let's work together</h2>
+          <p className="text-lg text-foreground-secondary mb-8">
             I'm currently available for new projects. Whether you need a new
             website, a redesign, or help refining your digital experience, let's
             talk.

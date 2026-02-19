@@ -1,15 +1,15 @@
 /* Hero font - distinctive and expressive */
 @import url("https://fonts.googleapis.com/css?family=Playwrite+NZ+Basic&effect=shadow-multiple&display=swap");
 
-/* Fallback to system fonts if Cabinet Grotesk doesn't load */
+/* Fallback to system fonts if Playwrite NZ doesn't load */
+/* TODO: Add animation on hover [RESOURCES.md] */
 .funky {
-  font-family:
-    "Playwrite NZ Basic",
-    cursive,
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: var(--font-funky);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+.dark .funky {
+  text-shadow: none;
 }
