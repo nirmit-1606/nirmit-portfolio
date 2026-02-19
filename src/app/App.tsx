@@ -4,7 +4,7 @@ import { CaseStudy } from "./components/pages/CaseStudy";
 import { About } from "./components/pages/About";
 import { Work } from "./components/pages/Work";
 import { Contact } from "./components/pages/Contact";
-import { Layout } from "./components/Layout";
+import { Layout } from "./Layout";
 
 export default function App() {
   return (

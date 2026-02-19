@@ -1,8 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./components/Navigation";
 import { Outlet, useLocation, useParams } from "react-router-dom";
-import { CaseStudySidebar } from "./CaseStudySidebar";
-import { Footer } from "./Footer";
+import { CaseStudySidebar } from "./components/CaseStudySidebar";
+import { Footer } from "./components/Footer";
 
 // Utility function for debouncing
 function debounce(func: (...args: any[]) => void, delay: number) {
