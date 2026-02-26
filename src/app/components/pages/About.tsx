@@ -106,12 +106,12 @@ export function About() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
           {processSteps.map((step, index) => (
             <div key={step.title} className="flex items-start gap-4">
-              <span className="text-neutral-400 text-sm mt-1 flex-shrink-0">
+              <span className="text-foreground-secondary text-sm mt-1 flex-shrink-0">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div>
                 <h3 className="text-lg text-foreground mb-0.5">{step.title}</h3>
-                <p className="text-neutral-500">{step.description}</p>
+                <p className="text-foreground-secondary">{step.description}</p>
               </div>
             </div>
           ))}
@@ -121,11 +121,11 @@ export function About() {
       <Separator />
       {/* What I Value */}
       <section className="px-6 lg:px-8 py-20">
-        <h2 className="text-2xl sm:text-3xl text-foreground mb-12">
+        <h2 className="text-2xl sm:text-3xl text-foreground mb-12 text-center">
           What I value
         </h2>
 
-        <div className="space-y-8">
+        <div className="space-y-8 flex">
           {values.map((value) => (
             <div key={value.title} className="flex items-start gap-4">
               <CheckCircle2 className="h-6 w-6 text-foreground flex-shrink-0 mt-0.5" />
@@ -133,7 +133,7 @@ export function About() {
                 <h3 className="text-lg text-foreground mb-0.5">
                   {value.title}
                 </h3>
-                <p className="text-neutral-500 leading-relaxed">
+                <p className="text-foreground-secondary leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -144,8 +144,7 @@ export function About() {
 
       <Separator />
       {/* CTA Section */}
-      <section className="px-6 lg:px-8 py-20">
-        <div className="max-w-2xl">
+      <section className="px-6 lg:px-8 py-20 max-w-3xl ml-auto text-right">
           <h2 className="text-3xl text-foreground mb-4">
             Let's create something together
           </h2>
@@ -154,7 +153,7 @@ export function About() {
             who value good design. Take a look at my work or reach out to start
             a conversation.
           </p>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-end gap-4">
             <Button size="lg" asChild className="w-full sm:w-auto">
               <Link to="/work">
                 View work <ArrowRight className="ml-2 h-4 w-4" />
@@ -169,7 +168,6 @@ export function About() {
               <Link to="/contact?ref=about">Get in touch</Link>
             </Button>
           </div>
-        </div>
       </section>
     </>
   );
