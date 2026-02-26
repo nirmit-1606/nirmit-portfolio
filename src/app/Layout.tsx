@@ -46,7 +46,7 @@ export function Layout() {
       >
         {isCaseStudyPage && id && (
           <div
-            className={`hidden lg:block ${isFlexLayout ? "" : "fixed"} top-[5.1rem] left-0 w-64 h-[calc(100vh-5.1rem)] overflow-y-auto border-r border-neutral-200 bg-background p-6 z-40`}
+            className={`hidden lg:block ${isFlexLayout ? "" : "fixed"} top-[5.1rem] left-0 w-64 h-[calc(100vh-5.1rem)] overflow-y-auto border-r border-border p-6 z-40`}
           >
             <CaseStudySidebar currentId={id} />
           </div>

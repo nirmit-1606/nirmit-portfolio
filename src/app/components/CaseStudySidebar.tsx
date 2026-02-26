@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Star } from "lucide-react";
+import { ArrowLeft, FileStack } from "lucide-react";
 import { getAllCaseStudies } from "../data/caseStudies";
+import { Separator } from "./ui/separator";
 
 interface CaseStudySidebarProps {
   currentId: string;
@@ -8,71 +9,43 @@ interface CaseStudySidebarProps {
 
 export function CaseStudySidebar({ currentId }: CaseStudySidebarProps) {
   const allCaseStudies = getAllCaseStudies();
-  const featuredCaseStudies = allCaseStudies.filter((cs) => cs.featured);
-  const otherCaseStudies = allCaseStudies.filter((cs) => !cs.featured);
 
   return (
     <div className="space-y-6">
-      {/* Featured Projects */}
-      {featuredCaseStudies.length > 0 && (
-        <div>
-          <div className="flex items-center gap-1.5 mb-3">
-            <Star className="h-3.5 w-3.5 text-neutral-900 fill-neutral-900" />
-            <h3 className="text-xs uppercase tracking-wide text-neutral-500">
-              Featured
+          <div className="flex items-center gap-1.5">
+            <FileStack className="h-6 w-6 text-foreground" />
+            <h3 className="text-sm uppercase tracking-wide text-foreground-secondary">
+              Case Studies
             </h3>
           </div>
-          <nav className="space-y-1">
-            {featuredCaseStudies.map((caseStudy) => (
+
+      {allCaseStudies.length > 0 && (
+          <nav className="space-y-3">
+            {allCaseStudies.map((caseStudy) => (
               <Link
                 key={caseStudy.id}
                 to={`/case-study/${caseStudy.id}`}
-                className={`block px-3 py-2 rounded-md text-sm transition-colors ${
+                className={`block px-3 py-2 rounded-md text-md transition-all ${
                   currentId === caseStudy.id
-                    ? "bg-neutral-900 text-white"
-                    : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
+                    ? "bg-accent text-foreground pl-5"
+                    : "text-foreground-secondary-2 hover:text-foreground-secondary hover:pl-4"
                 }`}
               >
+                <span className="mr-1 text-sidebar-accent">/</span>
                 {caseStudy.title}
               </Link>
             ))}
           </nav>
-        </div>
       )}
 
-      {/* Other Projects */}
-      {otherCaseStudies.length > 0 && (
-        <div>
-          <h3 className="text-xs uppercase tracking-wide text-neutral-500 mb-3">
-            More Projects
-          </h3>
-          <nav className="space-y-1">
-            {otherCaseStudies.map((caseStudy) => (
-              <Link
-                key={caseStudy.id}
-                to={`/case-study/${caseStudy.id}`}
-                className={`block px-3 py-2 rounded-md text-sm transition-colors ${
-                  currentId === caseStudy.id
-                    ? "bg-neutral-900 text-white"
-                    : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
-                }`}
-              >
-                {caseStudy.title}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
-
+      <Separator />
       {/* Back to All Work */}
-      <div className="pt-4 border-t border-neutral-200">
         <Link
           to="/work"
-          className="block px-3 py-2 rounded-md text-sm text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition-colors"
+          className="block px-3 py-2 text-sm text-foreground-secondary-2 hover:text-foreground-secondary transition-colors flex items-center gap-1.5"
         >
-          ← All work
+          <ArrowLeft className="h-4 w-4" /> All work
         </Link>
-      </div>
     </div>
   );
 }
