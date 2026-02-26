@@ -54,10 +54,9 @@ export function Layout() {
         <main className={`max-w-7xl mx-auto ${isCaseStudyPage && isFlexLayout ? "overflow-y-auto" : ""}`}>
           <Outlet />
         </main>
+        {/* Footer */}
+        <Footer />
       </div>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
