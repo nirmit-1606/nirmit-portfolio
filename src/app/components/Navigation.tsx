@@ -9,8 +9,8 @@ export function Navigation() {
 
   return (
     <nav className="z-50 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 h-[5rem] content-center">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto h-[5rem]">
+        <div className="px-6 lg:px-8 py-6 flex items-center justify-between">
           <Link
             to="/"
             className="text-xl text-foreground"
@@ -54,7 +54,8 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-6 pt-6 border-t border-neutral-200 space-y-4">
+          <>
+          <div className="md:hidden px-6 py-8 space-y-6 bg-background">
             <Link
               to="/work"
               className="block text-secondary-foreground hover:text-foreground transition-colors"
@@ -77,6 +78,8 @@ export function Navigation() {
               <Link to="/contact?ref=home">Work with me</Link>
             </Button>
           </div>
+          <Separator />
+          </>
         )}
       </div>
       <Separator />

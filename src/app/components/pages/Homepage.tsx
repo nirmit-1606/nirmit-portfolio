@@ -84,7 +84,7 @@ export function Homepage() {
               to={`/case-study/${study.id}`}
               className="group block"
             >
-              <div className="aspect-[4/3] bg-neutral-100 mb-3 md:mb-4 overflow-hidden rounded-sm">
+              <div className="aspect-[4/3] bg-secondary mb-3 md:mb-4 overflow-hidden rounded-sm">
                 <ImageWithFallback
                   src={study.images.hero}
                   alt={study.title}
@@ -130,7 +130,7 @@ export function Homepage() {
               {processSteps.map((step, index) => (
                 <div key={step.title}>
                   <div className="flex items-start gap-4">
-                    <span className="text-neutral-400 text-sm mt-1">
+                    <span className="text-foreground-secondary text-sm mt-1">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>

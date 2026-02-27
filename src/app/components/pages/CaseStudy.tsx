@@ -147,7 +147,7 @@ export function CaseStudy() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {caseStudy.outcome.metrics.map((metric, index) => (
-            <div key={index} className="border-l-2 border-neutral-900 pl-4">
+            <div key={index} className="border-l-2 border-secondary pl-4">
               <div className="text-4xl text-foreground mb-2">
                 {metric.value}
               </div>
