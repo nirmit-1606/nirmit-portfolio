@@ -1,8 +1,9 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, use, useEffect, useState } from "react";
 import { Navigation } from "./components/Navigation";
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import { CaseStudySidebar } from "./components/CaseStudySidebar";
 import { Footer } from "./components/Footer";
+import { useIsMobile } from "./components/ui/use-mobile";
 
 // Utility function for debouncing
 function debounce(func: (...args: any[]) => void, delay: number) {
@@ -44,18 +45,19 @@ export function Layout() {
       <div
         className={`flex-1 bg-background ${isCaseStudyPage && isFlexLayout ? "flex overflow-hidden" : "overflow-y-auto"}`}
       >
-        {isCaseStudyPage && id && (
+        {!useIsMobile() && isCaseStudyPage && id && (
           <div
-            className={`hidden lg:block ${isFlexLayout ? "" : "fixed"} top-[5.1rem] left-0 w-64 h-[calc(100vh-5.1rem)] overflow-y-auto border-r border-border p-6 z-40`}
+            className={`bg-background ${isFlexLayout ? "" : "fixed"} top-[5.1rem] left-0 w-64 h-[calc(100vh-5.1rem)] overflow-y-auto border-r border-border p-6 z-40`}
           >
             <CaseStudySidebar currentId={id} />
           </div>
         )}
         <main className={`max-w-7xl mx-auto ${isCaseStudyPage && isFlexLayout ? "overflow-y-auto" : ""}`}>
           <Outlet />
+          {isFlexLayout && <Footer />}
         </main>
         {/* Footer */}
-        <Footer />
+        {!isFlexLayout && <Footer />}
       </div>
     </div>
   );
