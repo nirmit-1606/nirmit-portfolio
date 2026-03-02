@@ -71,9 +71,9 @@ export function Homepage() {
       {/* Featured Work */}
       <section id="work" className="px-6 lg:px-8 py-24">
         <div className="mb-16">
-          <h2 className="text-3xl text-foreground mb-3">Featured work</h2>
+          <h2 className="text-3xl text-foreground mb-3">My work</h2>
           <p className="text-lg text-foreground-secondary">
-            Recent projects across various industries
+            Recent projects across various industries, showcasing a focus on clean design, strong UX, and practical outcomes.
           </p>
         </div>
 
@@ -91,10 +91,10 @@ export function Homepage() {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <h3 className="text-xl md:text-2xl text-foreground mb-1.5 md:mb-2 group-hover:text-foreground-secondary transition-colors">
+              <h3 className="text-xl md:text-2xl text-foreground-secondary mb-1.5 md:mb-2 group-hover:text-foreground transition-colors">
                 {study.title}
               </h3>
-              <p className="text-sm md:text-base text-foreground-secondary">
+              <p className="text-sm md:text-base text-foreground-secondary-2 group-hover:text-foreground-secondary transition-colors">
                 {study.subtitle}
               </p>
             </Link>

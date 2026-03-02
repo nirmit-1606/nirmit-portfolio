@@ -1,7 +1,7 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import profileImage from "../../../assets/309c85a80f16a6cd6d515d22d7d66bdcb6a4b28d.png";
+import profileImage from "../../../assets/about_img.png";
 import { Separator } from "../ui/separator";
 
 const processSteps = [

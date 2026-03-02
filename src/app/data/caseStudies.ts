@@ -29,11 +29,12 @@ export interface CaseStudyData {
 export const caseStudiesData: Record<string, CaseStudyData> = {
   "1": {
     id: "1",
-    title: "Harvest & Hearth",
-    subtitle: "Farm-to-table restaurant rebrand with online ordering system",
-    role: "Lead Designer & Developer",
-    tools: ["Figma", "React", "Tailwind CSS", "Stripe"],
-    timeline: "8 weeks",
+    title: "Intuit Enterprise Suite",
+    subtitle:
+      "Enhancing the onboarding user experience for a complex financial software platform",
+    role: "Frontend Researcher & Developer",
+    tools: ["React", "Tailwind CSS", "GraphQL", "Jest"],
+    timeline: "10 weeks",
     featured: true,
     problem: {
       title: "The challenge",
@@ -72,10 +73,11 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   },
   "2": {
     id: "2",
-    title: "Momentum Labs",
-    subtitle: "B2B SaaS platform redesign focused on user onboarding",
-    role: "UX/UI Designer",
-    tools: ["Figma", "Adobe XD", "Miro", "UserTesting"],
+    title: "Deccan House",
+    subtitle:
+      "Rebranding and website redesign for a new Indian restaurant in the heart of the city",
+    role: "UX/UI Designer & Developer",
+    tools: ["Figma", "JavaScript", "Eleventy", "Netlify"],
     timeline: "12 weeks",
     featured: true,
     problem: {
@@ -115,11 +117,12 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   },
   "3": {
     id: "3",
-    title: "Roast & Co.",
-    subtitle: "Specialty coffee roaster e-commerce and brand identity",
-    role: "Brand & Web Designer",
-    tools: ["Figma", "Shopify", "Illustrator", "Photoshop"],
-    timeline: "10 weeks",
+    title: "Trademind",
+    subtitle:
+      "Enhancing the user experience of a startup trading platform for investors and financial advisors",
+    role: "UI/UX Designer & Frontend Developer",
+    tools: ["Figma", "React", "Tailwind CSS", "GraphQL"],
+    timeline: "24 weeks",
     featured: true,
     problem: {
       title: "The challenge",
@@ -158,8 +161,9 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
   },
   "4": {
     id: "4",
-    title: "Stellar Analytics",
-    subtitle: "Data visualization dashboard for early-stage fintech startup",
+    title: "Pantry Smart",
+    subtitle:
+      "Design and development of a resource management dashboard for an efficient food usage and waste reduction startup",
     role: "Product Designer",
     tools: ["Figma", "React", "D3.js", "Recharts"],
     timeline: "14 weeks",
@@ -196,6 +200,56 @@ export const caseStudiesData: Record<string, CaseStudyData> = {
         "https://images.unsplash.com/photo-1659673494761-980fdb5fe683?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzcwMTg4MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         "https://images.unsplash.com/photo-1730993872148-83acdfb597e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwbW9ja3VwJTIwbGFwdG9wfGVufDF8fHx8MTc3MDE4NTExN3ww&ixlib=rb-4.1.0&q=80&w=1080",
         "https://images.unsplash.com/photo-1649442746245-f51f4b76963f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwd2Vic2l0ZSUyMG1vY2t1cHxlbnwxfHx8fDE3NzAxODgwNDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      ],
+    },
+  },
+  "5": {
+    id: "5",
+    title: "Tutor Reserve",
+    subtitle:
+      "Design of a scheduling platform for a tutoring service that connects students with qualified tutors in their area",
+    role: "UX Designer",
+    tools: ["Figma", "UserTesting"],
+    timeline: "4 weeks",
+    featured: false,
+    problem: {
+      title: "The challenge",
+      content: "Learn UX designing and Figma product design tool in 4 weeks",
+    },
+    approach: {
+      title: "The approach",
+      content: "Learn UX designing and Figma product design tool in 4 weeks",
+      highlights: [
+        "Learn UX designing and Figma product design tool in 4 weeks",
+        "Learn UX designing and Figma product design tool in 4 weeks",
+        "Learn UX designing and Figma product design tool in 4 weeks",
+        "Learn UX designing and Figma product design tool in 4 weeks",
+      ],
+    },
+    outcome: {
+      title: "The outcome",
+      content: "Learn UX designing and Figma product design tool in 4 weeks",
+      metrics: [
+        {
+          label: "Learn UX designing and Figma product design tool in 4 weeks",
+          value: "Learn UX designing and Figma product design tool in 4 weeks",
+        },
+        {
+          label: "Learn UX designing and Figma product design tool in 4 weeks",
+          value: "Learn UX designing and Figma product design tool in 4 weeks",
+        },
+        {
+          label: "Learn UX designing and Figma product design tool in 4 weeks",
+          value: "Learn UX designing and Figma product design tool in 4 weeks",
+        },
+      ],
+    },
+    images: {
+      hero: "https://images.unsplash.com/photo-1730993872148-83acdfb597e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwbW9ja3VwJTIwbGFwdG9wfGVufDF8fHx8MTc3MDE4NTExN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      screenshots: [
+        "https://images.unsplash.com/photo-1682778418768-16081e4470a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwd2Vic2l0ZSUyMGRlc2lnbnxlbnwxfHx8fDE3NzAxODgwNDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1659673494761-980fdb5fe683?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzcwMTg4MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1730993872148-83acdfb597e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwbW9ja3VwJTIwbGFwdG9wfGVufDF8fHx8MTc3MDE4NTExN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       ],
     },
   },

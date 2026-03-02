@@ -16,64 +16,55 @@ export function Work() {
     <>
       {/* Page Header */}
       <section className="px-6 lg:px-8 pt-24 pb-12">
-        <h1 className="text-3xl sm:text-4xl text-foreground mb-4">
-          Selected work
-        </h1>
+        <h1 className="text-3xl sm:text-4xl text-foreground mb-4">My work</h1>
         <p className="text-lg text-foreground-secondary max-w-2xl">
           A collection of projects focused on clean design, strong UX, and
-          practical outcomes for businesses of all sizes.
+          practical outcomes for various clients.
         </p>
       </section>
 
       {/* Featured Case Studies */}
       {featuredCaseStudies.length > 0 && (
-        <section className="px-6 lg:px-8 pb-16">
-          <div className="flex items-center gap-2 mb-8">
-            <Star className="h-5 w-5 text-foreground fill-foreground" />
-            <h2 className="text-xl text-foreground">Featured Projects</h2>
-          </div>
+        <section className="px-6 lg:px-8 pb-16 grid grid-cols-1 gap-12">
+          {featuredCaseStudies.map((caseStudy, i) => (
+            <Link
+              key={caseStudy.id}
+              to={`/case-study/${caseStudy.id}`}
+              className="group"
+            >
+              <article className={`border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors flex flex-col lg:flex-row ${i % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+                {/* Image */}
+                <div className="relative aspect-[16/9] bg-secondary overflow-hidden">
+                  <ImageWithFallback
+                    src={caseStudy.images.hero}
+                    alt={caseStudy.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </div>
 
-          <div className="grid grid-cols-1 gap-12">
-            {featuredCaseStudies.map((caseStudy) => (
-              <Link
-                key={caseStudy.id}
-                to={`/case-study/${caseStudy.id}`}
-                className="group"
-              >
-                <article className="border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors">
-                  {/* Image */}
-                  <div className="relative aspect-[16/9] bg-secondary overflow-hidden">
-                    <ImageWithFallback
-                      src={caseStudy.images.hero}
-                      alt={caseStudy.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                    />
+                {/* Content */}
+                <div className="p-8 lg:flex lg:flex-col lg:justify-between">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="text-2xl text-foreground-secondary mb-2 group-hover:text-foreground transition-colors">
+                        {caseStudy.title}
+                      </h3>
+                      <p className="text-foreground-secondary-2 group-hover:text-foreground-secondary">
+                        {caseStudy.subtitle}
+                      </p>
+                    </div>
+                    <ArrowRight className="h-6 w-6 text-foreground-secondary-2 group-hover:text-foreground-secondary group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
                   </div>
 
-                  {/* Content */}
-                  <div className="p-8">
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <div>
-                        <h3 className="text-2xl text-foreground-secondary mb-2 group-hover:text-foreground transition-colors">
-                          {caseStudy.title}
-                        </h3>
-                        <p className="text-foreground-secondary-2 group-hover:text-foreground-secondary">
-                          {caseStudy.subtitle}
-                        </p>
-                      </div>
-                      <ArrowRight className="h-6 w-6 text-foreground-secondary-2 group-hover:text-foreground-secondary group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-foreground-secondary-2">
-                      <span>{caseStudy.role}</span>
-                      <span className="w-1 h-1 rounded-full bg-foreground-secondary" />
-                      <span>{caseStudy.timeline}</span>
-                    </div>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-foreground-secondary-2">
+                    <span>{caseStudy.role}</span>
+                    <span className="w-1 h-1 rounded-full bg-foreground-secondary" />
+                    <span>{caseStudy.timeline}</span>
                   </div>
-                </article>
-              </Link>
-            ))}
-          </div>
+                </div>
+              </article>
+            </Link>
+          ))}
         </section>
       )}
 
