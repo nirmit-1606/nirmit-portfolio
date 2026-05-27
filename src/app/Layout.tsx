@@ -1,64 +1,42 @@
-import { ReactNode, use, useEffect, useState } from "react";
 import { Navigation } from "./components/Navigation";
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import { CaseStudySidebar } from "./components/CaseStudySidebar";
 import { Footer } from "./components/Footer";
 import { useIsMobile } from "./components/ui/use-mobile";
 
-// Utility function for debouncing
-function debounce(func: (...args: any[]) => void, delay: number) {
-  let timeout: NodeJS.Timeout;
-  return (...args: any[]) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), delay);
-  };
-}
-
 export function Layout() {
   const location = useLocation();
   const { id } = useParams();
+  const isMobile = useIsMobile();
   const isCaseStudyPage = location.pathname.startsWith("/case-study/");
-
-  const [isFlexLayout, setIsFlexLayout] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const container = document.getElementsByTagName("main")[0];
-      if (container) {
-        const marginLeft = (window.innerWidth - container.clientWidth) / 2;
-        setIsFlexLayout(marginLeft < 256); // 256px corresponds to w-64
-      }
-    };
-
-    const debouncedResize = debounce(handleResize, 200);
-
-    handleResize(); // Initial check
-    window.addEventListener("resize", debouncedResize);
-    return () => window.removeEventListener("resize", debouncedResize);
-  }, [isCaseStudyPage]);
+  const showSidebar = isCaseStudyPage && !isMobile && !!id;
 
   return (
     <div className="h-screen flex flex-col">
       <Navigation />
 
-      {/* Main Content with conditional layout for sidebar */}
-      <div
-        className={`flex-1 bg-background ${isCaseStudyPage && isFlexLayout ? "flex overflow-hidden" : "overflow-y-auto"}`}
-      >
-        {!useIsMobile() && isCaseStudyPage && id && (
-          <div
-            className={`bg-background ${isFlexLayout ? "" : "fixed"} top-[5.1rem] left-0 w-64 h-[calc(100vh-5.1rem)] overflow-y-auto border-r border-border p-6 z-40`}
-          >
+      {showSidebar ? (
+        /* Case study desktop: sidebar + scrollable content */
+        <div className="flex-1 flex overflow-hidden bg-background">
+          <aside className="w-60 flex-shrink-0 border-r border-border overflow-y-auto bg-background p-6 sticky top-0">
             <CaseStudySidebar currentId={id} />
+          </aside>
+          <div className="flex-1 overflow-y-auto">
+            <main className="max-w-4xl mx-auto">
+              <Outlet />
+            </main>
+            <Footer />
           </div>
-        )}
-        <main className={`max-w-7xl mx-auto ${isCaseStudyPage && isFlexLayout ? "overflow-y-auto" : ""}`}>
-          <Outlet />
-          {isFlexLayout && <Footer />}
-        </main>
-        {/* Footer */}
-        {!isFlexLayout && <Footer />}
-      </div>
+        </div>
+      ) : (
+        /* All other pages (and mobile case study) */
+        <div className="flex-1 overflow-y-auto bg-background">
+          <main className="max-w-7xl mx-auto">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }

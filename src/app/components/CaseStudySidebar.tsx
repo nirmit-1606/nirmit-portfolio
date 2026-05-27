@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, FileStack } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { getAllCaseStudies } from "../data/caseStudies";
 import { Separator } from "./ui/separator";
 
@@ -12,40 +12,55 @@ export function CaseStudySidebar({ currentId }: CaseStudySidebarProps) {
 
   return (
     <div className="space-y-6">
-          <div className="flex items-center gap-1.5">
-            <FileStack className="h-6 w-6 text-foreground" />
-            <h3 className="text-sm uppercase tracking-wide text-foreground-secondary">
-              Case Studies
-            </h3>
-          </div>
-
-      {allCaseStudies.length > 0 && (
-          <nav className="space-y-3">
-            {allCaseStudies.map((caseStudy) => (
-              <Link
-                key={caseStudy.id}
-                to={`/case-study/${caseStudy.id}`}
-                className={`block px-3 py-2 rounded-md text-md transition-all ${
-                  currentId === caseStudy.id
-                    ? "bg-accent text-foreground pl-5"
-                    : "text-foreground-secondary-2 hover:text-foreground-secondary hover:pl-4"
-                }`}
-              >
-                <span className="mr-1 text-sidebar-accent">/</span>
-                {caseStudy.title}
-              </Link>
-            ))}
-          </nav>
-      )}
+      {/* Back link */}
+      <Link
+        to="/work"
+        className="inline-flex items-center gap-2 text-sm text-foreground-secondary-2 hover:text-foreground transition-colors duration-200"
+      >
+        <ArrowLeft className="h-3.5 w-3.5" />
+        All work
+      </Link>
 
       <Separator />
-      {/* Back to All Work */}
-        <Link
-          to="/work"
-          className="block px-3 py-2 text-sm text-foreground-secondary-2 hover:text-foreground-secondary transition-colors flex items-center gap-1.5"
-        >
-          <ArrowLeft className="h-4 w-4" /> All work
-        </Link>
+
+      {/* Label */}
+      <p className="text-xs tracking-widest uppercase text-foreground-secondary-2">
+        Case studies
+      </p>
+
+      {/* Nav links */}
+      <nav className="space-y-0.5">
+        {allCaseStudies.map((study) => {
+          const isActive = currentId === study.id;
+          return (
+            <Link
+              key={study.id}
+              to={`/case-study/${study.id}`}
+              className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm transition-all duration-200 group ${
+                isActive
+                  ? "bg-[var(--accent-color-muted)]"
+                  : "hover:bg-[var(--accent-color-muted)] hover:pl-4"
+              }`}
+            >
+              <span
+                className="font-medium flex-shrink-0 transition-colors duration-200"
+                style={{ color: "var(--accent-color)" }}
+              >
+                /
+              </span>
+              <span
+                className={`leading-snug transition-colors duration-200 ${
+                  isActive
+                    ? "text-foreground font-medium"
+                    : "text-foreground-secondary group-hover:text-foreground"
+                }`}
+              >
+                {study.title}
+              </span>
+            </Link>
+          );
+        })}
+      </nav>
     </div>
   );
 }
