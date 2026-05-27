@@ -4,7 +4,7 @@ import {
   getFeaturedCaseStudies,
   getNonFeaturedCaseStudies,
 } from "../../data/caseStudies";
-import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { ImageWithFallback } from "../ImageWithFallback";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
 

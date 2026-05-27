@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "../ui/button";
-import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { ImageWithFallback } from "../ImageWithFallback";
 import { getCaseStudyById, getAllCaseStudies } from "../../data/caseStudies";
 import { useIsMobile } from "../ui/use-mobile";
 import { Separator } from "../ui/separator";

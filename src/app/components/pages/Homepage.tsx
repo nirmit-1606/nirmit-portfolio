@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "../ui/button";
-import { ImageWithFallback } from "../figma/ImageWithFallback";
+import { ImageWithFallback } from "../ImageWithFallback";
 import { getFeaturedCaseStudies } from "../../data/caseStudies";
 import { Separator } from "../ui/separator";
 
@@ -35,7 +35,7 @@ export function Homepage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="px-6 lg:px-8 pt-24 pb-32">
+      <section className="px-6 lg:px-8 py-12 min-h-[70vh] flex items-center">
         <div className="max-w-3xl">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl text-foreground mb-6 font-bold tracking-tight">
             I design{" "}
@@ -51,9 +51,9 @@ export function Homepage() {
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Button size="lg" asChild className="w-full sm:w-auto">
-              <a href="#work">
+              <Link to="/work">
                 View work <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
             <Button
               size="lg"
@@ -61,7 +61,7 @@ export function Homepage() {
               asChild
               className="w-full sm:w-auto"
             >
-              <a href="#contact">Get in touch</a>
+              <Link to="/contact?ref=home">Get in touch</Link>
             </Button>
           </div>
         </div>
@@ -99,6 +99,14 @@ export function Homepage() {
               </p>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-12">
+          <Button variant="outline" asChild>
+            <Link to="/work">
+              View all work <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </section>
 
