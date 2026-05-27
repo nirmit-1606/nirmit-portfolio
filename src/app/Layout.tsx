@@ -22,7 +22,7 @@ export function Layout() {
             <CaseStudySidebar currentId={id} />
           </aside>
           <div className="flex-1 overflow-y-auto">
-            <main className="max-w-4xl mx-auto">
+            <main>
               <Outlet />
             </main>
             <Footer />
