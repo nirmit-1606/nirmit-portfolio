@@ -20,11 +20,7 @@ export function Work() {
     <>
       {/* ── Header ── */}
       <section className="px-6 lg:px-8 pt-20 pb-16">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div variants={fadeUp} initial="hidden" animate="visible">
           <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-3">
             Portfolio
           </p>
@@ -40,58 +36,55 @@ export function Work() {
 
       <Separator />
 
-      {/* ── All projects — numbered list ── */}
+      {/* ── All projects — alternating layout ── */}
       <section className="px-6 lg:px-8 py-8">
-        {allStudies.map((study, i) => (
-          <motion.div
-            key={study.id}
-            initial={{ opacity: 0, y: 36 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
-          >
-            <Link
-              to={`/case-study/${study.id}`}
-              className="group flex flex-col sm:flex-row items-start gap-6 py-10 -mx-4 px-4 rounded-xl transition-colors duration-300 hover:bg-[var(--accent-color-muted)]"
+        {allStudies.map((study, i) => {
+          const isEven = i % 2 === 1;
+          return (
+            <motion.div
+              key={study.id}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
             >
-              {/* Index number */}
-              <span className="text-sm font-mono flex-shrink-0 mt-1 w-8 transition-colors duration-300 text-foreground-secondary-2 group-hover:text-[var(--accent-color)]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              {/* Thumbnail */}
-              <div className="w-full sm:w-44 lg:w-56 flex-shrink-0 aspect-[4/3] overflow-hidden rounded-lg bg-secondary">
-                <ImageWithFallback
-                  src={study.images.hero}
-                  alt={study.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 min-w-0">
-                <h2 className="text-2xl lg:text-3xl font-semibold text-foreground mb-2 group-hover:translate-x-1 transition-transform duration-300">
-                  {study.title}
-                </h2>
-                <p className="text-foreground-secondary mb-5 leading-relaxed">
-                  {study.subtitle}
-                </p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-foreground-secondary-2">
-                  <span>{study.role}</span>
-                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent-color)" }} />
-                  <span>{study.timeline}</span>
-                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent-color)" }} />
-                  <span>{study.tools.slice(0, 3).join(", ")}</span>
+              <Link
+                to={`/case-study/${study.id}`}
+                className={`group flex flex-col sm:flex-row items-center gap-10 lg:gap-16 py-10 -mx-4 px-4 rounded-xl transition-colors duration-300 hover:bg-[var(--accent-color-muted)] ${
+                  isEven ? "sm:flex-row-reverse" : ""
+                }`}
+              >
+                {/* Thumbnail */}
+                <div className="w-full sm:w-[45%] flex-shrink-0 aspect-[16/10] overflow-hidden rounded-xl bg-secondary">
+                  <ImageWithFallback
+                    src={study.images.hero}
+                    alt={study.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
                 </div>
-              </div>
 
-              {/* Arrow */}
-              <ArrowRight className="hidden sm:block h-5 w-5 flex-shrink-0 mt-3 text-foreground-secondary-2 group-hover:translate-x-1 group-hover:text-foreground transition-all duration-300" />
-            </Link>
+                {/* Content */}
+                <div className={`flex-1 min-w-0 ${isEven ? "sm:text-right" : ""}`}>
+                  <h2 className="text-2xl lg:text-3xl font-semibold text-foreground mb-3 transition-transform duration-300 group-hover:translate-x-1">
+                    {study.title}
+                  </h2>
+                  <p className="text-foreground-secondary mb-6 leading-relaxed">
+                    {study.subtitle}
+                  </p>
+                  <div className={`flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-foreground-secondary-2 ${isEven ? "sm:justify-end" : ""}`}>
+                    <span>{study.role}</span>
+                    <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent-color)" }} />
+                    <span>{study.timeline}</span>
+                    <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent-color)" }} />
+                    <span>{study.tools.slice(0, 3).join(", ")}</span>
+                  </div>
+                </div>
+              </Link>
 
-            {i < allStudies.length - 1 && <Separator />}
-          </motion.div>
-        ))}
+              {i < allStudies.length - 1 && <Separator />}
+            </motion.div>
+          );
+        })}
       </section>
 
       <Separator />
