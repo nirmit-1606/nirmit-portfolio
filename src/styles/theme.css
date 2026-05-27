@@ -45,6 +45,8 @@
   --sidebar-ring: oklch(0.708 0 0);
   --selection-bg: #030213b3;
   --selection-color: #ffffff;
+  --accent-color: #7c3aed;
+  --accent-color-muted: rgba(124, 58, 237, 0.08);
 }
 
 .dark {
@@ -88,6 +90,58 @@
   --sidebar-ring: var(--ring);
   --selection-bg: oklch(0.85 0 0 / 70%);
   --selection-color: var(--background);
+  --accent-color: #f97316;
+  --accent-color-muted: rgba(249, 115, 22, 0.1);
+}
+
+.neon {
+  --background: #080812;
+  --foreground: #e8e8f8;
+  --foreground-secondary: #8888bb;
+  --foreground-secondary-2: #5555aa;
+  --card: #080812;
+  --card-foreground: #e8e8f8;
+  --popover: #080812;
+  --popover-foreground: #e8e8f8;
+  --secondary: #10101e;
+  --secondary-foreground: #e8e8f8;
+  --muted: #10101e;
+  --muted-foreground: #6666aa;
+  --border: rgba(100, 100, 220, 0.18);
+  --border-hover: rgba(0, 229, 255, 0.4);
+  --input: #10101e;
+  --input-background: #12121f;
+  --accent-color: #00e5ff;
+  --accent-color-muted: rgba(0, 229, 255, 0.08);
+  --ring: rgba(0, 229, 255, 0.4);
+  --selection-bg: rgba(0, 229, 255, 0.3);
+  --selection-color: #080812;
+}
+
+.warm {
+  --background: #fdf8f2;
+  --foreground: #1a0d05;
+  --foreground-secondary: #6b4c38;
+  --foreground-secondary-2: #9a7060;
+  --card: #fdf8f2;
+  --card-foreground: #1a0d05;
+  --popover: #fdf8f2;
+  --popover-foreground: #1a0d05;
+  --primary: #1a0d05;
+  --primary-foreground: #fdf8f2;
+  --secondary: #f0e8dc;
+  --secondary-foreground: #6b4c38;
+  --muted: #f0e8dc;
+  --muted-foreground: #9a7060;
+  --border: rgba(100, 50, 20, 0.15);
+  --border-hover: rgba(192, 92, 42, 0.35);
+  --input: #f0e8dc;
+  --input-background: #ece0d0;
+  --accent-color: #c05c2a;
+  --accent-color-muted: rgba(192, 92, 42, 0.1);
+  --ring: rgba(192, 92, 42, 0.4);
+  --selection-bg: rgba(192, 92, 42, 0.25);
+  --selection-color: #1a0d05;
 }
 
 @theme inline {
@@ -132,6 +186,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-accent-color: var(--accent-color);
+  --color-accent-muted: var(--accent-color-muted);
 }
 
 @layer base {
