@@ -1,139 +1,126 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Star } from "lucide-react";
-import {
-  getFeaturedCaseStudies,
-  getNonFeaturedCaseStudies,
-} from "../../data/caseStudies";
+import { ArrowRight } from "lucide-react";
+import { getAllCaseStudies } from "../../data/caseStudies";
 import { ImageWithFallback } from "../ImageWithFallback";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
+import { motion } from "motion/react";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const fadeUp = {
+  hidden:  { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+};
 
 export function Work() {
-  const featuredCaseStudies = getFeaturedCaseStudies();
-  const otherCaseStudies = getNonFeaturedCaseStudies();
+  const allStudies = getAllCaseStudies();
 
   return (
     <>
-      {/* Page Header */}
-      <section className="px-6 lg:px-8 pt-24 pb-12">
-        <h1 className="text-3xl sm:text-4xl text-foreground mb-4">My work</h1>
-        <p className="text-lg text-foreground-secondary max-w-2xl">
-          A collection of projects focused on clean design, strong UX, and
-          practical outcomes for various clients.
-        </p>
+      {/* ── Header ── */}
+      <section className="px-6 lg:px-8 pt-20 pb-16">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+        >
+          <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-3">
+            Portfolio
+          </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-5">
+            My work
+          </h1>
+          <p className="text-lg text-foreground-secondary max-w-xl leading-relaxed">
+            A collection of projects focused on clean design, strong UX, and
+            practical outcomes for various clients.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Featured Case Studies */}
-      {featuredCaseStudies.length > 0 && (
-        <section className="px-6 lg:px-8 pb-16 grid grid-cols-1 gap-12">
-          {featuredCaseStudies.map((caseStudy, i) => (
+      <Separator />
+
+      {/* ── All projects — numbered list ── */}
+      <section className="px-6 lg:px-8 py-8">
+        {allStudies.map((study, i) => (
+          <motion.div
+            key={study.id}
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
+          >
             <Link
-              key={caseStudy.id}
-              to={`/case-study/${caseStudy.id}`}
-              className="group"
+              to={`/case-study/${study.id}`}
+              className="group flex flex-col sm:flex-row items-start gap-6 py-10 -mx-4 px-4 rounded-xl transition-colors duration-300 hover:bg-[var(--accent-color-muted)]"
             >
-              <article className={`border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors flex flex-col lg:flex-row ${i % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
-                {/* Image */}
-                <div className="relative aspect-[16/9] bg-secondary overflow-hidden">
-                  <ImageWithFallback
-                    src={caseStudy.images.hero}
-                    alt={caseStudy.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                  />
-                </div>
+              {/* Index number */}
+              <span className="text-sm font-mono flex-shrink-0 mt-1 w-8 transition-colors duration-300 text-foreground-secondary-2 group-hover:text-[var(--accent-color)]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-                {/* Content */}
-                <div className="p-8 lg:flex lg:flex-col lg:justify-between">
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="text-2xl text-foreground-secondary mb-2 group-hover:text-foreground transition-colors">
-                        {caseStudy.title}
-                      </h3>
-                      <p className="text-foreground-secondary-2 group-hover:text-foreground-secondary">
-                        {caseStudy.subtitle}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-6 w-6 text-foreground-secondary-2 group-hover:text-foreground-secondary group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
-                  </div>
+              {/* Thumbnail */}
+              <div className="w-full sm:w-44 lg:w-56 flex-shrink-0 aspect-[4/3] overflow-hidden rounded-lg bg-secondary">
+                <ImageWithFallback
+                  src={study.images.hero}
+                  alt={study.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                />
+              </div>
 
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-foreground-secondary-2">
-                    <span>{caseStudy.role}</span>
-                    <span className="w-1 h-1 rounded-full bg-foreground-secondary" />
-                    <span>{caseStudy.timeline}</span>
-                  </div>
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <h2 className="text-2xl lg:text-3xl font-semibold text-foreground mb-2 group-hover:translate-x-1 transition-transform duration-300">
+                  {study.title}
+                </h2>
+                <p className="text-foreground-secondary mb-5 leading-relaxed">
+                  {study.subtitle}
+                </p>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-foreground-secondary-2">
+                  <span>{study.role}</span>
+                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent-color)" }} />
+                  <span>{study.timeline}</span>
+                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent-color)" }} />
+                  <span>{study.tools.slice(0, 3).join(", ")}</span>
                 </div>
-              </article>
+              </div>
+
+              {/* Arrow */}
+              <ArrowRight className="hidden sm:block h-5 w-5 flex-shrink-0 mt-3 text-foreground-secondary-2 group-hover:translate-x-1 group-hover:text-foreground transition-all duration-300" />
             </Link>
-          ))}
-        </section>
-      )}
+
+            {i < allStudies.length - 1 && <Separator />}
+          </motion.div>
+        ))}
+      </section>
 
       <Separator />
 
-      {/* Other Case Studies */}
-      {otherCaseStudies.length > 0 && (
-        <section className="px-6 lg:px-8 py-16">
-          <h2 className="text-xl text-foreground mb-8">More Projects</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {otherCaseStudies.map((caseStudy) => (
-              <Link
-                key={caseStudy.id}
-                to={`/case-study/${caseStudy.id}`}
-                className="group"
-              >
-                <article className="border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors">
-                  {/* Image */}
-                  <div className="relative aspect-[16/9] bg-secondary overflow-hidden">
-                    <ImageWithFallback
-                      src={caseStudy.images.hero}
-                      alt={caseStudy.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-start justify-between gap-4 mb-3">
-                      <h3 className="text-xl text-foreground-secondary group-hover:text-foreground transition-colors">
-                        {caseStudy.title}
-                      </h3>
-                      <ArrowRight className="h-5 w-5 text-foreground-secondary-2 group-hover:text-foreground-secondary group-hover:translate-x-1 transition-all flex-shrink-0" />
-                    </div>
-
-                    <p className="text-foreground-secondary-2 group-hover:text-foreground-secondary text-sm mb-4">
-                      {caseStudy.subtitle}
-                    </p>
-
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-foreground-secondary-2">
-                      <span>{caseStudy.role}</span>
-                      <span className="w-1 h-1 rounded-full bg-foreground-secondary" />
-                      <span>{caseStudy.timeline}</span>
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <Separator />
-
-      {/* CTA Section */}
-      <section className="px-6 lg:px-8 py-24">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl text-foreground mb-4">Like what you see?</h2>
-          <p className="text-lg text-foreground-secondary mb-8">
+      {/* ── CTA ── */}
+      <section className="px-6 lg:px-8 py-28">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-xl"
+        >
+          <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-3">
+            Let's collaborate
+          </p>
+          <h2 className="text-3xl lg:text-4xl text-foreground mb-4 leading-tight">
+            Like what you see?
+          </h2>
+          <p className="text-foreground-secondary mb-8 leading-relaxed">
             I'm currently available for new projects. Let's discuss how I can
             help bring your vision to life.
           </p>
-          <Button size="lg" asChild className="w-full sm:w-auto">
+          <Button size="lg" asChild>
             <Link to="/contact?ref=work">
               Start a project <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </div>
+        </motion.div>
       </section>
     </>
   );
