@@ -187,7 +187,7 @@ export function Homepage() {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-6 lg:left-8 flex items-center gap-2 text-foreground-secondary-2 text-xs tracking-widest uppercase"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 text-foreground-secondary-2 text-xs tracking-widest uppercase"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
@@ -199,7 +199,6 @@ export function Homepage() {
           >
             ↓
           </motion.span>
-          scroll
         </motion.div>
       </section>
 
