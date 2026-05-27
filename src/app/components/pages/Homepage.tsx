@@ -104,7 +104,16 @@ export function Homepage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="px-6 lg:px-8 min-h-[calc(100vh-5rem)] flex flex-col justify-center relative overflow-hidden">
+      <section className="px-6 lg:px-8 min-h-[calc(100vh-5rem)] flex flex-col justify-center relative">
+        {/* Gradient — full viewport width */}
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse 60% 80% at 85% 20%, var(--accent-color-gradient), transparent)"
+          }}
+          aria-hidden
+        />
+
         {/* Decorative asterisk */}
         <div
           className="absolute top-12 right-6 lg:right-16 text-8xl lg:text-[10rem] select-none pointer-events-none leading-none opacity-20 hidden sm:block"
@@ -402,7 +411,12 @@ export function Homepage() {
       <Separator />
 
       {/* ── CTA ── */}
-      <section id="contact" className="px-6 lg:px-8 py-32">
+      <section id="contact" className="px-6 lg:px-8 py-32 relative">
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 55% 70% at 50% 50%, var(--accent-color-gradient), transparent)" }}
+          aria-hidden
+        />
         <motion.div
           variants={fadeUp}
           initial="hidden"

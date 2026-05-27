@@ -47,6 +47,7 @@
   --selection-color: #ffffff;
   --accent-color: #7c3aed;
   --accent-color-muted: rgba(124, 58, 237, 0.08);
+  --accent-color-gradient: rgba(236, 72, 153, 0.16);
 }
 
 .dark {
@@ -92,6 +93,7 @@
   --selection-color: var(--background);
   --accent-color: #f97316;
   --accent-color-muted: rgba(249, 115, 22, 0.1);
+  --accent-color-gradient: rgba(245, 158, 11, 0.12);
 }
 
 .neon {
@@ -113,6 +115,7 @@
   --input-background: #12121f;
   --accent-color: #00e5ff;
   --accent-color-muted: rgba(0, 229, 255, 0.08);
+  --accent-color-gradient: rgba(139, 92, 246, 0.12);
   --ring: rgba(0, 229, 255, 0.4);
   --selection-bg: rgba(0, 229, 255, 0.3);
   --selection-color: #080812;
@@ -139,6 +142,7 @@
   --input-background: #ece0d0;
   --accent-color: #c05c2a;
   --accent-color-muted: rgba(192, 92, 42, 0.1);
+  --accent-color-gradient: rgba(217, 119, 6, 0.12);
   --ring: rgba(192, 92, 42, 0.4);
   --selection-bg: rgba(192, 92, 42, 0.25);
   --selection-color: #1a0d05;
@@ -188,6 +192,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-accent-color: var(--accent-color);
   --color-accent-muted: var(--accent-color-muted);
+  --color-accent-gradient: var(--accent-color-gradient);
 }
 
 @layer base {

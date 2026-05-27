@@ -19,7 +19,12 @@ export function Work() {
   return (
     <>
       {/* ── Header ── */}
-      <section className="px-6 lg:px-8 pt-20 pb-16">
+      <section className="px-6 lg:px-8 pt-20 pb-16 relative">
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 50% 70% at 15% 20%, var(--accent-color-gradient), transparent)" }}
+          aria-hidden
+        />
         <motion.div variants={fadeUp} initial="hidden" animate="visible">
           <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-3">
             Portfolio
@@ -50,10 +55,14 @@ export function Work() {
             >
               <Link
                 to={`/case-study/${study.id}`}
-                className={`group flex flex-col sm:flex-row items-center gap-10 lg:gap-16 py-10 -mx-4 px-4 rounded-xl transition-colors duration-300 hover:bg-[var(--accent-color-muted)] ${
+                className={`group relative flex flex-col sm:flex-row items-center gap-10 lg:gap-16 py-10 -mx-4 px-4 rounded-xl ${
                   isEven ? "sm:flex-row-reverse" : ""
                 }`}
               >
+                <div
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: "radial-gradient(ellipse 90% 90% at 50% 50%, var(--accent-color-muted) 50%, transparent 100%)" }}
+                />
                 {/* Thumbnail */}
                 <div className="w-full sm:w-[45%] flex-shrink-0 aspect-[16/10] overflow-hidden rounded-xl bg-secondary">
                   <ImageWithFallback

@@ -51,7 +51,12 @@ export function Contact() {
   return (
     <>
       {/* ── Header ── */}
-      <section className="px-6 lg:px-8 pt-20 pb-16">
+      <section className="px-6 lg:px-8 pt-20 pb-16 relative">
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 55% 65% at 80% 10%, var(--accent-color-gradient), transparent)" }}
+          aria-hidden
+        />
         <motion.div variants={fadeUp} initial="hidden" animate="visible" className="max-w-2xl">
           <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-3">
             Contact

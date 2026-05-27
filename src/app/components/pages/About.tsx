@@ -52,7 +52,12 @@ export function About() {
   return (
     <>
       {/* ── Intro ── */}
-      <section className="px-6 lg:px-8 pt-20 pb-16">
+      <section className="px-6 lg:px-8 pt-20 pb-16 relative">
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 55% 65% at 85% 15%, var(--accent-color-gradient), transparent)" }}
+          aria-hidden
+        />
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-start">
 
           {/* Left — text */}
