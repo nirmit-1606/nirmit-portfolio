@@ -204,15 +204,17 @@ export function Homepage() {
       </section>
 
       {/* ── Marquee strip ── */}
-      <div
-        className="py-4 border-y border-border"
-        style={{ background: "var(--accent-color-muted)" }}
-      >
-        <Marquee
-          items={MARQUEE_ITEMS}
-          speed={38}
-          className="text-xs font-semibold tracking-widest uppercase text-foreground-secondary"
-        />
+      <div className="relative py-6">
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2 border-y border-border overflow-hidden flex items-center"
+          style={{ background: "var(--accent-color-muted)" }}
+        >
+          <Marquee
+            items={MARQUEE_ITEMS}
+            speed={38}
+            className="text-xs font-semibold tracking-widest uppercase text-foreground-secondary"
+          />
+        </div>
       </div>
 
       {/* ── Featured work ── */}
@@ -302,11 +304,12 @@ export function Homepage() {
       <Separator />
 
       {/* ── What I do + Process ── */}
-      <section
-        className="px-6 lg:px-8 py-24"
-        style={{ background: "var(--accent-color-muted)" }}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section className="relative px-6 lg:px-8 py-24">
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2"
+          style={{ background: "var(--accent-color-muted)" }}
+        />
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Services */}
           <motion.div
             variants={fadeUp}

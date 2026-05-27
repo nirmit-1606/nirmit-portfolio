@@ -147,7 +147,12 @@ export function About() {
       <Separator />
 
       {/* ── How I work ── */}
-      <section className="px-6 lg:px-8 py-20" style={{ background: "var(--accent-color-muted)" }}>
+      <section className="relative px-6 lg:px-8 py-20">
+        <div
+          className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2"
+          style={{ background: "var(--accent-color-muted)" }}
+        />
+        <div className="relative">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -183,6 +188,7 @@ export function About() {
               </div>
             </motion.div>
           ))}
+        </div>
         </div>
       </section>
 
