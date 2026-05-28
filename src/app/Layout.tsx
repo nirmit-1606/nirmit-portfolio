@@ -12,13 +12,16 @@ export function Layout() {
   const showSidebar = isCaseStudyPage && !isMobile && !!id;
 
   return (
-    <div className="h-screen flex flex-col">
+    <>
       <Navigation />
 
       {showSidebar ? (
-        /* Case study desktop: sidebar + scrollable content */
-        <div className="flex-1 flex overflow-hidden bg-background">
-          <aside className="w-60 flex-shrink-0 border-r border-border overflow-y-auto bg-background p-6 sticky top-0">
+        /* Case study desktop: fixed below nav, sidebar + scrollable content */
+        <div
+          className="fixed flex overflow-hidden bg-background"
+          style={{ top: "5rem", left: 0, right: 0, bottom: 0 }}
+        >
+          <aside className="w-60 flex-shrink-0 border-r border-border overflow-y-auto bg-background p-6">
             <CaseStudySidebar currentId={id} />
           </aside>
           <div className="flex-1 overflow-y-auto">
@@ -29,14 +32,14 @@ export function Layout() {
           </div>
         </div>
       ) : (
-        /* All other pages (and mobile case study) */
-        <div className="flex-1 overflow-y-auto bg-background">
-          <main className="max-w-7xl mx-auto">
+        /* Regular pages: starts at y=0 so content can scroll behind the fixed nav */
+        <div className="fixed inset-0 overflow-y-auto bg-background">
+          <main className="max-w-7xl mx-auto pt-20">
             <Outlet />
           </main>
           <Footer />
         </div>
       )}
-    </div>
+    </>
   );
 }

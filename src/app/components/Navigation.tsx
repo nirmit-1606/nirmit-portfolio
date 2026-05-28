@@ -1,15 +1,39 @@
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Separator } from "./ui/separator";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    // The scroll container is fixed inset-0 overflow-y-auto
+    const container = document.querySelector<HTMLElement>(".fixed.inset-0.overflow-y-auto");
+    const target = container ?? window;
+
+    const onScroll = () => {
+      const top = container ? container.scrollTop : window.scrollY;
+      setScrolled(top > 10);
+    };
+
+    target.addEventListener("scroll", onScroll, { passive: true });
+    return () => target.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="z-50 sticky top-0 bg-background/90 backdrop-blur-md border-b border-border">
+    <nav
+      className="z-50 fixed top-0 left-0 right-0 w-full backdrop-blur-2xl backdrop-saturate-150 border-b transition-shadow duration-300"
+      style={{
+        backgroundColor: "color-mix(in srgb, var(--background) 40%, transparent)",
+        borderColor: "color-mix(in srgb, var(--border) 40%, transparent)",
+        boxShadow: scrolled
+          ? "0 4px 20px -2px color-mix(in srgb, var(--foreground) 14%, transparent)"
+          : "none",
+      }}
+    >
       <div className="max-w-7xl mx-auto h-[5rem]">
         <div className="px-6 lg:px-8 h-full flex items-center justify-between">
           <Link
@@ -46,7 +70,13 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <>
-            <div className="md:hidden px-6 py-8 space-y-6 bg-background border-t border-border">
+            <div
+              className="md:hidden px-6 py-8 space-y-6 backdrop-blur-xl border-t"
+              style={{
+                backgroundColor: "color-mix(in srgb, var(--background) 75%, transparent)",
+                borderColor: "color-mix(in srgb, var(--border) 60%, transparent)",
+              }}
+            >
               <Link
                 to="/work"
                 className="block text-foreground-secondary hover:text-foreground transition-colors"
