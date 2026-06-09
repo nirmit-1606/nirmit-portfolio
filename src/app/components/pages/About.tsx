@@ -246,7 +246,7 @@ export function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-xl"
+          className="max-w-xl ml-auto text-right"
         >
           <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-3">
             Let's collaborate
@@ -259,7 +259,7 @@ export function About() {
             I'm always interested in working with thoughtful teams and clients
             who value good design.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row sm:justify-end gap-4">
             <Button size="lg" asChild>
               <Link to="/contact?ref=about">
                 Get in touch <ArrowRight className="ml-2 h-4 w-4" />
