@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { Separator } from "./ui/separator";
@@ -103,27 +103,9 @@ export function Navigation() {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Link
-              to="/"
-              className="block text-foreground-secondary hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              to="/work"
-              className="block text-foreground-secondary hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Work
-            </Link>
-            <Link
-              to="/about"
-              className="block text-foreground-secondary hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
+            <MobileNavLink to="/" onClick={() => setMobileMenuOpen(false)}>Home</MobileNavLink>
+            <MobileNavLink to="/work" onClick={() => setMobileMenuOpen(false)}>Work</MobileNavLink>
+            <MobileNavLink to="/about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>
             <Separator />
             <Button asChild className="w-full" onClick={() => setMobileMenuOpen(false)}>
               <Link to="/contact?ref=home">Work with me</Link>
@@ -164,16 +146,48 @@ function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
 }
 
 function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
+  const { pathname } = useLocation();
+  const isActive = pathname === to;
+
   return (
     <Link
       to={to}
-      className="relative text-foreground-secondary hover:text-foreground transition-colors duration-200 group"
+      className="relative transition-colors duration-200 group"
+      style={{ color: isActive ? "var(--accent-color)" : undefined }}
+      aria-current={isActive ? "page" : undefined}
     >
-      {children}
+      <span className={isActive ? "text-current" : "text-foreground-secondary hover:text-foreground"}>
+        {children}
+      </span>
       <span
         className="absolute -bottom-0.5 left-0 h-px w-0 group-hover:w-full transition-all duration-300"
         style={{ background: "var(--accent-color)" }}
       />
+    </Link>
+  );
+}
+
+function MobileNavLink({ to, children, onClick }: { to: string; children: React.ReactNode; onClick: () => void }) {
+  const { pathname } = useLocation();
+  const isActive = pathname === to;
+
+  return (
+    <Link
+      to={to}
+      className="block text-foreground-secondary hover:text-foreground transition-colors"
+      style={{ color: isActive ? "var(--accent-color)" : undefined }}
+      onClick={onClick}
+      aria-current={isActive ? "page" : undefined}
+    >
+      <span className="relative inline-block pb-0.5">
+        {children}
+        {isActive && (
+          <span
+            className="absolute bottom-0 left-0 w-full h-px"
+            style={{ background: "var(--accent-color)" }}
+          />
+        )}
+      </span>
     </Link>
   );
 }
