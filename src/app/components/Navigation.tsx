@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { Separator } from "./ui/separator";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { AnimatePresence, motion } from "motion/react";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,53 +71,67 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Dark overlay behind mobile dropdown — tap to close */}
-      {mobileMenuOpen && (
-        <div
-          className="md:hidden fixed inset-0 z-30"
-          style={{ backgroundColor: "color-mix(in srgb, var(--foreground) 40%, transparent)" }}
-          onClick={() => setMobileMenuOpen(false)}
-          aria-hidden
-        />
-      )}
+      {/* Dark overlay — tap to close */}
+      <AnimatePresence>
+        {mobileMenuOpen ? (
+          <motion.div
+            key="overlay"
+            className="md:hidden fixed inset-0 z-30"
+            style={{ backgroundColor: "color-mix(in srgb, var(--foreground) 40%, transparent)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden
+          />
+        ) : null}
+      </AnimatePresence>
 
-      {/* Mobile dropdown — separate fixed element so backdrop-blur samples page content directly */}
-      {mobileMenuOpen && (
-        <div
-          className="md:hidden fixed left-0 right-0 z-40 backdrop-blur-xl backdrop-saturate-150 border-b px-6 py-8 space-y-6"
-          style={{
-            top: "5rem",
-            backgroundColor: "color-mix(in srgb, var(--background) 75%, transparent)",
-            borderColor: "color-mix(in srgb, var(--border) 60%, transparent)",
-          }}
-        >
-          <Link
-            to="/"
-            className="block text-foreground-secondary hover:text-foreground transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
+      {/* Mobile dropdown */}
+      <AnimatePresence>
+        {mobileMenuOpen ? (
+          <motion.div
+            key="dropdown"
+            className="md:hidden fixed left-0 right-0 z-40 backdrop-blur-xl backdrop-saturate-150 border-b px-6 py-8 space-y-6"
+            style={{
+              top: "5rem",
+              backgroundColor: "color-mix(in srgb, var(--background) 75%, transparent)",
+              borderColor: "color-mix(in srgb, var(--border) 60%, transparent)",
+            }}
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Home
-          </Link>
-          <Link
-            to="/work"
-            className="block text-foreground-secondary hover:text-foreground transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Work
-          </Link>
-          <Link
-            to="/about"
-            className="block text-foreground-secondary hover:text-foreground transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            About
-          </Link>
-          <Separator />
-          <Button asChild className="w-full" onClick={() => setMobileMenuOpen(false)}>
-            <Link to="/contact?ref=home">Work with me</Link>
-          </Button>
-        </div>
-      )}
+            <Link
+              to="/"
+              className="block text-foreground-secondary hover:text-foreground transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="/work"
+              className="block text-foreground-secondary hover:text-foreground transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Work
+            </Link>
+            <Link
+              to="/about"
+              className="block text-foreground-secondary hover:text-foreground transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Separator />
+            <Button asChild className="w-full" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/contact?ref=home">Work with me</Link>
+            </Button>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
