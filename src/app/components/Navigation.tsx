@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { Separator } from "./ui/separator";
@@ -64,7 +63,7 @@ export function Navigation() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                <HamburgerIcon isOpen={mobileMenuOpen} />
               </button>
             </div>
           </div>
@@ -81,7 +80,7 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden
           />
@@ -102,7 +101,7 @@ export function Navigation() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link
               to="/"
@@ -133,6 +132,34 @@ export function Navigation() {
         ) : null}
       </AnimatePresence>
     </>
+  );
+}
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+const DUR = { duration: 0.4, ease: EASE };
+
+function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
+  return (
+    <div className="w-6 h-6 flex flex-col justify-center gap-[5px]">
+      {/* Top bar → rotates to form \ diagonal */}
+      <motion.span
+        className="block h-0.5 rounded-full bg-current"
+        animate={isOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+        transition={DUR}
+      />
+      {/* Middle bar → shrinks away */}
+      <motion.span
+        className="block h-0.5 rounded-full bg-current"
+        animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+        transition={DUR}
+      />
+      {/* Bottom bar → rotates to form / diagonal */}
+      <motion.span
+        className="block h-0.5 rounded-full bg-current"
+        animate={isOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+        transition={DUR}
+      />
+    </div>
   );
 }
 
