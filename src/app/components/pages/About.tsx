@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import profileImage from "../../../assets/about_img.png";
+import profileImage from "../../../assets/about_img.jpg";
 import { Separator } from "../ui/separator";
 import { motion } from "motion/react";
 
@@ -113,13 +113,13 @@ export function About() {
                 aria-hidden
               />
               <div
-                className="relative overflow-hidden rounded-2xl border"
+                className="relative overflow-hidden rounded-2xl border group"
                 style={{ borderColor: "var(--accent-color)", borderOpacity: 0.3 }}
               >
                 <img
                   src={profileImage}
                   alt="Nirmit Patel"
-                  className="w-full h-auto block"
+                  className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
               </div>
