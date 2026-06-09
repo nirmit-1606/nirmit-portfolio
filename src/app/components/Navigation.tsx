@@ -70,6 +70,16 @@ export function Navigation() {
         </div>
       </nav>
 
+      {/* Dark overlay behind mobile dropdown — tap to close */}
+      {mobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-30"
+          style={{ backgroundColor: "color-mix(in srgb, var(--foreground) 40%, transparent)" }}
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden
+        />
+      )}
+
       {/* Mobile dropdown — separate fixed element so backdrop-blur samples page content directly */}
       {mobileMenuOpen && (
         <div
