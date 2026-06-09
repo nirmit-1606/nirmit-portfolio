@@ -46,6 +46,7 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
+            <NavLink to="/">Home</NavLink>
             <NavLink to="/work">Work</NavLink>
             <NavLink to="/about">About</NavLink>
             <ThemeSwitcher />
@@ -77,6 +78,13 @@ export function Navigation() {
                 borderColor: "color-mix(in srgb, var(--border) 60%, transparent)",
               }}
             >
+              <Link
+                to="/"
+                className="block text-foreground-secondary hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
               <Link
                 to="/work"
                 className="block text-foreground-secondary hover:text-foreground transition-colors"
