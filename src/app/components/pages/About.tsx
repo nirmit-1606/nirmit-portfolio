@@ -74,7 +74,7 @@ export function About() {
               A bit about me
             </h1>
 
-            <div className="space-y-6 text-lg text-foreground-secondary leading-relaxed">
+            <div className="space-y-6 text-base sm:text-lg text-foreground-secondary leading-relaxed">
               <p>
                 I'm a web designer who believes the best digital experiences are
                 the ones that feel <Accent>effortless</Accent>. My work focuses

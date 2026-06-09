@@ -76,7 +76,7 @@ export function CaseStudy() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-4">
               {caseStudy.title}
             </h1>
-            <p className="text-lg sm:text-xl text-foreground-secondary max-w-2xl leading-relaxed mb-10">
+            <p className="text-base sm:text-xl text-foreground-secondary max-w-2xl leading-relaxed mb-10">
               {caseStudy.subtitle}
             </p>
 
@@ -113,7 +113,7 @@ export function CaseStudy() {
             <p className="text-xs tracking-widest uppercase mb-6" style={{ color: "var(--accent-color)" }}>
               {caseStudy.problem.title}
             </p>
-            <p className="text-xl sm:text-2xl text-foreground leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl">
               {caseStudy.problem.content}
             </p>
           </motion.div>
@@ -133,7 +133,7 @@ export function CaseStudy() {
             <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--accent-color)" }}>
               {caseStudy.approach.title}
             </p>
-            <p className="text-lg text-foreground-secondary leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl">
               {caseStudy.approach.content}
             </p>
           </motion.div>
@@ -201,7 +201,7 @@ export function CaseStudy() {
             <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--accent-color)" }}>
               {caseStudy.outcome.title}
             </p>
-            <p className="text-lg text-foreground-secondary leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl">
               {caseStudy.outcome.content}
             </p>
           </motion.div>
@@ -217,7 +217,7 @@ export function CaseStudy() {
                 className="p-6 rounded-xl border border-border hover:border-[var(--accent-color)] transition-colors duration-300"
               >
                 <div
-                  className="text-4xl font-bold mb-2 tabular-nums"
+                  className="text-3xl sm:text-4xl font-bold mb-2 tabular-nums"
                   style={{ color: "var(--accent-color)" }}
                 >
                   {metric.value}
@@ -248,7 +248,7 @@ export function CaseStudy() {
                 className="group flex items-center justify-between gap-8 py-8 border-t border-border hover:border-[var(--accent-color)] transition-colors duration-300"
               >
                 <div className="min-w-0">
-                  <h2 className="text-2xl font-semibold text-foreground group-hover:translate-x-1 transition-transform duration-300 truncate">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-foreground group-hover:translate-x-1 transition-transform duration-300 truncate">
                     {nextCaseStudy.title}
                   </h2>
                   <p className="text-foreground-secondary mt-2 leading-relaxed line-clamp-2">
