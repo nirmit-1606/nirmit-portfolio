@@ -3,6 +3,7 @@ import { Outlet, useLocation, useParams } from "react-router-dom";
 import { CaseStudySidebar } from "./components/CaseStudySidebar";
 import { Footer } from "./components/Footer";
 import { useIsMobile } from "./components/ui/use-mobile";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 export function Layout() {
   const location = useLocation();
@@ -13,6 +14,7 @@ export function Layout() {
 
   return (
     <>
+      <ScrollToTop />
       <Navigation />
 
       {showSidebar ? (
