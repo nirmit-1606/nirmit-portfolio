@@ -65,7 +65,7 @@ function StatItem({
       transition={{ delay }}
       className="text-center"
     >
-      <div className="text-5xl lg:text-6xl font-bold mb-2 tabular-nums" style={{ color: "var(--accent-color)" }}>
+      <div className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-2 tabular-nums" style={{ color: "var(--accent-color)" }}>
         {count}{suffix}
       </div>
       <div className="text-foreground-secondary text-sm tracking-wide">{label}</div>
@@ -401,7 +401,7 @@ export function Homepage() {
 
       {/* ── Stats ── */}
       <section className="px-6 lg:px-8 py-24">
-        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+        <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
           <StatItem value={8}   suffix="+" label="Years experience"   delay={0} />
           <StatItem value={50}  suffix="+" label="Projects delivered"  delay={0.1} />
           <StatItem value={100} suffix="%" label="Client satisfaction" delay={0.2} />
