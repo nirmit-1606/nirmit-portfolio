@@ -98,9 +98,9 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right — photo + quick facts */}
+          {/* Right — photo + quick facts (first on mobile, right on desktop) */}
           <motion.div
-            className="w-full lg:w-auto lg:flex-shrink-0 lg:sticky lg:top-24"
+            className="w-full lg:w-auto lg:flex-shrink-0 lg:sticky lg:top-24 order-first lg:order-last"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
