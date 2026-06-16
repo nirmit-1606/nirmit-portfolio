@@ -6,10 +6,10 @@
   --foreground: oklch(0.145 0 0);
   --foreground-secondary: oklch(0.44 0 0);
   --foreground-secondary-2: oklch(0.55 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
+  --card: var(--background);
+  --card-foreground: var(--foreground);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover-foreground: var(--foreground);
   --primary: #030213;
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.95 0.0058 264.53);
@@ -17,7 +17,7 @@
   --muted: #ececf0;
   --muted-foreground: #717182;
   --accent: #e9ebef;
-  --accent-foreground: #030213;
+  --accent-foreground: var(--primary);
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.1);
@@ -36,13 +36,13 @@
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--sidebar);
   --sidebar-accent: oklch(0.6 0.22 41.16);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: var(--ring);
   --selection-bg: #030213b3;
   --selection-color: #ffffff;
   --accent-color: #7c3aed;
@@ -73,8 +73,6 @@
   --border-hover: oklch(0.340 0 0);
   --input: var(--secondary);
   --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
   --font-funky: cursive, system-ui, -apple-system, sans-serif;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -101,24 +99,24 @@
   --foreground: #e8e8f8;
   --foreground-secondary: #8888bb;
   --foreground-secondary-2: #5555aa;
-  --card: #080812;
-  --card-foreground: #e8e8f8;
-  --popover: #080812;
-  --popover-foreground: #e8e8f8;
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
   --secondary: #10101e;
-  --secondary-foreground: #e8e8f8;
-  --muted: #10101e;
+  --secondary-foreground: var(--foreground);
+  --muted: var(--secondary);
   --muted-foreground: #6666aa;
   --border: rgba(100, 100, 220, 0.18);
-  --border-hover: rgba(0, 229, 255, 0.4);
-  --input: #10101e;
+  --border-hover: var(--ring);
+  --input: var(--secondary);
   --input-background: #12121f;
   --accent-color: #00e5ff;
   --accent-color-muted: rgba(0, 229, 255, 0.08);
   --accent-color-gradient: rgba(139, 92, 246, 0.12);
   --ring: rgba(0, 229, 255, 0.4);
-  --selection-bg: rgba(0, 229, 255, 0.3);
-  --selection-color: #080812;
+  --selection-bg: rgba(0, 229, 255, 0.25);
+  --selection-color: var(--foreground);
 }
 
 .warm {
@@ -126,26 +124,26 @@
   --foreground: #1a0d05;
   --foreground-secondary: #6b4c38;
   --foreground-secondary-2: #9a7060;
-  --card: #fdf8f2;
-  --card-foreground: #1a0d05;
-  --popover: #fdf8f2;
-  --popover-foreground: #1a0d05;
-  --primary: #1a0d05;
-  --primary-foreground: #fdf8f2;
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+  --primary: var(--foreground);
+  --primary-foreground: var(--background);
   --secondary: #f0e8dc;
-  --secondary-foreground: #6b4c38;
-  --muted: #f0e8dc;
-  --muted-foreground: #9a7060;
+  --secondary-foreground: var(--foreground-secondary);
+  --muted: var(--secondary);
+  --muted-foreground: var(--foreground-secondary-2);
   --border: rgba(100, 50, 20, 0.15);
   --border-hover: rgba(192, 92, 42, 0.35);
-  --input: #f0e8dc;
+  --input: var(--secondary);
   --input-background: #ece0d0;
   --accent-color: #c05c2a;
   --accent-color-muted: rgba(192, 92, 42, 0.1);
   --accent-color-gradient: rgba(217, 119, 6, 0.12);
   --ring: rgba(192, 92, 42, 0.4);
   --selection-bg: rgba(192, 92, 42, 0.25);
-  --selection-color: #1a0d05;
+  --selection-color: var(--foreground);
 }
 
 @theme inline {
