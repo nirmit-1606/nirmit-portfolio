@@ -6,9 +6,10 @@
   --foreground: oklch(0.145 0 0);
   --foreground-secondary: oklch(0.44 0 0);
   --foreground-secondary-2: oklch(0.55 0 0);
+  /* card, popover inherit from background/foreground across all themes */
   --card: var(--background);
   --card-foreground: var(--foreground);
-  --popover: oklch(1 0 0);
+  --popover: var(--background);
   --popover-foreground: var(--foreground);
   --primary: #030213;
   --primary-foreground: oklch(1 0 0);
@@ -55,10 +56,6 @@
   --foreground: oklch(0.985 0 0);
   --foreground-secondary: oklch(0.75 0 0);
   --foreground-secondary-2: oklch(0.55 0 0);
-  --card: var(--background);
-  --card-foreground: var(--foreground);
-  --popover: var(--background);
-  --popover-foreground: var(--foreground);
   --primary: var(--foreground);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
@@ -80,13 +77,11 @@
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: var(--primary-foreground);
-  --sidebar-foreground: var(--foreground);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: var(--foreground);
   --sidebar-accent: oklch(0.54 0.22 41.11);
   --sidebar-accent-foreground: var(--foreground);
   --sidebar-border: var(--secondary);
-  --sidebar-ring: var(--ring);
   --selection-bg: oklch(0.85 0 0 / 70%);
   --selection-color: var(--background);
   --accent-color: #f97316;
@@ -99,22 +94,18 @@
   --foreground: #e8e8f8;
   --foreground-secondary: #8888bb;
   --foreground-secondary-2: #5555aa;
-  --card: var(--background);
-  --card-foreground: var(--foreground);
-  --popover: var(--background);
-  --popover-foreground: var(--foreground);
   --secondary: #10101e;
   --secondary-foreground: var(--foreground);
   --muted: var(--secondary);
   --muted-foreground: #6666aa;
   --border: rgba(100, 100, 220, 0.18);
-  --border-hover: var(--ring);
   --input: var(--secondary);
   --input-background: #12121f;
+  --ring: rgba(0, 229, 255, 0.4);
+  --border-hover: var(--ring);
   --accent-color: #00e5ff;
   --accent-color-muted: rgba(0, 229, 255, 0.08);
   --accent-color-gradient: rgba(139, 92, 246, 0.12);
-  --ring: rgba(0, 229, 255, 0.4);
   --selection-bg: rgba(0, 229, 255, 0.25);
   --selection-color: var(--foreground);
 }
@@ -124,10 +115,6 @@
   --foreground: #1a0d05;
   --foreground-secondary: #6b4c38;
   --foreground-secondary-2: #9a7060;
-  --card: var(--background);
-  --card-foreground: var(--foreground);
-  --popover: var(--background);
-  --popover-foreground: var(--foreground);
   --primary: var(--foreground);
   --primary-foreground: var(--background);
   --secondary: #f0e8dc;
@@ -138,10 +125,10 @@
   --border-hover: rgba(192, 92, 42, 0.35);
   --input: var(--secondary);
   --input-background: #ece0d0;
+  --ring: rgba(192, 92, 42, 0.4);
   --accent-color: #c05c2a;
   --accent-color-muted: rgba(192, 92, 42, 0.1);
   --accent-color-gradient: rgba(217, 119, 6, 0.12);
-  --ring: rgba(192, 92, 42, 0.4);
   --selection-bg: rgba(192, 92, 42, 0.25);
   --selection-color: var(--foreground);
 }
