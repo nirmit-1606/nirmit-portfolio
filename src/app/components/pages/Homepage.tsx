@@ -269,7 +269,7 @@ export function Homepage() {
                 </span>
 
                 {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg mb-5 z-10">
+                <div className="relative aspect-[1200/627] overflow-hidden rounded-lg mb-5 z-10">
                   <ImageWithFallback
                     src={study.images.hero}
                     alt={study.title}

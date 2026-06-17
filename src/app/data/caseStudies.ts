@@ -1,3 +1,5 @@
+import intuitHero from "../../assets/intuit_enterprise_suite.png";
+
 /** Listing metadata — used by Work page, Homepage cards, and the sidebar. */
 export interface CaseStudyMeta {
   id: string;
@@ -22,7 +24,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     timeline: "Dec 2024 – Present",
     featured: true,
     images: {
-      hero: "https://images.unsplash.com/photo-1613274554329-70f997f5789f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwaW50ZXJpb3IlMjBtb2Rlcm58ZW58MXx8fHwxNzcwMTU4NzE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      hero: intuitHero,
     },
   },
   "2": {
