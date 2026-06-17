@@ -164,7 +164,7 @@ export function IntuitCaseStudy() {
                   >
                     <Icon className="h-[18px] w-[18px]" />
                   </span>
-                  <p className="text-foreground-secondary leading-relaxed pt-1.5">{text}</p>
+                  <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed pt-1.5">{text}</p>
                 </motion.li>
               ))}
             </ul>

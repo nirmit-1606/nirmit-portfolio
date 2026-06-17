@@ -21,7 +21,7 @@ export function TechChips({ items }: TechChipsProps) {
             borderColor: "var(--accent-color)",
             transition: { duration: 0.2 },
           }}
-          className="inline-block origin-center cursor-default px-3 py-1.5 rounded-full text-sm border"
+          className="inline-block origin-center cursor-default px-3 py-1.5 rounded-full text-xs sm:text-sm border"
           style={{
             color: "var(--accent-color)",
             backgroundColor: "var(--accent-color-muted)",
