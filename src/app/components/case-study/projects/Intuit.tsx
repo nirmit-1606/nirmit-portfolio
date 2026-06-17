@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Sparkles, Smartphone } from "lucide-react";
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
@@ -119,15 +120,15 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Design input</SectionLabel>
-            <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl mb-8">
+            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-2xl mb-8">
               Figma designs were provided by our designer, but engineers had input on component
               behaviour and layout. A couple of things I pushed on:
             </p>
             <ul className="space-y-5 max-w-3xl">
               {[
-                "The design showed a “completed” text label on finished tasks. I suggested removing it — the component already communicated completion visually, and the label created unnecessary noise. Shipped without it.",
-                "For mobile, I proposed converting one of the task panels into a dropdown instead of a collapsed list — better for thumb reach and less jarring on small viewports. Made it in.",
-              ].map((item, i) => (
+                { icon: Sparkles, text: "The design showed a “completed” text label on finished tasks. I suggested removing it — the component already communicated completion visually, and the label created unnecessary noise. Shipped without it." },
+                { icon: Smartphone, text: "For mobile, I proposed converting one of the task panels into a dropdown instead of a collapsed list — better for thumb reach and less jarring on small viewports. Made it in." },
+              ].map(({ icon: Icon, text }, i) => (
                 <motion.li
                   key={i}
                   initial={{ opacity: 0, x: -12 }}
@@ -136,8 +137,13 @@ export function IntuitCaseStudy() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: "var(--accent-color)" }} />
-                  <p className="text-foreground-secondary leading-relaxed">{item}</p>
+                  <span
+                    className="flex-shrink-0 flex items-center justify-center h-9 w-9 rounded-lg"
+                    style={{ backgroundColor: "var(--accent-color-muted)", color: "var(--accent-color)" }}
+                  >
+                    <Icon className="h-[18px] w-[18px]" />
+                  </span>
+                  <p className="text-foreground-secondary leading-relaxed pt-1.5">{text}</p>
                 </motion.li>
               ))}
             </ul>
