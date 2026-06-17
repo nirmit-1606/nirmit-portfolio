@@ -9,7 +9,7 @@ const A = ({ children }: { children: ReactNode }) => (
 
 /** Primary-colored keyword — use inside secondary (text-foreground-secondary) paragraphs. */
 const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-foreground font-medium">{children}</span>
+  <span className="text-foreground font-semibold">{children}</span>
 );
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
