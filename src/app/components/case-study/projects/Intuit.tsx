@@ -66,11 +66,30 @@ export function IntuitCaseStudy() {
               and entry points to reach it from the homepage and tasks panel — all within a
               micro-frontend architecture, shipped under a feature flag.
             </p>
-            <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-3xl mt-6">
-              IES is built as a micro-frontend with multiple independent plugins. The homepage, the
-              tasks panel, and our new setup page each live in separate plugins. Work that seems
-              simple often requires coordinating across two or three teams.
+          </motion.div>
+        </CaseStudySection>
+
+        {/* Architecture context */}
+        <Separator />
+        <CaseStudySection>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
+            <SectionLabel>Architecture context</SectionLabel>
+            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl mb-8">
+              IES is built as a micro-frontend with multiple independent plugins. Nothing here is a
+              single monolith — the homepage, the tasks panel, and our new setup page each live in
+              separate plugins. Work that seems simple often requires coordinating across two or
+              three teams.
             </p>
+            <TechChips items={[
+              "React",
+              "TypeScript",
+              "Styled Components",
+              "Zustand",
+              "GraphQL",
+              "Playwright",
+              "Jest",
+              "Splunk",
+            ]} />
           </motion.div>
         </CaseStudySection>
 
@@ -89,22 +108,6 @@ export function IntuitCaseStudy() {
             { title: "Cross-plugin entry points", description: "Contributed to other teams' plugins to surface the setup page from the homepage and tasks panel, coordinating across micro-frontend boundaries." },
             { title: "Resilient states", description: "Conditional rendering for API failures and empty states, so users always see something useful rather than a broken or blank surface." },
           ]} />
-
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-12">
-            <p className="text-xs tracking-wider uppercase text-foreground-secondary-2 mb-4">
-              Built with
-            </p>
-            <TechChips items={[
-              "React",
-              "TypeScript",
-              "Styled Components",
-              "Zustand",
-              "GraphQL",
-              "Playwright",
-              "Jest",
-              "Splunk",
-            ]} />
-          </motion.div>
         </CaseStudySection>
 
         {/* Screenshots */}
