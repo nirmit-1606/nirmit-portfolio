@@ -58,13 +58,20 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The challenge</SectionLabel>
+            <blockquote
+              className="border-l-2 pl-5 mb-8 max-w-3xl"
+              style={{ borderColor: "var(--accent-color)" }}
+            >
+              <p className="text-lg sm:text-xl text-foreground-secondary leading-relaxed italic">
+                New users had no clear starting point, no visible progress, and no path to getting
+                their business set up. A construction firm and a non-profit need completely different
+                setup flows — neither was getting either.
+              </p>
+            </blockquote>
             <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl">
-              New users had no clear starting point, no visible progress, and no path to getting
-              their business set up. A construction firm and a non-profit need completely different
-              setup flows — neither was getting either. My job was to build that experience: a
-              dedicated setup tasks page, a personalized flow based on the user's industry vertical,
-              and entry points to reach it from the homepage and tasks panel — all within a
-              micro-frontend architecture, shipped under a feature flag.
+              My job was to build that experience: a dedicated setup tasks page, a personalized flow
+              based on the user's industry vertical, and entry points to reach it from the homepage
+              and tasks panel — all within a micro-frontend architecture, shipped under a feature flag.
             </p>
           </motion.div>
         </CaseStudySection>
