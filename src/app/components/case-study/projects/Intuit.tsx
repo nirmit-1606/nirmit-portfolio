@@ -4,6 +4,7 @@ import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
 import { CaseStudySection, SectionLabel } from "../primitives/Section";
 import { HighlightCards } from "../primitives/HighlightCards";
+import { TechChips } from "../primitives/TechChips";
 import { MetricsGrid } from "../primitives/MetricsGrid";
 import { ScreenshotGrid } from "../primitives/ScreenshotGrid";
 import { NextProject } from "../primitives/NextProject";
@@ -87,6 +88,22 @@ export function IntuitCaseStudy() {
             { title: "Cross-plugin entry points", description: "Contributed to other teams' plugins to surface the setup page from the homepage and tasks panel, coordinating across micro-frontend boundaries." },
             { title: "Resilient states", description: "Conditional rendering for API failures and empty states, so users always see something useful rather than a broken or blank surface." },
           ]} />
+
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-12">
+            <p className="text-xs tracking-wider uppercase text-foreground-secondary-2 mb-4">
+              Built with
+            </p>
+            <TechChips items={[
+              "React",
+              "TypeScript",
+              "Styled Components",
+              "Zustand",
+              "GraphQL",
+              "Playwright",
+              "Jest",
+              "Splunk",
+            ]} />
+          </motion.div>
         </CaseStudySection>
 
         {/* Screenshots */}
