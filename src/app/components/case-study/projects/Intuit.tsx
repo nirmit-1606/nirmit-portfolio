@@ -49,14 +49,14 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The product</SectionLabel>
-            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl">
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               Intuit Enterprise Suite (IES) is a <A>cloud-based ERP</A> built for <A>mid-market businesses</A> —
               multi-entity firms, construction companies, healthcare orgs, and non-profits that have
               outgrown <A>QuickBooks Online</A>. It consolidates financials across entities, handles
               intercompany journal entries, native payroll, HR, and bill pay, with industry-specific
               modules layered on top.
             </p>
-            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl mt-4">
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
               When a business creates a new IES account or upgrades from QBO, they land in a product
               with significantly more power and complexity than anything they've used before. There
               was <A>no onboarding experience</A> to guide them through it.
@@ -73,13 +73,13 @@ export function IntuitCaseStudy() {
               className="border-l-2 pl-5 mb-8 max-w-3xl"
               style={{ borderColor: "var(--accent-color)" }}
             >
-              <p className="text-lg sm:text-xl text-foreground-secondary leading-relaxed italic">
+              <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
                 New users had <P>no clear starting point</P>, <P>no visible progress</P>, and <P>no path</P> to getting
                 their business set up. A construction firm and a non-profit need completely different
                 setup flows — neither was getting either.
               </p>
             </blockquote>
-            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl">
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               My job was to build that experience: a dedicated <A>setup tasks page</A>, a personalized flow
               based on the user's <A>industry vertical</A>, and entry points to reach it from the homepage
               and tasks panel — all within a <A>micro-frontend architecture</A>, shipped under a <A>feature flag</A>.
@@ -92,7 +92,7 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Architecture context</SectionLabel>
-            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl mb-8">
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
               IES is built as a <A>micro-frontend</A> with multiple <A>independent plugins</A>. Nothing here is a
               single monolith — the homepage, the tasks panel, and our new setup page each live in
               separate plugins. Work that seems simple often requires <A>coordinating across two or
@@ -116,7 +116,7 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>What I built</SectionLabel>
-            <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-2xl">
               <P>Four interconnected pieces</P>, each solving a distinct part of the <P>onboarding gap</P>.
             </p>
           </motion.div>
@@ -141,7 +141,7 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Design input</SectionLabel>
-            <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-2xl mb-8">
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-2xl mb-8">
               Figma designs were provided by our designer, but <A>engineers had input</A> on component
               behaviour and layout. A couple of things I pushed on:
             </p>
@@ -176,7 +176,7 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>How it shipped</SectionLabel>
-            <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-2xl">
               The feature launched behind a <P>feature flag</P> — first to a non-production environment as
               an <P>MVP</P>, then rolled out rapidly to new IES account creation. Onboarding is only ever
               seen by new users, so we could move fast. Post-launch I monitored <P>Splunk</P> logs to catch
