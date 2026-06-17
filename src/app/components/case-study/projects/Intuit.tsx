@@ -1,5 +1,16 @@
 import { motion } from "motion/react";
 import { Sparkles, Smartphone } from "lucide-react";
+import type { ReactNode } from "react";
+
+/** Accent-colored keyword — use inside primary (text-foreground) paragraphs. */
+const A = ({ children }: { children: ReactNode }) => (
+  <span style={{ color: "var(--accent-color)" }} className="font-medium">{children}</span>
+);
+
+/** Primary-colored keyword — use inside secondary (text-foreground-secondary) paragraphs. */
+const P = ({ children }: { children: ReactNode }) => (
+  <span className="text-foreground font-medium">{children}</span>
+);
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
@@ -39,16 +50,16 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The product</SectionLabel>
             <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl">
-              Intuit Enterprise Suite (IES) is a cloud-based ERP built for mid-market businesses —
+              Intuit Enterprise Suite (IES) is a <A>cloud-based ERP</A> built for <A>mid-market businesses</A> —
               multi-entity firms, construction companies, healthcare orgs, and non-profits that have
-              outgrown QuickBooks Online. It consolidates financials across entities, handles
+              outgrown <A>QuickBooks Online</A>. It consolidates financials across entities, handles
               intercompany journal entries, native payroll, HR, and bill pay, with industry-specific
               modules layered on top.
             </p>
             <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl mt-4">
               When a business creates a new IES account or upgrades from QBO, they land in a product
               with significantly more power and complexity than anything they've used before. There
-              was no onboarding experience to guide them through it.
+              was <A>no onboarding experience</A> to guide them through it.
             </p>
           </motion.div>
         </CaseStudySection>
@@ -63,15 +74,15 @@ export function IntuitCaseStudy() {
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-lg sm:text-xl text-foreground-secondary leading-relaxed italic">
-                New users had no clear starting point, no visible progress, and no path to getting
+                New users had <P>no clear starting point</P>, <P>no visible progress</P>, and <P>no path</P> to getting
                 their business set up. A construction firm and a non-profit need completely different
                 setup flows — neither was getting either.
               </p>
             </blockquote>
             <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl">
-              My job was to build that experience: a dedicated setup tasks page, a personalized flow
-              based on the user's industry vertical, and entry points to reach it from the homepage
-              and tasks panel — all within a micro-frontend architecture, shipped under a feature flag.
+              My job was to build that experience: a dedicated <A>setup tasks page</A>, a personalized flow
+              based on the user's <A>industry vertical</A>, and entry points to reach it from the homepage
+              and tasks panel — all within a <A>micro-frontend architecture</A>, shipped under a <A>feature flag</A>.
             </p>
           </motion.div>
         </CaseStudySection>
@@ -82,10 +93,10 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Architecture context</SectionLabel>
             <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-3xl mb-8">
-              IES is built as a micro-frontend with multiple independent plugins. Nothing here is a
+              IES is built as a <A>micro-frontend</A> with multiple <A>independent plugins</A>. Nothing here is a
               single monolith — the homepage, the tasks panel, and our new setup page each live in
-              separate plugins. Work that seems simple often requires coordinating across two or
-              three teams.
+              separate plugins. Work that seems simple often requires <A>coordinating across two or
+              three teams</A>.
             </p>
             <TechChips items={[
               "React",
@@ -106,7 +117,7 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>What I built</SectionLabel>
             <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl">
-              Four interconnected pieces, each solving a distinct part of the onboarding gap.
+              <P>Four interconnected pieces</P>, each solving a distinct part of the <P>onboarding gap</P>.
             </p>
           </motion.div>
           <HighlightCards items={[
@@ -131,13 +142,13 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Design input</SectionLabel>
             <p className="text-base sm:text-lg text-foreground leading-relaxed max-w-2xl mb-8">
-              Figma designs were provided by our designer, but engineers had input on component
+              Figma designs were provided by our designer, but <A>engineers had input</A> on component
               behaviour and layout. A couple of things I pushed on:
             </p>
             <ul className="space-y-5 max-w-3xl">
               {[
-                { icon: Sparkles, text: "The design showed a “completed” text label on finished tasks. I suggested removing it — the component already communicated completion visually, and the label created unnecessary noise. Shipped without it." },
-                { icon: Smartphone, text: "For mobile, I proposed converting one of the task panels into a dropdown instead of a collapsed list — better for thumb reach and less jarring on small viewports. Made it in." },
+                { icon: Sparkles, text: <>The design showed a <P>”completed”</P> text label on finished tasks. I suggested removing it — the component already communicated completion visually, and the label created <P>unnecessary noise</P>. Shipped without it.</> },
+                { icon: Smartphone, text: <>For mobile, I proposed converting one of the task panels into a <P>dropdown</P> instead of a collapsed list — better for <P>thumb reach</P> and less jarring on small viewports. Made it in.</> },
               ].map(({ icon: Icon, text }, i) => (
                 <motion.li
                   key={i}
@@ -166,11 +177,11 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>How it shipped</SectionLabel>
             <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl">
-              The feature launched behind a feature flag — first to a non-production environment as
-              an MVP, then rolled out rapidly to new IES account creation. Onboarding is only ever
-              seen by new users, so we could move fast. Post-launch I monitored Splunk logs to catch
+              The feature launched behind a <P>feature flag</P> — first to a non-production environment as
+              an <P>MVP</P>, then rolled out rapidly to new IES account creation. Onboarding is only ever
+              seen by new users, so we could move fast. Post-launch I monitored <P>Splunk</P> logs to catch
               errors in real time, debugged issues, and deployed fixes. A cleanup pass followed the
-              MVP: tighter styles, improved mobile responsiveness, and a refactor for performance
+              MVP: tighter styles, improved <P>mobile responsiveness</P>, and a <P>refactor for performance</P>
               using reducers, optimised loops, and cleaner component structure.
             </p>
           </motion.div>
