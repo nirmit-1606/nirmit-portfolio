@@ -16,10 +16,10 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "1": {
     id: "1",
     title: "Intuit Enterprise Suite",
-    subtitle: "Enhancing the onboarding user experience for a complex financial software platform",
-    role: "Frontend Researcher & Developer",
-    tools: ["React", "Tailwind CSS", "GraphQL", "Jest"],
-    timeline: "10 weeks",
+    subtitle: "Designing and building the first-run onboarding experience for a cloud ERP platform serving mid-market and multi-entity businesses",
+    role: "Frontend Engineer",
+    tools: ["React", "TypeScript", "Zustand", "GraphQL"],
+    timeline: "Dec 2024 – Present",
     featured: true,
     images: {
       hero: "https://images.unsplash.com/photo-1613274554329-70f997f5789f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwaW50ZXJpb3IlMjBtb2Rlcm58ZW58MXx8fHwxNzcwMTU4NzE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
