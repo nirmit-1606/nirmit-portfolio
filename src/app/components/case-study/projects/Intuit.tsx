@@ -3,7 +3,7 @@ import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
 import { CaseStudySection, SectionLabel } from "../primitives/Section";
-import { HighlightList } from "../primitives/HighlightList";
+import { HighlightCards } from "../primitives/HighlightCards";
 import { MetricsGrid } from "../primitives/MetricsGrid";
 import { ScreenshotGrid } from "../primitives/ScreenshotGrid";
 import { NextProject } from "../primitives/NextProject";
@@ -74,18 +74,18 @@ export function IntuitCaseStudy() {
 
         {/* What I built */}
         <Separator />
-        <CaseStudySection tinted>
+        <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>What I built</SectionLabel>
             <p className="text-base sm:text-lg text-foreground-secondary leading-relaxed max-w-2xl">
               Four interconnected pieces, each solving a distinct part of the onboarding gap.
             </p>
           </motion.div>
-          <HighlightList items={[
-            "Setup tasks page — Built from scratch: GraphQL API, Zustand state, and conditional rendering based on account state and vertical.",
-            "Vertical personalization — Construction users see job costing and AIA invoicing tasks. Healthcare, non-profits, and field services each get their own relevant setup paths.",
-            "Cross-plugin entry points — Contributed to other teams' plugins to surface the setup page from the homepage and tasks panel, coordinating across micro-frontend boundaries.",
-            "Resilient states — Conditional rendering for API failures and empty states, so users always see something useful rather than a broken or blank surface.",
+          <HighlightCards items={[
+            { title: "Setup tasks page", description: "Built from scratch: GraphQL API, Zustand state, and conditional rendering based on account state and vertical." },
+            { title: "Vertical personalization", description: "Construction users see job costing and AIA invoicing tasks. Healthcare, non-profits, and field services each get their own relevant setup paths." },
+            { title: "Cross-plugin entry points", description: "Contributed to other teams' plugins to surface the setup page from the homepage and tasks panel, coordinating across micro-frontend boundaries." },
+            { title: "Resilient states", description: "Conditional rendering for API failures and empty states, so users always see something useful rather than a broken or blank surface." },
           ]} />
         </CaseStudySection>
 
