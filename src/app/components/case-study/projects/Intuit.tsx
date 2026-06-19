@@ -187,7 +187,7 @@ export function IntuitCaseStudy() {
           </motion.div>
           <MetricsGrid metrics={[
             { value: "5+",   label: "Industry verticals supported" },
-            { value: "2",    label: "Entry points to the setup page" },
+            { value: "7+",   label: "Plugins contributed to across teams" },
             { value: "Live", label: "Serving new customers · ongoing" },
           ]} />
         </CaseStudySection>
