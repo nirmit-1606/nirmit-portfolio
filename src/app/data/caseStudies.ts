@@ -30,9 +30,9 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "2": {
     id: "2",
     title: "Deccan House",
-    subtitle: "Rebranding and website redesign for a new Indian restaurant in the heart of the city",
-    role: "UX/UI Designer & Developer",
-    tools: ["Figma", "JavaScript", "Eleventy", "Netlify"],
+    subtitle: "Designing, building, and handing off a full restaurant website — including a custom admin tool the client never asked for, but needed.",
+    role: "Designer & Developer",
+    tools: ["Figma", "Eleventy", "Supabase", "JavaScript", "Netlify"],
     timeline: "12 weeks",
     featured: true,
     images: {
