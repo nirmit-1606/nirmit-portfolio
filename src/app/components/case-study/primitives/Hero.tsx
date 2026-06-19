@@ -11,6 +11,7 @@ interface CaseStudyHeroProps {
   timeline: string;
   tools: string[];
   heroImage: string;
+  heroBg?: string;
 }
 
 /**
@@ -18,7 +19,7 @@ interface CaseStudyHeroProps {
  * Renders its own max-w-4xl container for the header;
  * sibling sections in the project page use a separate max-w-4xl wrapper.
  */
-export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage, heroBg }: CaseStudyHeroProps) {
   return (
     <>
       {/* Breadcrumb — mobile only */}
@@ -38,11 +39,12 @@ export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImag
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7, ease: EASE }}
         className="aspect-[16/4] overflow-hidden bg-secondary w-full"
+        style={heroBg ? { backgroundColor: heroBg } : undefined}
       >
         <ImageWithFallback
           src={heroImage}
           alt={title}
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${heroBg ? "object-contain" : "object-cover"}`}
         />
       </motion.div>
 

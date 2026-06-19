@@ -269,11 +269,14 @@ export function Homepage() {
                 </span>
 
                 {/* Image */}
-                <div className="relative aspect-[1200/627] overflow-hidden rounded-lg mb-5 z-10">
+                <div
+                  className="relative aspect-[1200/627] overflow-hidden rounded-lg mb-5 z-10"
+                  style={study.images.heroBg ? { backgroundColor: study.images.heroBg } : undefined}
+                >
                   <ImageWithFallback
                     src={study.images.hero}
                     alt={study.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    className={`w-full h-full transition-transform duration-700 group-hover:scale-[1.05] ${study.images.heroBg ? "object-contain" : "object-cover"}`}
                   />
                   {/* Accent overlay on hover */}
                   <div

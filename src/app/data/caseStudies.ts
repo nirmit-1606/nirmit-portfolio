@@ -1,4 +1,5 @@
 import intuitHero from "../../assets/intuit_enterprise_suite.png";
+import deccanHouseHero from "../../assets/deccan_house_mockup.png";
 
 /** Listing metadata — used by Work page, Homepage cards, and the sidebar. */
 export interface CaseStudyMeta {
@@ -11,6 +12,8 @@ export interface CaseStudyMeta {
   featured?: boolean;
   images: {
     hero: string;
+    /** Optional background color for images that should not be cropped (e.g. mockups on transparent bg). */
+    heroBg?: string;
   };
 }
 
@@ -36,7 +39,8 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     timeline: "12 weeks",
     featured: true,
     images: {
-      hero: "https://images.unsplash.com/photo-1649442746245-f51f4b76963f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwd2Vic2l0ZSUyMG1vY2t1cHxlbnwxfHx8fDE3NzAxODgwNDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      hero: deccanHouseHero,
+      heroBg: "#6b7621bb",
     },
   },
   "3": {

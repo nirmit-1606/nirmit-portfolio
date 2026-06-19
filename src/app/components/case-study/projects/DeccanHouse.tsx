@@ -39,6 +39,7 @@ export function DeccanHouseCaseStudy() {
         timeline={META.timeline}
         tools={META.tools}
         heroImage={META.images.hero}
+        heroBg={META.images.heroBg}
       />
 
       <div className="max-w-4xl mx-auto">
