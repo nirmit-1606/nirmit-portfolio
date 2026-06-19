@@ -40,7 +40,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     featured: true,
     images: {
       hero: deccanHouseHero,
-      heroBg: "#6b7621bb",
+      heroBg: "#5e671d",
     },
   },
   "3": {
@@ -50,7 +50,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     role: "UI/UX Designer & Frontend Developer",
     tools: ["Figma", "React", "Tailwind CSS", "GraphQL"],
     timeline: "24 weeks",
-    featured: true,
+    featured: false,
     images: {
       hero: "https://images.unsplash.com/photo-1504812533430-d76f0058aff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzaG9wJTIwd2Vic2l0ZXxlbnwxfHx8fDE3NzAxODgwNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     },
