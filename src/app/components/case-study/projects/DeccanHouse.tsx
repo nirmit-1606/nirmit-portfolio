@@ -61,7 +61,7 @@ export function DeccanHouseCaseStudy() {
               a menu that's easy to browse on a phone.
             </p>
             <blockquote
-              className="border-l-2 pl-5 mt-6 max-w-3xl"
+              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mt-6 max-w-3xl"
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
@@ -84,7 +84,7 @@ export function DeccanHouseCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Why I moved off WordPress</SectionLabel>
             <blockquote
-              className="border-l-2 pl-5 mb-6 max-w-3xl"
+              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mb-6 max-w-3xl"
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
@@ -135,11 +135,11 @@ export function DeccanHouseCaseStudy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex gap-6"
+                className="flex gap-6 group"
               >
                 <span
-                  className="flex-shrink-0 text-3xl font-bold leading-none mt-0.5 tabular-nums"
-                  style={{ color: "var(--accent-color)", opacity: 0.4 }}
+                  className="flex-shrink-0 text-3xl font-bold leading-none mt-0.5 tabular-nums opacity-40 group-hover:opacity-100 group-hover:scale-125 origin-left transition-all duration-200"
+                  style={{ color: "var(--accent-color)" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -228,9 +228,6 @@ export function DeccanHouseCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>Bugs I caught after launch</SectionLabel>
-            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-2xl">
-              Two <P>edge cases</P> that only showed up once real data was in.
-            </p>
           </motion.div>
           <BugCards items={[
             {

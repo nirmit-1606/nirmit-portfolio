@@ -70,7 +70,7 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The challenge</SectionLabel>
             <blockquote
-              className="border-l-2 pl-5 mb-8 max-w-3xl"
+              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mb-8 max-w-3xl"
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
