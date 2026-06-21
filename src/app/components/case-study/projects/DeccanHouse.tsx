@@ -8,9 +8,21 @@ import { CaseStudySection, SectionLabel } from "../primitives/Section";
 import { HighlightCards } from "../primitives/HighlightCards";
 import { TechChips } from "../primitives/TechChips";
 import { BugCards } from "../primitives/BugCards";
-import { ScreenshotGrid } from "../primitives/ScreenshotGrid";
 import { NextProject } from "../primitives/NextProject";
-import { fadeUp } from "../animations";
+import { fadeUp, EASE } from "../animations";
+
+// ─── Assets ──────────────────────────────────────────────────────────────────
+import desktopHomeV0    from "../../../../assets/deccan_house/desktop_home_v0.png";
+import desktopMenuV0    from "../../../../assets/deccan_house/desktop_menu_v0.png";
+import desktopWireframe from "../../../../assets/deccan_house/desktop_home_wireframe.png";
+import desktopHomeV2    from "../../../../assets/deccan_house/desktop_home_v2.png";
+import mobileMenuV1     from "../../../../assets/deccan_house/mobile_menu_v1.png";
+import mobileMenuV2     from "../../../../assets/deccan_house/mobile_menu_v2.png";
+import mobileMenuV21    from "../../../../assets/deccan_house/mobile_menu_v2_1.png";
+import desktopMenuV3    from "../../../../assets/deccan_house/desktop_menu_v3.png";
+import mobileMenuV3     from "../../../../assets/deccan_house/mobile_menu_v3.png";
+
+// ─── Keyword helpers ──────────────────────────────────────────────────────────
 
 /** Accent-colored keyword — use inside primary (text-foreground) paragraphs. */
 const A = ({ children }: { children: ReactNode }) => (
@@ -22,9 +34,68 @@ const P = ({ children }: { children: ReactNode }) => (
   <span className="text-foreground font-semibold">{children}</span>
 );
 
-const META = getCaseStudyById("2")!;
+// ─── Screenshot helpers ───────────────────────────────────────────────────────
 
-const SCREENSHOTS: { src: string; alt: string }[] = [];
+/** Tall desktop screenshot cropped to a fixed height with a bottom fade.
+ *  Pass natural=true for wide/short images to render at full natural height with no cropping. */
+function FadedDesktopShot({
+  src, alt, caption,
+  height = "h-[680px]",
+  natural = false,
+}: {
+  src: string; alt: string; caption?: string;
+  height?: string;
+  natural?: boolean;
+}) {
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: EASE }}
+      className="flex flex-col gap-2"
+    >
+      {natural ? (
+        <img src={src} alt={alt} className="w-full h-auto rounded-xl" />
+      ) : (
+        <div className={`relative overflow-hidden rounded-xl ${height}`}>
+          <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
+          <div
+            className="absolute bottom-0 inset-x-0 h-36 pointer-events-none"
+            style={{ background: "linear-gradient(to top, var(--background), transparent)" }}
+          />
+        </div>
+      )}
+      {caption && (
+        <figcaption className="text-xs text-foreground-secondary-2 text-center">{caption}</figcaption>
+      )}
+    </motion.figure>
+  );
+}
+
+/** Mobile screenshot at a natural portrait size. */
+function MobileShot({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: EASE }}
+      className="flex flex-col gap-2 items-center"
+    >
+      <div className="overflow-hidden rounded-xl w-[180px] sm:w-[200px] aspect-[428/926]">
+        <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
+      </div>
+      {caption && (
+        <figcaption className="text-xs text-foreground-secondary-2 text-center w-[180px] sm:w-[200px]">{caption}</figcaption>
+      )}
+    </motion.figure>
+  );
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+const META = getCaseStudyById("2")!;
 
 export function DeccanHouseCaseStudy() {
   const all = getAllCaseStudies();
@@ -77,6 +148,12 @@ export function DeccanHouseCaseStudy() {
               signed off, I moved to build.
             </p>
           </motion.div>
+
+          {/* Before screenshots */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
+            <FadedDesktopShot src={desktopHomeV0} alt="Original WordPress home page" caption="Home — WordPress" />
+            <FadedDesktopShot src={desktopMenuV0} alt="Original WordPress menu page" caption="Menu — WordPress" natural />
+          </div>
         </CaseStudySection>
 
         {/* Why I moved off WordPress */}
@@ -107,6 +184,12 @@ export function DeccanHouseCaseStudy() {
               "Netlify",
             ]} />
           </motion.div>
+
+          {/* Wireframe → delivered */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
+            <FadedDesktopShot src={desktopWireframe} alt="Home page wireframe" caption="Wireframe" />
+            <FadedDesktopShot src={desktopHomeV2}    alt="Delivered home page" caption="Delivered" />
+          </div>
         </CaseStudySection>
 
         {/* The menu kept changing */}
@@ -159,7 +242,7 @@ export function DeccanHouseCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>Menu UX, twice</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-2xl">
-              The menu page went through <P>two real iterations</P> as the restaurant's category count grew. The categories started as individual buttons — fine at five categories, cluttered once Deccan House's full menu was in.
+              The menu page went through <P>two real iterations</P> as the restaurant's category count grew.
             </p>
           </motion.div>
           <HighlightCards items={[
@@ -174,6 +257,27 @@ export function DeccanHouseCaseStudy() {
               description: "As I modernised the site further, moved to a horizontally scrolling category list with a more current menu item layout — what's live today.",
             },
           ]} />
+
+          {/* First pass screenshots */}
+          <div className="mt-10">
+            <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">First pass</p>
+            <div className="flex gap-4 flex-wrap">
+              <MobileShot src={mobileMenuV1}  alt="Category chips — original layout" caption="Category chips" />
+              <MobileShot src={mobileMenuV2}  alt="Dropdown — closed"                caption="Dropdown (closed)" />
+              <MobileShot src={mobileMenuV21} alt="Dropdown — open"                  caption="Dropdown (open)" />
+            </div>
+          </div>
+
+          {/* Later pass screenshots */}
+          <div className="mt-10">
+            <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">Later pass</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <FadedDesktopShot src={desktopMenuV3} alt="Desktop menu with scrolling tab list" caption="Desktop" height="h-[420px]" />
+              <div className="flex justify-start sm:justify-center items-start">
+                <MobileShot src={mobileMenuV3} alt="Mobile menu with scrolling tab list" caption="Mobile" />
+              </div>
+            </div>
+          </div>
         </CaseStudySection>
 
         {/* The part nobody asked for */}
@@ -241,14 +345,6 @@ export function DeccanHouseCaseStudy() {
             },
           ]} />
         </CaseStudySection>
-
-        {/* Screenshots */}
-        {SCREENSHOTS.length > 0 && (
-          <>
-            <Separator />
-            <ScreenshotGrid screenshots={SCREENSHOTS} />
-          </>
-        )}
 
         {/* Outcome */}
         <Separator />
