@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { Lightbulb } from "lucide-react";
 import type { ReactNode } from "react";
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
@@ -314,6 +313,10 @@ export function DeccanHouseCaseStudy() {
                 title: "Migrated to Supabase",
                 description: "Moved the menu data to a proper Postgres database with Supabase, giving the site a real data layer it could query directly instead of syncing from a workspace tool.",
               },
+              {
+                title: "Built the admin portal",
+                description: "The migration to Supabase made a client-facing UI possible. I built a protected admin portal on the same site — so the client could manage items and prices directly, without touching a database or calling me.",
+              },
             ].map(({ title, description }, i) => (
               <motion.li
                 key={i}
@@ -446,70 +449,17 @@ export function DeccanHouseCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The part nobody asked for</SectionLabel>
-            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
-              Every menu update meant me opening Supabase directly and editing rows by hand — for the
-              client, it meant emailing or calling me every time a price changed or a dish came off
-              the menu. Neither of us asked for this to be automated. I built it anyway, because I could see
-              exactly <A>where the friction was</A>.
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-6">
+              While Notion was the data source, every menu change meant me going back into the database
+              manually, then redeploying. When I moved to Supabase, I used that moment to also build a
+              <A> lightweight admin portal</A> — a protected route on the same site — so the client
+              could manage items and prices themselves. The backend migration and the portal were the
+              same decision: <A>stop being the bottleneck</A>.
             </p>
-            <div className="flex items-center gap-4 mb-12 max-w-3xl">
-              <span
-                className="flex-shrink-0 flex items-center justify-center h-9 w-9 rounded-lg"
-                style={{ backgroundColor: "var(--accent-color-muted)", color: "var(--accent-color)" }}
-              >
-                <Lightbulb className="h-[18px] w-[18px]" />
-              </span>
-              <p className="text-sm sm:text-base text-foreground leading-relaxed">
-                I designed and built an <A>admin portal</A> — a protected route on the same site —
-                so the client could manage their own menu without touching a database or calling me.
-              </p>
-            </div>
           </motion.div>
-          <HighlightCards items={[
-            {
-              label: "Items & categories",
-              title: "Full CRUD",
-              description: "Create, edit, and delete menu items and categories, with category filtering to find items fast.",
-            },
-            {
-              label: "Smart defaults",
-              title: "Pre-populated category",
-              description: "Adding an item while filtered to a category pre-fills that field — one less thing to fill in every time.",
-            },
-            {
-              label: "Soft hide",
-              title: "Item visibility toggle",
-              description: "Items can be hidden from the live menu temporarily — for out-of-stock dishes — without deleting the record.",
-            },
-            {
-              label: "Batched writes",
-              title: "Pending changes before commit",
-              description: "Edits sit in a pending state and commit together, instead of firing a database call per keystroke or field.",
-            },
-          ]} />
-
-          {/* Admin portal screenshot */}
-          <div className="mt-8">
-            <FadedDesktopShot src={adminPortal} alt="Admin portal" caption="Admin portal" natural />
+          <div className="mt-2">
+            <FadedDesktopShot src={adminPortal} alt="Admin portal" natural />
           </div>
-        </CaseStudySection>
-
-        {/* Bugs caught after launch */}
-        <Separator />
-        <CaseStudySection>
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
-            <SectionLabel>Bugs I caught after launch</SectionLabel>
-          </motion.div>
-          <BugCards items={[
-            {
-              edgeCase: "Deleting a category left its menu items orphaned — they stayed in the database with no valid category, which showed up as items sorting strangely on the live menu.",
-              fix: "Traced the sorting issue back to the orphaned records, then handled category deletion to account for items still attached to it.",
-            },
-            {
-              edgeCase: "Opening one of those orphaned items in the admin portal to edit it showed a blank category field — a required field with nothing valid to select.",
-              fix: "Closed the gap so the edit form always has a valid category state, even for items affected by the earlier bug.",
-            },
-          ]} />
         </CaseStudySection>
 
         {/* Outcome */}
@@ -517,12 +467,26 @@ export function DeccanHouseCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Outcome</SectionLabel>
-            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              The client now <P>updates their own menu</P> — no calls, no emails, no waiting on me.
-              The site loads fast, looks like their actual restaurant, and the admin tool turned a
-              recurring piece of freelance maintenance into something they <P>fully own</P>. The portal
-              was the one part of this project nobody asked for, and the part the client mentioned
-              first when they said thank you.
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-6">
+              The rebuilt site loads fast, looks like the actual restaurant, and gave the client real
+              cost savings on hosting. To take the manual work out of updating the menu, I also built
+              a small admin portal — <P>letting the client edit items and prices themselves</P> instead
+              of emailing me every change.
+            </p>
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-8">
+              That portal worked well enough that when Deccan House opened a second location, Deccan Cafe,
+              I expanded it into a more complete tool — with <P>item visibility controls, batched updates,
+              and fixes for edge cases</P> this first version hadn't hit yet.
+            </p>
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
+              More on that build →{" "}
+              <a
+                href="/case-study/6"
+                className="font-medium transition-colors duration-200 hover:opacity-80"
+                style={{ color: "var(--accent-color)" }}
+              >
+                Deccan Cafe case study
+              </a>
             </p>
           </motion.div>
         </CaseStudySection>
