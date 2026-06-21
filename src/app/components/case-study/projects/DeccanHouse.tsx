@@ -311,11 +311,7 @@ export function DeccanHouseCaseStudy() {
               },
               {
                 title: "Migrated to Supabase",
-                description: "Moved the menu data to a proper Postgres database with Supabase, giving the site a real data layer it could query directly instead of syncing from a workspace tool.",
-              },
-              {
-                title: "Built the admin portal",
-                description: "The migration to Supabase made a client-facing UI possible. I built a protected admin portal on the same site — so the client could manage items and prices directly, without touching a database or calling me.",
+                description: "Moved menu data to Supabase and rebuilt the menu page to read from it at request time. The site had been fully static, so a menu change previously meant a full redeploy. Now any database change shows up on the live site immediately.",
               },
             ].map(({ title, description }, i) => (
               <motion.li
@@ -469,14 +465,14 @@ export function DeccanHouseCaseStudy() {
             <SectionLabel>Outcome</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-6">
               The rebuilt site loads fast, looks like the actual restaurant, and gave the client real
-              cost savings on hosting. To take the manual work out of updating the menu, I also built
-              a small admin portal — <P>letting the client edit items and prices themselves</P> instead
-              of emailing me every change.
+              cost savings on hosting.
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-8">
-              That portal worked well enough that when Deccan House opened a second location, Deccan Cafe,
-              I expanded it into a more complete tool — with <P>item visibility controls, batched updates,
-              and fixes for edge cases</P> this first version hadn't hit yet.
+              Updating the menu still meant me editing the database by hand — something that only became
+              a real problem once I was doing it for a second restaurant too. When Deccan House's second
+              location, Deccan Cafe, launched on the same setup, I built an admin portal to finally
+              <P> take the manual editing out of the picture</P> — then brought that same tool back here,
+              so both restaurants could manage their own menus directly.
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
               More on that build →{" "}

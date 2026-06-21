@@ -33,7 +33,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "2": {
     id: "2",
     title: "Deccan House",
-    subtitle: "Designing, building, and handing off a full restaurant website — including a custom admin tool the client never asked for, but needed.",
+    subtitle: "Migrating a restaurant off WordPress, designing a faster site from scratch, and cutting hosting costs to almost nothing.",
     role: "Designer & Developer",
     tools: ["Figma", "Eleventy", "Supabase", "JavaScript", "Netlify"],
     timeline: "12 weeks",
