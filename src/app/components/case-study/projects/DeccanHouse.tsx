@@ -56,9 +56,11 @@ function FadedDesktopShot({
       className="flex flex-col gap-2"
     >
       {natural ? (
-        <img src={src} alt={alt} className="w-full h-auto rounded-xl" />
+        <div className="overflow-hidden rounded-xl hover:scale-[1.02] transition-transform duration-500">
+          <img src={src} alt={alt} className="w-full h-auto" />
+        </div>
       ) : (
-        <div className={`relative overflow-hidden rounded-xl ${height}`}>
+        <div className={`relative overflow-hidden rounded-xl ${height} hover:scale-[1.02] transition-transform duration-500`}>
           <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
           <div
             className="absolute bottom-0 inset-x-0 h-36 pointer-events-none"
@@ -83,7 +85,7 @@ function MobileShot({ src, alt, caption }: { src: string; alt: string; caption?:
       transition={{ duration: 0.5, ease: EASE }}
       className="flex flex-col gap-2 items-center"
     >
-      <div className="overflow-hidden rounded-xl w-[180px] sm:w-[200px] aspect-[428/926]">
+      <div className="overflow-hidden rounded-xl w-[180px] sm:w-[200px] aspect-[428/926] hover:scale-[1.03] transition-transform duration-500">
         <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
       </div>
       {caption && (
