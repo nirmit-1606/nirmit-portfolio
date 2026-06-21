@@ -43,6 +43,18 @@ const caseStudies: Record<string, CaseStudyMeta> = {
       heroBg: "#5e671d",
     },
   },
+  "6": {
+    id: "6",
+    title: "Deccan Cafe",
+    subtitle: "A second restaurant, a new identity, and the project where one repeated annoyance turned into a real tool.",
+    role: "Designer & Developer",
+    tools: ["Figma", "Eleventy", "Supabase", "JavaScript", "Netlify"],
+    timeline: "8 weeks",
+    featured: false,
+    images: {
+      hero: deccanHouseHero,
+    },
+  },
   "3": {
     id: "3",
     title: "Trademind",
