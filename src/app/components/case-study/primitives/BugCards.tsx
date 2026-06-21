@@ -21,7 +21,7 @@ export function BugCards({ items }: BugCardsProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-          className="p-6 rounded-xl border border-border hover:border-[var(--accent-color)] transition-colors duration-300"
+          className="p-6 rounded-xl border border-border bg-secondary/40 hover:border-[var(--accent-color)] transition-colors duration-300"
         >
           <span className="text-xs font-medium uppercase tracking-widest text-red-500 mb-1.5 block">
             Edge case
