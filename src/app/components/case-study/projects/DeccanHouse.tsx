@@ -21,6 +21,7 @@ import mobileMenuV2     from "../../../../assets/deccan_house/mobile_menu_v2.png
 import mobileMenuV21    from "../../../../assets/deccan_house/mobile_menu_v2_1.png";
 import desktopMenuV3    from "../../../../assets/deccan_house/desktop_menu_v3.png";
 import mobileMenuV3     from "../../../../assets/deccan_house/mobile_menu_v3.png";
+import adminPortal      from "../../../../assets/deccan_house/admin.png";
 
 // ─── Keyword helpers ──────────────────────────────────────────────────────────
 
@@ -36,16 +37,20 @@ const P = ({ children }: { children: ReactNode }) => (
 
 // ─── Screenshot helpers ───────────────────────────────────────────────────────
 
-/** Tall desktop screenshot cropped to a fixed height with a bottom fade.
- *  Pass natural=true for wide/short images to render at full natural height with no cropping. */
+/** Tall desktop screenshot.
+ *  - Default: fixed height, cropped.
+ *  - natural: renders at full proportional height (no crop).
+ *  - scrollable: fixed height with vertical scroll on desktop; cropped on mobile. */
 function FadedDesktopShot({
   src, alt, caption,
-  height = "h-[680px]",
+  height = "h-[480px] sm:h-[680px]",
   natural = false,
+  scrollable = false,
 }: {
   src: string; alt: string; caption?: string;
   height?: string;
   natural?: boolean;
+  scrollable?: boolean;
 }) {
   return (
     <motion.figure
@@ -56,16 +61,25 @@ function FadedDesktopShot({
       className="flex flex-col gap-2"
     >
       {natural ? (
-        <div className="overflow-hidden rounded-xl hover:scale-[1.02] transition-transform duration-500">
+        <div className="overflow-hidden rounded-xl border border-border hover:scale-[1.02] transition-transform duration-500">
           <img src={src} alt={alt} className="w-full h-auto" />
         </div>
-      ) : (
-        <div className={`relative overflow-hidden rounded-xl ${height} hover:scale-[1.02] transition-transform duration-500`}>
-          <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
+      ) : scrollable ? (
+        <div className="rounded-xl border border-border overflow-hidden hover:scale-[1.01] transition-transform duration-500">
           <div
-            className="absolute bottom-0 inset-x-0 h-36 pointer-events-none"
-            style={{ background: "linear-gradient(to top, var(--background), transparent)" }}
-          />
+            className={`overflow-hidden sm:overflow-y-auto ${height}
+              [&::-webkit-scrollbar]:w-1.5
+              [&::-webkit-scrollbar-track]:bg-transparent
+              [&::-webkit-scrollbar-thumb]:rounded-full
+              [&::-webkit-scrollbar-thumb]:bg-[color-mix(in_srgb,var(--muted-foreground)_40%,transparent)]
+              [&::-webkit-scrollbar-thumb:hover]:bg-[color-mix(in_srgb,var(--muted-foreground)_70%,transparent)]`}
+          >
+            <img src={src} alt={alt} className="w-full h-auto" />
+          </div>
+        </div>
+      ) : (
+        <div className={`relative overflow-hidden rounded-xl border border-border ${height} hover:scale-[1.03] transition-transform duration-500`}>
+          <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
         </div>
       )}
       {caption && (
@@ -85,7 +99,7 @@ function MobileShot({ src, alt, caption }: { src: string; alt: string; caption?:
       transition={{ duration: 0.5, ease: EASE }}
       className="flex flex-col gap-2 items-center"
     >
-      <div className="overflow-hidden rounded-xl w-[180px] sm:w-[200px] aspect-[428/926] hover:scale-[1.03] transition-transform duration-500">
+      <div className="overflow-hidden rounded-xl border border-border w-[180px] sm:w-[200px] aspect-[428/926] hover:scale-[1.03] transition-transform duration-500">
         <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
       </div>
       {caption && (
@@ -144,16 +158,11 @@ export function DeccanHouseCaseStudy() {
                 what to order. That's the lens everything downstream got built through.
               </p>
             </blockquote>
-            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
-              I <A>designed in Figma first</A> — building out a real colour system and layout direction
-              from their brand and food photography — before writing a line of code. Once the client
-              signed off, I moved to build.
-            </p>
           </motion.div>
 
           {/* Before screenshots */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
-            <FadedDesktopShot src={desktopHomeV0} alt="Original WordPress home page" caption="Home — WordPress" />
+            <FadedDesktopShot src={desktopHomeV0} alt="Original WordPress home page" caption="Home — WordPress" scrollable />
             <FadedDesktopShot src={desktopMenuV0} alt="Original WordPress menu page" caption="Menu — WordPress" natural />
           </div>
         </CaseStudySection>
@@ -173,10 +182,15 @@ export function DeccanHouseCaseStudy() {
                 solving problems they didn't have.
               </p>
             </blockquote>
-            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               I picked up <A>Eleventy</A> specifically for this project, rebuilt the site in plain HTML,
               CSS, and JS, and shipped something considerably <A>faster than what it replaced</A> — with
               the client's actual food photography and a fully responsive layout.
+            </p>
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4 mb-8">
+              I <A>designed in Figma first</A> — building out a real colour system and layout direction
+              from their brand and food photography — before writing a line of code. Once the client
+              signed off, I moved to build.
             </p>
             <TechChips items={[
               "Eleventy",
@@ -189,8 +203,8 @@ export function DeccanHouseCaseStudy() {
 
           {/* Wireframe → delivered */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
-            <FadedDesktopShot src={desktopWireframe} alt="Home page wireframe" caption="Wireframe" />
-            <FadedDesktopShot src={desktopHomeV2}    alt="Delivered home page" caption="Delivered" />
+            <FadedDesktopShot src={desktopWireframe} alt="Home page wireframe" caption="Wireframe" scrollable />
+            <FadedDesktopShot src={desktopHomeV2}    alt="Delivered home page" caption="Delivered" scrollable />
           </div>
         </CaseStudySection>
 
@@ -263,7 +277,7 @@ export function DeccanHouseCaseStudy() {
           {/* First pass screenshots */}
           <div className="mt-10">
             <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">First pass</p>
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex gap-4 flex-wrap justify-center">
               <MobileShot src={mobileMenuV1}  alt="Category chips — original layout" caption="Category chips" />
               <MobileShot src={mobileMenuV2}  alt="Dropdown — closed"                caption="Dropdown (closed)" />
               <MobileShot src={mobileMenuV21} alt="Dropdown — open"                  caption="Dropdown (open)" />
@@ -273,9 +287,11 @@ export function DeccanHouseCaseStudy() {
           {/* Later pass screenshots */}
           <div className="mt-10">
             <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">Later pass</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <FadedDesktopShot src={desktopMenuV3} alt="Desktop menu with scrolling tab list" caption="Desktop" height="h-[420px]" />
-              <div className="flex justify-start sm:justify-center items-start">
+            <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
+              <div className="flex-1 min-w-0">
+                <FadedDesktopShot src={desktopMenuV3} alt="Desktop menu with scrolling tab list" caption="Desktop" height="h-[480px] sm:h-[433px]" scrollable />
+              </div>
+              <div className="flex-shrink-0 flex justify-center">
                 <MobileShot src={mobileMenuV3} alt="Mobile menu with scrolling tab list" caption="Mobile" />
               </div>
             </div>
@@ -328,6 +344,11 @@ export function DeccanHouseCaseStudy() {
               description: "Edits sit in a pending state and commit together, instead of firing a database call per keystroke or field.",
             },
           ]} />
+
+          {/* Admin portal screenshot */}
+          <div className="mt-8">
+            <FadedDesktopShot src={adminPortal} alt="Admin portal" caption="Admin portal" natural />
+          </div>
         </CaseStudySection>
 
         {/* Bugs caught after launch */}
