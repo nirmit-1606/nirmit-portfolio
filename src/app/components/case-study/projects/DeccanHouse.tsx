@@ -6,6 +6,7 @@ import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
 import { CaseStudySection, SectionLabel } from "../primitives/Section";
 import { HighlightCards } from "../primitives/HighlightCards";
+import { MetricsGrid } from "../primitives/MetricsGrid";
 import { TechChips } from "../primitives/TechChips";
 import { BugCards } from "../primitives/BugCards";
 import { NextProject } from "../primitives/NextProject";
@@ -208,6 +209,91 @@ export function DeccanHouseCaseStudy() {
           </div>
         </CaseStudySection>
 
+        {/* What it used to cost them */}
+        <Separator />
+        <CaseStudySection>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
+            <SectionLabel>What it used to cost them</SectionLabel>
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-8">
+              The WordPress site wasn't just slower and generic-looking — it came with a recurring bill.
+              GoDaddy hosting plus WordPress added a <P>monthly cost on top of the domain</P>, for a
+              five-page restaurant site that didn't need a CMS.
+            </p>
+          </motion.div>
+
+          {/* Before / After cost cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="flex flex-col sm:flex-row items-center gap-4"
+          >
+            {/* Before */}
+            <div className="flex-1 w-full rounded-xl border border-border bg-secondary/40 p-5 hover:border-[var(--accent-color)] transition-colors duration-300">
+              <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-4">
+                Before · GoDaddy + WordPress
+              </p>
+              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                <span className="text-foreground-secondary">Domain (annual)</span>
+                <span className="text-foreground tabular-nums">$15/yr</span>
+              </div>
+              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                <span className="text-foreground-secondary">WordPress hosting</span>
+                <span className="text-foreground tabular-nums">$10/mo</span>
+              </div>
+              <div className="flex justify-between items-center pt-3 border-t border-border text-sm font-semibold">
+                <span className="text-foreground">Per year</span>
+                <span className="text-foreground tabular-nums">~$135/yr</span>
+              </div>
+            </div>
+
+            <div className="text-foreground-secondary-2 text-xl flex-shrink-0 rotate-90 sm:rotate-0">→</div>
+
+            {/* After */}
+            <div className="flex-1 w-full rounded-xl border border-accent-color sm:border-border bg-secondary/40 p-5 hover:border-[var(--accent-color)] transition-colors duration-300">
+              <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-4">
+                After · Eleventy + Netlify
+              </p>
+              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                <span className="text-foreground-secondary">Domain (annual)</span>
+                <span className="text-foreground tabular-nums">$15/yr</span>
+              </div>
+              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                <span className="text-foreground-secondary">Hosting</span>
+                <span className="text-foreground tabular-nums">$0 (free tier)</span>
+              </div>
+              <div className="flex justify-between items-center pt-3 border-t border-border text-sm font-semibold">
+                <span className="text-foreground">Per year</span>
+                <span className="tabular-nums" style={{ color: "var(--accent-color)" }}>~$15/yr</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-6">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-6">
+              Moving to a static site on Eleventy meant there was no CMS to host — and with pages already
+              lightweight and <P>bandwidth optimized</P>, the site comfortably runs within Netlify's free tier.
+              The only recurring cost left is the domain they'd be paying for either way.
+            </p>
+            {/* Savings callout */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: EASE }}
+              className="rounded-xl border border-border bg-secondary/40 hover:border-[var(--accent-color)] transition-colors duration-300 p-6 text-center"
+            >
+              <div className="text-3xl sm:text-4xl font-bold tabular-nums mb-2" style={{ color: "var(--accent-color)" }}>
+                ~$120/yr saved
+              </div>
+              <p className="text-sm text-foreground-secondary">
+                Hosting cost cut to zero — domain is now the only recurring expense
+              </p>
+            </motion.div>
+          </motion.div>
+        </CaseStudySection>
+
         {/* The menu kept changing */}
         <Separator />
         <CaseStudySection>
@@ -296,6 +382,63 @@ export function DeccanHouseCaseStudy() {
               </div>
             </div>
           </div>
+        </CaseStudySection>
+
+        {/* Traffic & performance */}
+        <Separator />
+        <CaseStudySection>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
+            <SectionLabel>Traffic &amp; performance, since launch</SectionLabel>
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-8">
+              Deccan House's site now runs as the restaurant's only menu — <P>these numbers are pulled
+              from real analytics post-launch</P>.
+            </p>
+          </motion.div>
+          <MetricsGrid
+            metrics={[
+              { value: "~800", label: "Page views / day" },
+              { value: "~600", label: "Unique visitors / day" },
+              { value: "~150MB", label: "Bandwidth / day" },
+            ]}
+          />
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-6">
+              That bandwidth number used to be over double. Reviewing server logs after launch, I found
+              the site was <P>serving food photography at a far higher resolution than any screen needed</P>
+              {" "}— so I went back through the image set and resized everything to what the layout
+              actually displays.
+            </p>
+            {/* Before → After */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: EASE }}
+              className="flex items-center gap-6 p-6 rounded-xl border border-border bg-secondary/40 hover:border-[var(--accent-color)] transition-colors duration-300"
+            >
+              <div className="flex-1 text-center">
+                <div className="text-3xl sm:text-4xl font-bold tabular-nums text-foreground-secondary/80 line-through decoration-2">
+                  ~380MB
+                </div>
+                <div className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mt-2">
+                  Daily bandwidth, before
+                </div>
+              </div>
+              <div className="text-foreground-secondary-2 text-xl flex-shrink-0">→</div>
+              <div className="flex-1 text-center">
+                <div className="text-3xl sm:text-4xl font-bold tabular-nums" style={{ color: "var(--accent-color)" }}>
+                  ~150MB
+                </div>
+                <div className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mt-2">
+                  Daily bandwidth, after
+                </div>
+              </div>
+            </motion.div>
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-6">
+              A <A>~60% cut in daily bandwidth</A>, with no visible drop in image quality — and a
+              faster-loading page for the people to view and interact with.
+            </p>
+          </motion.div>
         </CaseStudySection>
 
         {/* The part nobody asked for */}

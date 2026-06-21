@@ -21,7 +21,7 @@ export function MetricsGrid({ metrics }: MetricsGridProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
-          className="p-6 rounded-xl border border-border hover:border-[var(--accent-color)] transition-colors duration-300"
+          className="p-6 rounded-xl border border-border bg-secondary/40 hover:border-[var(--accent-color)] transition-colors duration-300"
         >
           <div
             className="text-3xl sm:text-4xl font-bold mb-2 tabular-nums"
