@@ -132,7 +132,7 @@ export function DeccanCafeCaseStudy() {
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                Neither client asked for this. But editing menu data by hand for a second restaurant,
+                The client didn't ask for this. But editing menu data by hand for a second restaurant,
                 for the same client, was the point where it stopped being a minor inconvenience and
                 started being a problem worth solving properly.
               </p>
@@ -226,7 +226,7 @@ export function DeccanCafeCaseStudy() {
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
               Deccan House and Deccan Cafe each now run their own instance of the same admin portal —
               built because doing the same manual work for the <P>same client's two restaurants</P> made
-              the real problem obvious. Both clients manage their own menus directly. No calls, no emails,
+              the real problem obvious. The client now manages both menus directly. No calls, no emails,
               no waiting on me. Building it the second time, knowing exactly what the first version had
               missed, meant shipping something <P>considerably more complete</P> than if it had been
               planned from the start.
