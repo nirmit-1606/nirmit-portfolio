@@ -10,6 +10,11 @@ import { BugCards } from "../primitives/BugCards";
 import { NextProject } from "../primitives/NextProject";
 import { fadeUp, EASE } from "../animations";
 
+// ─── Assets ──────────────────────────────────────────────────────────────────
+import logoSketch  from "../../../../assets/deccan_cafe/logo-sketch.jpg";
+import logoPeacock from "../../../../assets/deccan_cafe/logo.png";
+import logoFinal   from "../../../../assets/deccan_cafe/logo_text.png";
+
 // ─── Keyword helpers ──────────────────────────────────────────────────────────
 
 /** Accent-colored keyword — use inside primary (text-foreground) paragraphs. */
@@ -59,6 +64,34 @@ export function DeccanCafeCaseStudy() {
               with a fully redesigned colour system for the new brand, and the copy, images, and menu
               swapped for the new concept.
             </p>
+
+            {/* Logo design sequence */}
+            <div className="mt-8">
+              <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">
+                A few rounds of sketching landed on a peacock — a recurring motif in Deccan and Hyderabadi visual identity
+              </p>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { src: logoSketch,  alt: "Logo sketch", caption: "Early exploration — pencil sketches of peacock motifs and Charminar-style arches" },
+                  { src: logoPeacock, alt: "Peacock mark", caption: "Refining the peacock mark on its own, before adding type" },
+                  { src: logoFinal,   alt: "Final logo",   caption: "Final logo, approved by the client" },
+                ].map(({ src, alt, caption }, i) => (
+                  <motion.figure
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                    className="flex flex-col gap-2"
+                  >
+                    <div className={`rounded-xl border border-border overflow-hidden hover:scale-[1.02] transition-transform duration-500 aspect-square flex items-center justify-center bg-white p-4`}>
+                      <img src={src} alt={alt} className={`w-full h-full ${i === 0 ? "object-cover" : "object-contain"}`} />
+                    </div>
+                    <figcaption className="text-xs text-foreground-secondary-2 leading-relaxed">{caption}</figcaption>
+                  </motion.figure>
+                ))}
+              </div>
+            </div>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
               The menu was already in good shape from the Deccan House migration — Supabase-backed and
               server-rendered, so it would reflect database changes without a redeploy. What it still
@@ -103,7 +136,7 @@ export function DeccanCafeCaseStudy() {
             </blockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
               I built a <A>protected admin portal</A> — a separate route on each site, backed by the
-              same Supabase database — so both clients could manage their own menus directly. Once it
+              same Supabase database — so the client could manage both menus directly. Once it
               was working for Deccan Cafe, I brought the same tool back to Deccan House so both
               restaurants had it.
             </p>
