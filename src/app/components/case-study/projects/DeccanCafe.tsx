@@ -73,7 +73,7 @@ export function DeccanCafeCaseStudy() {
               <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">
                 A few rounds of sketching landed on a peacock — a recurring motif in Deccan and Hyderabadi visual identity
               </p>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
                 {[
                   { src: logoSketch,  alt: "Logo sketch", caption: "Early exploration — pencil sketches of peacock motifs and Charminar-style arches" },
                   { src: logoPeacock, alt: "Peacock mark", caption: "Refining the peacock mark on its own, before adding type" },
