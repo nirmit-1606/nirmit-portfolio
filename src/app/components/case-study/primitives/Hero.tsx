@@ -12,6 +12,8 @@ interface CaseStudyHeroProps {
   tools: string[];
   heroImage: string;
   heroBg?: string;
+  /** Optional override for the small accent eyebrow above the title. Defaults to `role`. */
+  eyebrow?: string;
 }
 
 /**
@@ -19,7 +21,7 @@ interface CaseStudyHeroProps {
  * Renders its own max-w-4xl container for the header;
  * sibling sections in the project page use a separate max-w-4xl wrapper.
  */
-export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage, heroBg }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage, heroBg, eyebrow }: CaseStudyHeroProps) {
   return (
     <>
       {/* Breadcrumb — mobile only */}
@@ -53,7 +55,7 @@ export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImag
         <section className="px-6 lg:px-8 pt-10 pb-12">
           <motion.div variants={fadeUp} initial="hidden" animate="visible">
             <p className="text-xs tracking-widest uppercase mb-3" style={{ color: "var(--accent-color)" }}>
-              {role}
+              {eyebrow ?? role}
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-4">
               {title}

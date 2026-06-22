@@ -46,10 +46,10 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "6": {
     id: "6",
     title: "Deccan Cafe",
-    subtitle: "A second restaurant, a new identity, and the project where one repeated annoyance turned into a real tool.",
+    subtitle: "Built to a deadline, then improved by necessity — the site that finally forced the admin tool into existence.",
     role: "Designer & Developer",
     tools: ["Figma", "Eleventy", "Supabase", "JavaScript", "Netlify"],
-    timeline: "8 weeks",
+    timeline: "4 weeks",
     featured: false,
     images: {
       hero: deccanHouseHero,

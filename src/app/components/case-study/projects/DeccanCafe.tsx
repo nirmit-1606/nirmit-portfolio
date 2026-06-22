@@ -40,6 +40,7 @@ export function DeccanCafeCaseStudy() {
         tools={META.tools}
         heroImage={META.images.hero}
         heroBg={META.images.heroBg}
+        eyebrow="Freelance · Designer & Developer · Same client, second restaurant"
       />
 
       <div className="max-w-4xl mx-auto">
@@ -50,16 +51,21 @@ export function DeccanCafeCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>A second location, a different identity</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              When Deccan House opened a second location under the name <A>Deccan Cafe</A>, they needed
-              a site for it. The layout and architecture from the first build were already proven, so I
-              reused the same <A>Eleventy + Supabase foundation</A> — but redesigned the colour system
-              from scratch and created a new logo to give the cafe its own identity, distinct from the
-              original restaurant.
+              Deccan Cafe is the same client's second restaurant — a <A>purely vegetarian South Indian
+              concept</A> with its own coffee-and-café energy, distinct from Deccan House. They needed a
+              site live before opening day. While the space itself was still being finished, I worked
+              with them on designing and finalising the logo. Once that was approved, I built the site
+              in about <A>two weeks</A> — reusing the Eleventy layout and structure from Deccan House,
+              with a fully redesigned colour system for the new brand, and the copy, images, and menu
+              swapped for the new concept.
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
-              The site itself came together quickly because the hard structural decisions had already
-              been made. What this project was really about was the <A>admin portal</A> — the thing that
-              finally got built because doing it for one restaurant had become doing it for two.
+              The menu was already in good shape from the Deccan House migration — Supabase-backed and
+              server-rendered, so it would reflect database changes without a redeploy. What it still
+              didn't have was a way for the client to make those changes themselves. Menu updates still
+              meant me opening the database directly and <A>editing rows by hand</A>. The portal wasn't
+              part of this build — that came two weeks later, once the site was live and the same need
+              resurfaced.
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-6">
               Layout, migration, and the Deccan House build →{" "}
@@ -80,19 +86,19 @@ export function DeccanCafeCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The second time the pain showed up, I fixed it</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-6">
-              Managing the menu for Deccan House meant editing Supabase rows by hand and the client
-              calling or emailing for every change. It was manageable for one restaurant. When Deccan
-              Cafe launched on the same setup, I was doing it for <A>two restaurants simultaneously</A> —
-              and that was the point where it stopped being a minor inconvenience.
+              I'd already felt this exact friction once on Deccan House — but the first time, it was
+              easy to treat as a one-off. Doing the same manual database edits for the same client's
+              second restaurant made the pattern obvious: this wasn't a one-time fluke, it was a
+              <A> gap in how I was building these sites</A>.
             </p>
             <blockquote
               className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mb-8 max-w-3xl"
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                Neither client asked for this. But editing menu data by hand for two restaurants
-                instead of one was the point where it stopped being a minor inconvenience and started
-                being a problem worth solving properly.
+                Neither client asked for this. But editing menu data by hand for a second restaurant,
+                for the same client, was the point where it stopped being a minor inconvenience and
+                started being a problem worth solving properly.
               </p>
             </blockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
@@ -159,10 +165,12 @@ export function DeccanCafeCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Outcome</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              Both restaurants now <P>manage their own menus</P> — no calls, no emails, no waiting on me.
-              The portal started as the thing nobody asked for and became the part both clients use every
-              week. Building it the second time, knowing exactly what the first version had missed, meant
-              shipping something <P>considerably more complete</P> than if it had been planned from the start.
+              Deccan House and Deccan Cafe each now run their own instance of the same admin portal —
+              built because doing the same manual work for the <P>same client's two restaurants</P> made
+              the real problem obvious. Both clients manage their own menus directly. No calls, no emails,
+              no waiting on me. Building it the second time, knowing exactly what the first version had
+              missed, meant shipping something <P>considerably more complete</P> than if it had been
+              planned from the start.
             </p>
           </motion.div>
         </CaseStudySection>
