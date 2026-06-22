@@ -143,7 +143,7 @@ export function DeccanCafeCaseStudy() {
               was working for Deccan Cafe, I brought the same tool back to Deccan House so both
               restaurants had it.
             </p>
-            <TechChips items={["Supabase", "JavaScript", "Protected routes"]} />
+            <TechChips items={["Eleventy", "Supabase", "Postgres", "SQL", "REST API", "JavaScript", "CSS", "Protected routes", "Netlify"]} />
           </motion.div>
         </CaseStudySection>
 
