@@ -54,7 +54,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     featured: false,
     images: {
       hero: deccanCafeHero,
-      heroBg: "#3d4f5ede",
+      heroBg: "#1a5a8ade",
     },
   },
   "3": {
