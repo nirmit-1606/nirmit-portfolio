@@ -1,5 +1,6 @@
 import intuitHero from "../../assets/intuit_enterprise_suite.png";
 import deccanHouseHero from "../../assets/deccan_house_mockup.png";
+import deccanCafeHero from "../../assets/deccan_cafe_mockup.png";
 
 /** Listing metadata — used by Work page, Homepage cards, and the sidebar. */
 export interface CaseStudyMeta {
@@ -52,7 +53,8 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     timeline: "4 weeks",
     featured: false,
     images: {
-      hero: deccanHouseHero,
+      hero: deccanCafeHero,
+      heroBg: "#3d4f5ede",
     },
   },
   "3": {

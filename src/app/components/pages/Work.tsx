@@ -71,7 +71,7 @@ export function Work() {
                   <ImageWithFallback
                     src={study.images.hero}
                     alt={study.title}
-                    className={`w-full h-full transition-transform duration-700 group-hover:scale-[1.04] ${study.images.heroBg ? "object-contain" : "object-cover"}`}
+                    className={`w-full h-full transition-transform duration-700 group-hover:scale-[1.04] object-cover`}
                   />
                 </div>
 
