@@ -17,6 +17,8 @@ import logoFinal        from "../../../../assets/deccan_cafe/logo_text.png";
 import adminFiltered    from "../../../../assets/deccan_cafe/admin_filtered category.png";
 import adminPending     from "../../../../assets/deccan_cafe/admin_pending_edit.png";
 import adminCategories  from "../../../../assets/deccan_cafe/admin_category_tab.png";
+import analyticsRequests from "../../../../assets/deccan_cafe/analytics_web_requests.png";
+import analyticsBandwidth from "../../../../assets/deccan_cafe/analytics_bandwidth.png";
 
 // ─── Keyword helpers ──────────────────────────────────────────────────────────
 
@@ -216,6 +218,44 @@ export function DeccanCafeCaseStudy() {
               fix: "Closed the gap so the edit form always resolves to a valid category state, even for items affected by the earlier bug.",
             },
           ]} />
+        </CaseStudySection>
+
+        {/* Performance after launch */}
+        <Separator />
+        <CaseStudySection>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
+            <SectionLabel>Performance, post-launch</SectionLabel>
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
+              Deccan Cafe launched on <A>April 7</A>. Both restaurants share the same Netlify account,
+              so the charts below show combined usage across both sites.
+            </p>
+            <div className="flex flex-col gap-8">
+              {[
+                {
+                  src: analyticsRequests,
+                  caption: "Web requests — combined account usage increased noticeably after April 7, with customers across both restaurants using the live sites",
+                },
+                {
+                  src: analyticsBandwidth,
+                  caption: "Bandwidth — despite more users and two sites, total bandwidth dropped after the Deccan Cafe build, because the same optimisations were applied to both sites",
+                },
+              ].map(({ src, caption }, i) => (
+                <motion.figure
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                  className="flex flex-col gap-2"
+                >
+                  <div className="rounded-xl border border-border overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                    <img src={src} alt={caption} className="w-full h-auto block" />
+                  </div>
+                  <figcaption className="text-xs text-foreground-secondary-2 leading-relaxed">{caption}</figcaption>
+                </motion.figure>
+              ))}
+            </div>
+          </motion.div>
         </CaseStudySection>
 
         {/* Outcome */}
