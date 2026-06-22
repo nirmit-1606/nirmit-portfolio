@@ -44,7 +44,7 @@ export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImag
         <ImageWithFallback
           src={heroImage}
           alt={title}
-          className={`w-full h-full ${heroBg ? "object-contain" : "object-cover"}`}
+          className={`w-full h-full object-cover`}
         />
       </motion.div>
 
