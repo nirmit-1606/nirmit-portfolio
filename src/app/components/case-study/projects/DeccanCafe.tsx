@@ -11,9 +11,12 @@ import { NextProject } from "../primitives/NextProject";
 import { fadeUp, EASE } from "../animations";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
-import logoSketch  from "../../../../assets/deccan_cafe/logo-sketch.jpg";
-import logoPeacock from "../../../../assets/deccan_cafe/logo.png";
-import logoFinal   from "../../../../assets/deccan_cafe/logo_text.png";
+import logoSketch       from "../../../../assets/deccan_cafe/logo-sketch.jpg";
+import logoPeacock      from "../../../../assets/deccan_cafe/logo.png";
+import logoFinal        from "../../../../assets/deccan_cafe/logo_text.png";
+import adminFiltered    from "../../../../assets/deccan_cafe/admin_filtered category.png";
+import adminPending     from "../../../../assets/deccan_cafe/admin_pending_edit.png";
+import adminCategories  from "../../../../assets/deccan_cafe/admin_category_tab.png";
 
 // ─── Keyword helpers ──────────────────────────────────────────────────────────
 
@@ -172,6 +175,29 @@ export function DeccanCafeCaseStudy() {
               description: "Edits sit in a pending state and commit together, instead of firing a database call per field change.",
             },
           ]} />
+
+          {/* Admin portal screenshots */}
+          <div className="flex flex-col gap-8 mt-8">
+            {[
+              { src: adminFiltered,   caption: "Menu items tab filtered to a category — Desserts" },
+              { src: adminPending,    caption: "Pending state — edited row in yellow, deleted in red, new item in blue" },
+              { src: adminCategories, caption: "Categories tab" },
+            ].map(({ src, caption }, i) => (
+              <motion.figure
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                className="flex flex-col gap-2"
+              >
+                <div className="rounded-xl border border-border overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                  <img src={src} alt={caption} className="w-full h-auto block" />
+                </div>
+                <figcaption className="text-xs text-foreground-secondary-2 leading-relaxed">{caption}</figcaption>
+              </motion.figure>
+            ))}
+          </div>
         </CaseStudySection>
 
         {/* Bugs I caught after launch */}
