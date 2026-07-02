@@ -14,6 +14,8 @@ interface CaseStudyHeroProps {
   heroBg?: string;
   /** Optional override for the small accent eyebrow above the title. Defaults to `role`. */
   eyebrow?: string;
+  /** When provided, replaces the default Role / Timeline / Tools meta strip. */
+  metaItems?: { label: string; value: string }[];
 }
 
 /**
@@ -21,7 +23,7 @@ interface CaseStudyHeroProps {
  * Renders its own max-w-4xl container for the header;
  * sibling sections in the project page use a separate max-w-4xl wrapper.
  */
-export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage, heroBg, eyebrow }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage, heroBg, eyebrow, metaItems }: CaseStudyHeroProps) {
   return (
     <>
       {/* Breadcrumb — mobile only */}
@@ -65,22 +67,36 @@ export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImag
             </p>
 
             {/* Meta strip */}
-            <div className="flex flex-wrap items-start gap-x-10 gap-y-4 text-sm">
-              <div>
-                <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">Role</span>
-                <span className="text-foreground">{role}</span>
+            {metaItems ? (
+              <div className="flex flex-wrap items-start gap-x-10 gap-y-4 text-sm">
+                {metaItems.map(({ label, value }, i) => (
+                  <>
+                    {i > 0 && <div key={`sep-${i}`} className="w-px h-8 bg-border hidden sm:block self-center" />}
+                    <div key={label}>
+                      <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">{label}</span>
+                      <span className="text-foreground">{value}</span>
+                    </div>
+                  </>
+                ))}
               </div>
-              <div className="w-px h-8 bg-border hidden sm:block self-center" />
-              <div>
-                <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">Timeline</span>
-                <span className="text-foreground">{timeline}</span>
+            ) : (
+              <div className="flex flex-wrap items-start gap-x-10 gap-y-4 text-sm">
+                <div>
+                  <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">Role</span>
+                  <span className="text-foreground">{role}</span>
+                </div>
+                <div className="w-px h-8 bg-border hidden sm:block self-center" />
+                <div>
+                  <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">Timeline</span>
+                  <span className="text-foreground">{timeline}</span>
+                </div>
+                <div className="w-px h-8 bg-border hidden sm:block self-center" />
+                <div>
+                  <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">Tools</span>
+                  <span className="text-foreground">{tools.join(", ")}</span>
+                </div>
               </div>
-              <div className="w-px h-8 bg-border hidden sm:block self-center" />
-              <div>
-                <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">Tools</span>
-                <span className="text-foreground">{tools.join(", ")}</span>
-              </div>
-            </div>
+            )}
           </motion.div>
         </section>
       </div>

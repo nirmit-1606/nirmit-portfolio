@@ -57,7 +57,19 @@ const caseStudies: Record<string, CaseStudyMeta> = {
       heroBg: "#1a5a8ade",
     },
   },
-
+  "4": {
+    id: "4",
+    title: "TradeMind",
+    subtitle: "Joined a 20-person startup after launch to improve the UX of a live trading journal — redesigning three core surfaces, rebuilding the journal from scratch, and shipping every change in code myself.",
+    role: "UI/UX Designer & Frontend Engineer",
+    tools: ["React", "TypeScript", "TipTap", "Figma", "CSS"],
+    timeline: "8 months",
+    featured: false,
+    images: {
+      hero: "",
+      heroBg: "#0f1620",
+    },
+  },
 };
 
 export const getAllCaseStudies = (): CaseStudyMeta[] => Object.values(caseStudies);

@@ -14,6 +14,8 @@ export function ImageWithFallback(
 
   const { src, alt, style, className, ...rest } = props;
 
+  if (!src) return null;
+
   return didError ? (
     <div
       className={`inline-block bg-gray-100 text-center align-middle ${className ?? ""}`}
