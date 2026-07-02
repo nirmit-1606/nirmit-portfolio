@@ -7,7 +7,7 @@ import { DeccanCafeCaseStudy } from "./projects/DeccanCafe";
 const PROJECTS: Record<string, React.ComponentType> = {
   "1": IntuitCaseStudy,
   "2": DeccanHouseCaseStudy,
-  "6": DeccanCafeCaseStudy,
+  "3": DeccanCafeCaseStudy,
 };
 
 export function CaseStudyRouter() {

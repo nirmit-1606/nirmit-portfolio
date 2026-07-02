@@ -477,7 +477,7 @@ export function DeccanHouseCaseStudy() {
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
               More on that build →{" "}
               <a
-                href="/case-study/6"
+                href="/case-study/3"
                 className="font-medium transition-colors duration-200 hover:opacity-80"
                 style={{ color: "var(--accent-color)" }}
               >

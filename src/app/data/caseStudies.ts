@@ -44,8 +44,8 @@ const caseStudies: Record<string, CaseStudyMeta> = {
       heroBg: "#5e671d",
     },
   },
-  "6": {
-    id: "6",
+  "3": {
+    id: "3",
     title: "Deccan Cafe",
     subtitle: "Built to a deadline, then improved by necessity — the site that finally forced the admin tool into existence.",
     role: "Designer & Developer",

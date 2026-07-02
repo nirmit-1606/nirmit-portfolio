@@ -34,7 +34,7 @@ const P = ({ children }: { children: ReactNode }) => (
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-const META = getCaseStudyById("6")!;
+const META = getCaseStudyById("3")!;
 
 export function DeccanCafeCaseStudy() {
   const all = getAllCaseStudies();
