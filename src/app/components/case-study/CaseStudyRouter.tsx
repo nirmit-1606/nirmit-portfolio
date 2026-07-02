@@ -4,16 +4,9 @@ import { Button } from "../ui/button";
 import { IntuitCaseStudy } from "./projects/Intuit";
 import { DeccanHouseCaseStudy } from "./projects/DeccanHouse";
 import { DeccanCafeCaseStudy } from "./projects/DeccanCafe";
-import { TradeMindCaseStudy } from "./projects/Trademind";
-import { PantrySmartCaseStudy } from "./projects/PantrySmart";
-import { TutorReserveCaseStudy } from "./projects/TutorReserve";
-
 const PROJECTS: Record<string, React.ComponentType> = {
   "1": IntuitCaseStudy,
   "2": DeccanHouseCaseStudy,
-  "3": TradeMindCaseStudy,
-  "4": PantrySmartCaseStudy,
-  "5": TutorReserveCaseStudy,
   "6": DeccanCafeCaseStudy,
 };
 
