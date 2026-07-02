@@ -6,6 +6,7 @@ import { CaseStudyHero } from "../primitives/Hero";
 import { CaseStudySection, SectionLabel } from "../primitives/Section";
 import { TechChips } from "../primitives/TechChips";
 import { NextProject } from "../primitives/NextProject";
+import { BeforeAfter } from "../primitives/BeforeAfter";
 import { fadeUp, EASE } from "../animations";
 
 // ─── Keyword helpers ──────────────────────────────────────────────────────────
@@ -17,38 +18,6 @@ const A = ({ children }: { children: ReactNode }) => (
 const P = ({ children }: { children: ReactNode }) => (
   <span className="text-foreground font-semibold">{children}</span>
 );
-
-// ─── Before / After row ───────────────────────────────────────────────────────
-
-function BeforeAfter({ before, after }: { before: string; after: string }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-start gap-4 mt-8">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45, ease: EASE }}
-        className="p-5 rounded-xl border border-border bg-secondary/40"
-      >
-        <span className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-2 block">Before</span>
-        <p className="text-sm text-foreground-secondary leading-relaxed">{before}</p>
-      </motion.div>
-      <div className="flex items-center justify-center py-2 sm:py-0 text-foreground-secondary-2 text-lg">
-        <span className="rotate-90 sm:rotate-0">→</span>
-      </div>
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45, delay: 0.08, ease: EASE }}
-        className="p-5 rounded-xl border border-border bg-secondary/40"
-      >
-        <span className="text-xs font-medium uppercase tracking-widest mb-2 block" style={{ color: "var(--accent-color)" }}>After</span>
-        <p className="text-sm text-foreground-secondary leading-relaxed">{after}</p>
-      </motion.div>
-    </div>
-  );
-}
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -159,6 +128,7 @@ export function TradeMindCaseStudy() {
           <BeforeAfter
             before="Single scroll view with all content — chart, data, journal — stacked vertically. Generic sidebar for app navigation. Going to another trade required leaving the page."
             after="Multi-section layout with dedicated areas for the chart, trade details, and a new journal section. Left sidebar replaced with a trade-specific navigator — users jump directly between trades without leaving the view."
+            className="mt-8"
           />
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -223,6 +193,7 @@ export function TradeMindCaseStudy() {
           <BeforeAfter
             before="Three panels on one screen: members list, selected member's trades, selected trade view. Too congested to use comfortably. No indication when browsing a member's trade that you're in mentor mode."
             after="Two panels on the Mentor page: members and their trades. Clicking a trade navigates to the actual Trade page. A persistent banner in the app layout shows which member's trades are being reviewed throughout."
+            className="mt-8"
           />
           <motion.p
             initial={{ opacity: 0, y: 12 }}

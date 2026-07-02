@@ -7,8 +7,8 @@ import { CaseStudySection, SectionLabel } from "../primitives/Section";
 import { HighlightCards } from "../primitives/HighlightCards";
 import { MetricsGrid } from "../primitives/MetricsGrid";
 import { TechChips } from "../primitives/TechChips";
-import { BugCards } from "../primitives/BugCards";
 import { NextProject } from "../primitives/NextProject";
+import { BeforeAfter } from "../primitives/BeforeAfter";
 import { fadeUp, EASE } from "../animations";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
@@ -221,53 +221,44 @@ export function DeccanHouseCaseStudy() {
           </motion.div>
 
           {/* Before / After cost cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: EASE }}
-            className="flex flex-col sm:flex-row items-center gap-4"
-          >
-            {/* Before */}
-            <div className="flex-1 w-full rounded-xl border border-border bg-secondary/40 p-5 hover:border-[var(--accent-color)] transition-colors duration-300">
-              <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-4">
-                Before · GoDaddy + WordPress
-              </p>
-              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
-                <span className="text-foreground-secondary">Domain (annual)</span>
-                <span className="text-foreground tabular-nums">$15/yr</span>
-              </div>
-              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
-                <span className="text-foreground-secondary">WordPress hosting</span>
-                <span className="text-foreground tabular-nums">$10/mo</span>
-              </div>
-              <div className="flex justify-between items-center pt-3 border-t border-border text-sm font-semibold">
-                <span className="text-foreground">Per year</span>
-                <span className="text-foreground tabular-nums">~$135/yr</span>
-              </div>
-            </div>
-
-            <div className="text-foreground-secondary-2 text-xl flex-shrink-0 rotate-90 sm:rotate-0">→</div>
-
-            {/* After */}
-            <div className="flex-1 w-full rounded-xl border border-accent-color sm:border-border bg-secondary/40 p-5 hover:border-[var(--accent-color)] transition-colors duration-300">
-              <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-4">
-                After · Eleventy + Netlify
-              </p>
-              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
-                <span className="text-foreground-secondary">Domain (annual)</span>
-                <span className="text-foreground tabular-nums">$15/yr</span>
-              </div>
-              <div className="flex justify-between items-center py-3 border-t border-border text-sm">
-                <span className="text-foreground-secondary">Hosting</span>
-                <span className="text-foreground tabular-nums">$0 (free tier)</span>
-              </div>
-              <div className="flex justify-between items-center pt-3 border-t border-border text-sm font-semibold">
-                <span className="text-foreground">Per year</span>
-                <span className="tabular-nums" style={{ color: "var(--accent-color)" }}>~$15/yr</span>
-              </div>
-            </div>
-          </motion.div>
+          <BeforeAfter
+            beforeLabel="Before · GoDaddy + WordPress"
+            afterLabel="After · Eleventy + Netlify"
+            afterAccentLabel={false}
+            afterAccentBorder
+            before={
+              <>
+                <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                  <span className="text-foreground-secondary">Domain (annual)</span>
+                  <span className="text-foreground tabular-nums">$15/yr</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                  <span className="text-foreground-secondary">WordPress hosting</span>
+                  <span className="text-foreground tabular-nums">$10/mo</span>
+                </div>
+                <div className="flex justify-between items-center pt-3 border-t border-border text-sm font-semibold">
+                  <span className="text-foreground">Per year</span>
+                  <span className="text-foreground tabular-nums">~$135/yr</span>
+                </div>
+              </>
+            }
+            after={
+              <>
+                <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                  <span className="text-foreground-secondary">Domain (annual)</span>
+                  <span className="text-foreground tabular-nums">$15/yr</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-t border-border text-sm">
+                  <span className="text-foreground-secondary">Hosting</span>
+                  <span className="text-foreground tabular-nums">$0 (free tier)</span>
+                </div>
+                <div className="flex justify-between items-center pt-3 border-t border-border text-sm font-semibold">
+                  <span className="text-foreground">Per year</span>
+                  <span className="tabular-nums" style={{ color: "var(--accent-color)" }}>~$15/yr</span>
+                </div>
+              </>
+            }
+          />
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-6">
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-6">
