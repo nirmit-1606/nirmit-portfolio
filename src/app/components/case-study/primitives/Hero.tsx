@@ -17,6 +17,8 @@ interface CaseStudyHeroProps {
   eyebrow?: string;
   /** When provided, replaces the default Role / Timeline / Tools meta strip. */
   metaItems?: { label: string; value: string }[];
+  /** Use object-contain instead of object-cover — for logos or images that shouldn't be cropped. */
+  heroContain?: boolean;
 }
 
 /**
@@ -24,7 +26,7 @@ interface CaseStudyHeroProps {
  * Renders its own max-w-4xl container for the header;
  * sibling sections in the project page use a separate max-w-4xl wrapper.
  */
-export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage, heroBg, eyebrow, metaItems }: CaseStudyHeroProps) {
+export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImage, heroBg, eyebrow, metaItems, heroContain }: CaseStudyHeroProps) {
   return (
     <>
       {/* Breadcrumb — mobile only */}
@@ -49,7 +51,7 @@ export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImag
         <ImageWithFallback
           src={heroImage}
           alt={title}
-          className={`w-full h-full object-cover`}
+          className={`w-full h-full ${heroContain ? "object-contain p-6 sm:p-10" : "object-cover"}`}
         />
       </motion.div>
 
