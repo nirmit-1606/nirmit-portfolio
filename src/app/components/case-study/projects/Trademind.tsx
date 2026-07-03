@@ -14,7 +14,8 @@ import tradePageOld     from "../../../../assets/trademind/trade_page_old.png";
 import tradePageNew     from "../../../../assets/trademind/trade_page_new.png";
 import journalOld       from "../../../../assets/trademind/journal_old.png";
 import journalNew       from "../../../../assets/trademind/journal_new.png";
-import marketingDashboard from "../../../../assets/trademind/marketing_dashboard.png";
+import marketingDashboard        from "../../../../assets/trademind/marketing_dashboard.png";
+import marketingTemplateManager  from "../../../../assets/trademind/marketing_template_manager.png";
 import mentorOld        from "../../../../assets/trademind/mentor_old.png";
 import mentorNew        from "../../../../assets/trademind/mentor_new.png";
 import mentorWireframe  from "../../../../assets/trademind/mentor_wireframe.png";
@@ -197,7 +198,12 @@ export function TradeMindCaseStudy() {
             <AppShot src={journalOld} alt="Original journal — fixed form fields" caption="Before — fixed form fields, no freeform input" />
           </div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
-            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
+              The customisable journal itself came out of a direct customer request — the fixed fields
+              weren't meeting how traders actually think and write. The goal was to build something
+              flexible enough to serve every user's workflow, not just the one who asked.
+            </p>
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
               Taking Notion as a reference point, I redesigned the journal as a{" "}
               <A>fully customizable document</A> — a freeform writing surface with a slash command
               menu that inserts purpose-built trading components: charts, trade summaries, performance
@@ -222,7 +228,17 @@ export function TradeMindCaseStudy() {
                 re-rendered with the right selections and entries every time.
               </p>
             </blockquote>
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-8">
+              To make sure new users weren't faced with a blank page on first open, I built a template
+              system into the journal. Two default templates ship out of the box — one for pre-trade
+              planning and one for post-trade review — covering the most common journaling patterns.
+              Users can customise either template, save their own, and build up a{" "}
+              <P>personal library of entry formats</P> suited to their workflow.
+            </p>
           </motion.div>
+          <div className="mt-6">
+            <AppShot src={marketingTemplateManager} alt="Journal template manager" caption="Template manager — browse, customise, and save personal journal templates" />
+          </div>
         </CaseStudySection>
 
         {/* 4 — Mentor page */}
@@ -270,7 +286,9 @@ export function TradeMindCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Outcome</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              TradeMind shipped these improvements to its existing user base and is now in a{" "}
+              TradeMind shipped these improvements to its existing user base — including a new neutral
+              dark theme added to the existing theme set, giving users a lower-contrast option
+              alongside the existing choices. The product is now in a{" "}
               <P>stable state</P> — Vcrypt Financial is maintaining the product for current customers
               rather than continuing active development. Each of the three core product changes —
               trade page, journal, and mentor mode — went from an identified problem to a wireframe
