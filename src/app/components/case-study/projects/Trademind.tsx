@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
@@ -58,16 +58,34 @@ function AppShot({ src, alt, caption }: { src: string; alt: string; caption?: st
 function ImageCarousel({ images }: { images: { src: string; alt: string; caption?: string }[] }) {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
+  const [paused, setPaused] = useState(false);
+  const [symbol, setSymbol] = useState<"pause" | "play" | null>(null);
+  const symbolTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    if (paused) return;
     const id = setInterval(() => {
       setDir(1);
       setIndex((i) => (i + 1) % images.length);
     }, 4500);
     return () => clearInterval(id);
-  }, [images.length]);
+  }, [images.length, paused]);
 
-  const variants = {
+  useEffect(() => () => { if (symbolTimeout.current) clearTimeout(symbolTimeout.current); }, []);
+
+  const handleMouseEnter = () => {
+    if (symbolTimeout.current) clearTimeout(symbolTimeout.current);
+    setPaused(true);
+    setSymbol("pause");
+  };
+
+  const handleMouseLeave = () => {
+    setPaused(false);
+    setSymbol("play");
+    symbolTimeout.current = setTimeout(() => setSymbol(null), 1600);
+  };
+
+  const slideVariants = {
     enter: (d: number) => ({ x: d > 0 ? "30%" : "-30%", opacity: 0 }),
     center: { x: 0, opacity: 1 },
     exit:  (d: number) => ({ x: d > 0 ? "-30%" : "30%", opacity: 0 }),
@@ -81,12 +99,16 @@ function ImageCarousel({ images }: { images: { src: string; alt: string; caption
       transition={{ duration: 0.5, ease: EASE }}
       className="flex flex-col gap-3"
     >
-      <div className="relative overflow-hidden rounded-xl border border-border aspect-video bg-[#08080f]">
+      <div
+        className="relative overflow-hidden rounded-xl border border-border aspect-video bg-[#08080f]"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <AnimatePresence initial={false} custom={dir}>
           <motion.img
             key={index}
             custom={dir}
-            variants={variants}
+            variants={slideVariants}
             initial="enter"
             animate="center"
             exit="exit"
@@ -96,7 +118,26 @@ function ImageCarousel({ images }: { images: { src: string; alt: string; caption
             className="absolute inset-0 w-full h-full object-contain"
           />
         </AnimatePresence>
+
+        {/* Pause / play indicator */}
+        <AnimatePresence>
+          {symbol && (
+            <motion.div
+              key={symbol}
+              initial={{ opacity: 0, scale: 0.75 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9, transition: { duration: 1.1, ease: "easeOut" } }}
+              transition={{ duration: 0.18 }}
+              className="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-black/45 backdrop-blur-sm flex items-center justify-center pointer-events-none"
+            >
+              <span className="text-white/65 text-[10px] leading-none">
+                {symbol === "pause" ? "⏸" : "▶"}
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+
       <div className="flex items-center justify-center gap-2">
         {images.map((_, i) => (
           <button
