@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
@@ -15,6 +16,7 @@ import tradePageNew     from "../../../../assets/trademind/trade_page_new.png";
 import journalOld       from "../../../../assets/trademind/journal_old.png";
 import journalNew       from "../../../../assets/trademind/journal_new.png";
 import marketingDashboard        from "../../../../assets/trademind/marketing_dashboard.png";
+import marketingJournal          from "../../../../assets/trademind/marketing_journal.png";
 import marketingTemplateManager  from "../../../../assets/trademind/marketing_template_manager.png";
 import mentorOld        from "../../../../assets/trademind/mentor_old.png";
 import mentorNew        from "../../../../assets/trademind/mentor_new.png";
@@ -51,6 +53,67 @@ function AppShot({ src, alt, caption }: { src: string; alt: string; caption?: st
   );
 }
 
+// ─── Image carousel ──────────────────────────────────────────────────────────
+
+function ImageCarousel({ images }: { images: { src: string; alt: string; caption?: string }[] }) {
+  const [index, setIndex] = useState(0);
+  const [dir, setDir] = useState(1);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setDir(1);
+      setIndex((i) => (i + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  const variants = {
+    enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit:  (d: number) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0 }),
+  };
+
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: EASE }}
+      className="flex flex-col gap-3"
+    >
+      <div className="relative overflow-hidden rounded-xl border border-border aspect-video">
+        <AnimatePresence initial={false} custom={dir}>
+          <motion.img
+            key={index}
+            custom={dir}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.4, ease: EASE }}
+            src={images[index].src}
+            alt={images[index].alt}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+      </div>
+      <div className="flex items-center justify-center gap-2">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { setDir(i > index ? 1 : -1); setIndex(i); }}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === index ? "bg-foreground-secondary scale-125" : "bg-border"}`}
+            aria-label={`Go to image ${i + 1}`}
+          />
+        ))}
+      </div>
+      {images[index].caption && (
+        <figcaption className="text-xs text-foreground-secondary-2 text-center">{images[index].caption}</figcaption>
+      )}
+    </motion.figure>
+  );
+}
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 const META = getCaseStudyById("4")!;
@@ -73,7 +136,7 @@ export function TradeMindCaseStudy() {
         metaItems={[
           { label: "Role",    value: "UI/UX Designer & Frontend Engineer" },
           { label: "Company", value: "Vcrypt Financial" },
-          { label: "Team",    value: "20→26 people · sole UI/UX" },
+          { label: "Team",    value: "20 people · sole UI/UX" },
           { label: "Stack",   value: "React · TypeScript · TipTap · CSS · Figma" },
         ]}
       />
@@ -144,7 +207,11 @@ export function TradeMindCaseStudy() {
             </p>
           </motion.div>
           <div className="mt-8">
-            <AppShot src={marketingDashboard} alt="Annotated dashboard on the TradeMind marketing site" caption="Annotated dashboard — one of the product images added to the marketing site" />
+            <ImageCarousel images={[
+              { src: marketingDashboard,       alt: "Annotated dashboard on the TradeMind marketing site",        caption: "Dashboard — annotated product image on the marketing site" },
+              { src: marketingJournal,         alt: "Journal view on the TradeMind marketing site",              caption: "Journal — freeform editor with custom slash command components" },
+              { src: marketingTemplateManager, alt: "Template manager on the TradeMind marketing site",           caption: "Template manager — browse, customise, and save personal journal templates" },
+            ]} />
           </div>
         </CaseStudySection>
 
@@ -318,13 +385,10 @@ export function TradeMindCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Outcome</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              TradeMind shipped these improvements to its existing user base — including a new neutral
-              dark theme added to the existing theme set, giving users a lower-contrast option
-              alongside the existing choices. The product is now in a{" "}
+              TradeMind shipped these improvements to its existing user base. The product is now in a{" "}
               <P>stable state</P> — Vcrypt Financial is maintaining the product for current customers
-              rather than continuing active development. Each of the three core product changes —
-              trade page, journal, and mentor mode — went from an identified problem to a wireframe
-              to a stakeholder-approved design to shipped code,
+              rather than continuing active development. Each change went from an identified problem
+              to a wireframe to a stakeholder-approved design to shipped code,
               with me owning every step. Working as the sole designer inside a technical team meant
               the feedback loop was tight and the decisions were grounded in what was actually
               buildable — which made the collaboration with the co-founder{" "}
