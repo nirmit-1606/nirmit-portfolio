@@ -179,7 +179,7 @@ export function TradeMindCaseStudy() {
         metaItems={[
           { label: "Role",    value: "UI/UX Designer & Frontend Engineer" },
           { label: "Company", value: "Vcrypt Financial" },
-          { label: "Team",    value: "20 people · sole UI/UX" },
+          { label: "Team",    value: "25 people · sole UI/UX" },
           { label: "Stack",   value: "React · TypeScript · TipTap · CSS · Figma" },
         ]}
       />
@@ -198,7 +198,7 @@ export function TradeMindCaseStudy() {
               launch, and <A>UX hadn't kept pace with the product's ambition</A>.
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
-              I came in as the <A>only person focused on UI/UX</A> across a team of 20 — working
+              I came in as the <A>only person focused on UI/UX</A> across a team of 25 — working
               directly alongside one of the co-founders, who had built much of the app itself. My
               remit was to identify where the experience was breaking down, propose improvements, get
               stakeholder sign-off on wireframes, and then build them out in React and TypeScript myself.
