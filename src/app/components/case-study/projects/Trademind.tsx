@@ -280,6 +280,38 @@ export function TradeMindCaseStudy() {
           </motion.p>
         </CaseStudySection>
 
+        {/* 5 — New theme */}
+        <Separator />
+        <CaseStudySection>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
+            <SectionLabel>5 — New theme</SectionLabel>
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
+              The app shipped with an existing set of themes. I added a <A>neutral dark option</A> —
+              a lower-contrast, softer dark mode for users who found the default too intense for long
+              sessions.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-5">
+              {[
+                { label: "Base",     hex: "#0F0F18" },
+                { label: "Surface",  hex: "#1A1A26" },
+                { label: "Elevated", hex: "#252535" },
+                { label: "Border",   hex: "#353548" },
+                { label: "Action",   hex: "#9898B0" },
+                { label: "Text",     hex: "#E8E8F4" },
+              ].map(({ label, hex }) => (
+                <div key={hex} className="flex flex-col items-center gap-2">
+                  <div
+                    className="w-12 h-12 rounded-xl border border-border"
+                    style={{ backgroundColor: hex }}
+                  />
+                  <span className="text-xs text-foreground-secondary-2 font-mono">{hex}</span>
+                  <span className="text-xs text-foreground-secondary-2">{label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </CaseStudySection>
+
         {/* Outcome */}
         <Separator />
         <CaseStudySection>
