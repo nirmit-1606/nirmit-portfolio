@@ -63,14 +63,14 @@ function ImageCarousel({ images }: { images: { src: string; alt: string; caption
     const id = setInterval(() => {
       setDir(1);
       setIndex((i) => (i + 1) % images.length);
-    }, 3500);
+    }, 4500);
     return () => clearInterval(id);
   }, [images.length]);
 
   const variants = {
-    enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
+    enter: (d: number) => ({ x: d > 0 ? "30%" : "-30%", opacity: 0 }),
     center: { x: 0, opacity: 1 },
-    exit:  (d: number) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0 }),
+    exit:  (d: number) => ({ x: d > 0 ? "-30%" : "30%", opacity: 0 }),
   };
 
   return (
@@ -81,7 +81,7 @@ function ImageCarousel({ images }: { images: { src: string; alt: string; caption
       transition={{ duration: 0.5, ease: EASE }}
       className="flex flex-col gap-3"
     >
-      <div className="relative overflow-hidden rounded-xl border border-border aspect-video">
+      <div className="relative overflow-hidden rounded-xl border border-border aspect-video bg-[#08080f]">
         <AnimatePresence initial={false} custom={dir}>
           <motion.img
             key={index}
@@ -90,10 +90,10 @@ function ImageCarousel({ images }: { images: { src: string; alt: string; caption
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.4, ease: EASE }}
+            transition={{ duration: 0.65, ease: [0.4, 0, 0.2, 1] }}
             src={images[index].src}
             alt={images[index].alt}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain"
           />
         </AnimatePresence>
       </div>
