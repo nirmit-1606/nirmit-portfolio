@@ -9,6 +9,16 @@ import { NextProject } from "../primitives/NextProject";
 import { BeforeAfter } from "../primitives/BeforeAfter";
 import { fadeUp, EASE } from "../animations";
 
+// ─── Assets ──────────────────────────────────────────────────────────────────
+import tradePageOld     from "../../../../assets/trademind/trade_page_old.png";
+import tradePageNew     from "../../../../assets/trademind/trade_page_new.png";
+import journalOld       from "../../../../assets/trademind/journal_old.png";
+import journalNew       from "../../../../assets/trademind/journal_new.png";
+import marketingDashboard from "../../../../assets/trademind/marketing_dashboard.png";
+import mentorOld        from "../../../../assets/trademind/mentor_old.png";
+import mentorNew        from "../../../../assets/trademind/mentor_new.png";
+import mentorWireframe  from "../../../../assets/trademind/mentor_wireframe.png";
+
 // ─── Keyword helpers ──────────────────────────────────────────────────────────
 
 const A = ({ children }: { children: ReactNode }) => (
@@ -18,6 +28,27 @@ const A = ({ children }: { children: ReactNode }) => (
 const P = ({ children }: { children: ReactNode }) => (
   <span className="text-foreground font-semibold">{children}</span>
 );
+
+// ─── Screenshot helper ────────────────────────────────────────────────────────
+
+function AppShot({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: EASE }}
+      className="flex flex-col gap-2"
+    >
+      <div className="overflow-hidden rounded-xl border border-border hover:scale-[1.01] transition-transform duration-500">
+        <img src={src} alt={alt} className="w-full h-auto" />
+      </div>
+      {caption && (
+        <figcaption className="text-xs text-foreground-secondary-2 text-center">{caption}</figcaption>
+      )}
+    </motion.figure>
+  );
+}
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -111,6 +142,9 @@ export function TradeMindCaseStudy() {
               out against the dark aesthetic.
             </p>
           </motion.div>
+          <div className="mt-8">
+            <AppShot src={marketingDashboard} alt="Annotated dashboard on the TradeMind marketing site" caption="Annotated dashboard — one of the product images added to the marketing site" />
+          </div>
         </CaseStudySection>
 
         {/* 2 — Trade page layout */}
@@ -125,6 +159,10 @@ export function TradeMindCaseStudy() {
               between trades meant going back to a list view entirely.
             </p>
           </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
+            <AppShot src={tradePageOld} alt="Original Trade page — single scroll view" caption="Before — single scroll view" />
+            <AppShot src={tradePageNew} alt="Redesigned Trade page — multi-section with trade navigator" caption="After — trade navigator sidebar, collapsible journal" />
+          </div>
           <BeforeAfter
             before="Single scroll view with all content — chart, data, journal — stacked vertically. Generic sidebar for app navigation. Going to another trade required leaving the page."
             after="Multi-section layout with dedicated areas for the chart, trade details, and a new journal section. Left sidebar replaced with a trade-specific navigator — users jump directly between trades without leaving the view."
@@ -154,15 +192,25 @@ export function TradeMindCaseStudy() {
               what those fields expected and nothing else. Traders who wanted to capture their
               reasoning, annotate a setup, or document a lesson learned had no good way to do it.
             </p>
-            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
+          </motion.div>
+          <div className="mt-6">
+            <AppShot src={journalOld} alt="Original journal — fixed form fields" caption="Before — fixed form fields, no freeform input" />
+          </div>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
+            <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               Taking Notion as a reference point, I redesigned the journal as a{" "}
               <A>fully customizable document</A> — a freeform writing surface with a slash command
               menu that inserts purpose-built trading components: charts, trade summaries, performance
               stats, and more. The user composes their journal entry the way they want, mixing prose
               and structured widgets.
             </p>
+          </motion.div>
+          <div className="mt-6">
+            <AppShot src={journalNew} alt="Redesigned journal — freeform TipTap editor with trading components" caption="After — freeform editor with custom slash command components" />
+          </div>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
             <blockquote
-              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mt-8 max-w-3xl"
+              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 max-w-3xl"
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
@@ -190,11 +238,18 @@ export function TradeMindCaseStudy() {
               comfortably, and the whole layout felt congested.
             </p>
           </motion.div>
+          <div className="mt-6">
+            <AppShot src={mentorOld} alt="Original Mentor page — three panels on one screen" caption="Before — three congested panels, no mentor mode indicator" />
+          </div>
           <BeforeAfter
             before="Three panels on one screen: members list, selected member's trades, selected trade view. Too congested to use comfortably. No indication when browsing a member's trade that you're in mentor mode."
             after="Two panels on the Mentor page: members and their trades. Clicking a trade navigates to the actual Trade page. A persistent banner in the app layout shows which member's trades are being reviewed throughout."
             className="mt-8"
           />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
+            <AppShot src={mentorWireframe} alt="Mentor page wireframe — two-panel layout" caption="Finalized wireframe — two panels, admin mode banner at top" />
+            <AppShot src={mentorNew} alt="Delivered Mentor page — two-panel layout with admin view" caption="After — two-panel layout, delivered in code" />
+          </div>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}

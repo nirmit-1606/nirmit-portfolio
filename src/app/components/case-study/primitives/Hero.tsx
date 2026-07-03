@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "motion/react";
@@ -70,13 +71,13 @@ export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImag
             {metaItems ? (
               <div className="flex flex-wrap items-start gap-x-10 gap-y-4 text-sm">
                 {metaItems.map(({ label, value }, i) => (
-                  <>
-                    {i > 0 && <div key={`sep-${i}`} className="w-px h-8 bg-border hidden sm:block self-center" />}
-                    <div key={label}>
+                  <Fragment key={label}>
+                    {i > 0 && <div className="w-px h-8 bg-border hidden sm:block self-center" />}
+                    <div>
                       <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">{label}</span>
                       <span className="text-foreground">{value}</span>
                     </div>
-                  </>
+                  </Fragment>
                 ))}
               </div>
             ) : (
