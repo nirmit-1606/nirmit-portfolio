@@ -26,7 +26,7 @@ export function Layout() {
           <aside className="w-60 flex-shrink-0 border-r border-border overflow-y-auto bg-background p-6">
             <CaseStudySidebar currentId={id} />
           </aside>
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto" data-scroll-root>
             <main>
               <Outlet />
             </main>
@@ -35,7 +35,7 @@ export function Layout() {
         </div>
       ) : (
         /* Regular pages: starts at y=0 so content can scroll behind the fixed nav */
-        <div className="fixed inset-0 overflow-y-auto bg-background">
+        <div className="fixed inset-0 overflow-y-auto bg-background" data-scroll-root>
           <main className="max-w-7xl mx-auto pt-20">
             <Outlet />
           </main>
