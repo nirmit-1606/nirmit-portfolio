@@ -9,6 +9,7 @@ import { TechChips } from "../primitives/TechChips";
 import { NextProject } from "../primitives/NextProject";
 import { BeforeAfter } from "../primitives/BeforeAfter";
 import { fadeUp, EASE } from "../animations";
+import { Pause, Play } from "lucide-react";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import tradePageOld     from "../../../../assets/trademind/trade_page_old.png";
@@ -128,11 +129,12 @@ function ImageCarousel({ images }: { images: { src: string; alt: string; caption
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9, transition: { duration: 1.1, ease: "easeOut" } }}
               transition={{ duration: 0.18 }}
-              className="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-black/45 backdrop-blur-sm flex items-center justify-center pointer-events-none"
+              className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center pointer-events-none"
             >
-              <span className="text-white/65 text-[10px] leading-none">
-                {symbol === "pause" ? "⏸" : "▶"}
-              </span>
+              {symbol === "pause"
+                ? <Pause className="w-3.5 h-3.5 text-white/65" />
+                : <Play  className="w-3.5 h-3.5 text-white/65" />
+              }
             </motion.div>
           )}
         </AnimatePresence>
