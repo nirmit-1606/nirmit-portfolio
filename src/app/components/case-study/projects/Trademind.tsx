@@ -102,7 +102,7 @@ export function TradeMindCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>1 — Marketing site</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              The first contribution was to the marketing site — trademind.pro — which needed to
+              The first contribution was to the marketing site — <a href="https://trademind.pro/demo" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:opacity-70 transition-opacity duration-150">trademind.pro/demo</a> — which needed to
               actually show what the product looked like. I added product imagery to the homepage,
               created Figma mockups of the software to illustrate the app's surfaces, and added
               annotated callouts with arrows to explain what each section does. Multiple images under
