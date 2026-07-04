@@ -498,7 +498,7 @@ export function Homepage() {
       <Separator />
 
       {/* ── My Process ── */}
-      <section className="px-6 lg:px-8 py-24">
+      <section className="px-6 lg:px-8 pt-24 pb-48">
         <motion.div
           className="max-w-2xl ml-auto"
           variants={fadeUp}
@@ -509,7 +509,7 @@ export function Homepage() {
           <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-2">
             Approach
           </p>
-          <h3 className="text-3xl text-foreground mb-8">My process</h3>
+          <h3 className="text-3xl text-foreground mb-16">My process</h3>
           <ProcessNotes />
         </motion.div>
       </section>
