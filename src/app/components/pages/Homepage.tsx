@@ -142,6 +142,61 @@ const PROCESS = [
   { title: "Development",  desc: "Building responsive, accessible web experiences" },
 ];
 
+// ── Process sticky notes ──────────────────────────────────────────────────────
+const STICKY_COLORS    = ["#FEF08A", "#BFDBFE", "#FBCFE8", "#BBF7D0"];
+const STICKY_ROTATIONS = [-2,  2.5,   1,  -2.5];
+const STICKY_OFFSETS   = [
+  { x:   0, y:  0  },  // Discovery  — anchor
+  { x:   -4, y: 42  },  // Strategy   — drop down
+  { x: 12, y: 32  },  // Design     — nudge left + slight drop
+  { x:  12, y: 64 },  // Development — nudge right + lift
+];
+
+function ProcessNotes() {
+  return (
+    <div className="mt-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        {PROCESS.map((step, i) => (
+          <motion.div
+            key={step.title}
+            initial={{ opacity: 0, x: STICKY_OFFSETS[i].x, y: STICKY_OFFSETS[i].y + 22 }}
+            whileInView={{ opacity: 1, x: STICKY_OFFSETS[i].x, y: STICKY_OFFSETS[i].y }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: i * 0.1, ease: EASE }}
+            className="relative p-4 sm:p-5"
+            style={{
+              rotate: STICKY_ROTATIONS[i],
+              backgroundColor: STICKY_COLORS[i],
+              fontFamily: "'Caveat', cursive",
+              boxShadow: "3px 5px 16px rgba(0,0,0,0.2)",
+            }}
+          >
+            {/* Folded bottom-right corner */}
+            <div
+              className="absolute bottom-0 right-0 pointer-events-none"
+              style={{
+                width: 0,
+                height: 0,
+                borderLeft: "22px solid transparent",
+                borderBottom: "22px solid rgba(0,0,0,0.13)",
+              }}
+            />
+            <span className="block text-xs font-mono mb-1" style={{ color: "rgba(0,0,0,0.38)" }}>
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h4 className="mb-1.5" style={{ fontSize: 20, fontWeight: 600, color: "#111" }}>
+              {step.title}
+            </h4>
+            <p style={{ fontSize: 14, color: "#3a3a3a", lineHeight: 1.5 }}>
+              {step.desc}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const MARQUEE_ITEMS = [
   "UI Design",
   "UX Research",
@@ -441,32 +496,8 @@ export function Homepage() {
             <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-2">
               Approach
             </p>
-            <h3 className="text-3xl text-foreground mb-10">My process</h3>
-            <div className="space-y-8">
-              {PROCESS.map((step, i) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.09, ease: EASE }}
-                  className="flex items-start gap-5"
-                >
-                  <span
-                    className="text-sm font-mono flex-shrink-0 mt-0.5"
-                    style={{ color: "var(--accent-color)" }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h4 className="text-foreground font-medium mb-1">{step.title}</h4>
-                    <p className="text-foreground-secondary text-sm leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <h3 className="text-3xl text-foreground mb-8">My process</h3>
+            <ProcessNotes />
           </motion.div>
         </div>
       </section>
