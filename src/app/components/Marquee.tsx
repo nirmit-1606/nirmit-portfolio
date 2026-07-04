@@ -5,14 +5,15 @@ interface MarqueeProps {
 }
 
 export function Marquee({ items, speed = 30, className = "" }: MarqueeProps) {
-  const doubled = [...items, ...items];
+  // 4 copies so the strip always fills the viewport; duration × 2 keeps per-item speed identical
+  const doubled = [...items, ...items, ...items, ...items];
 
   return (
     <div className="overflow-hidden">
       <div
         className={`flex items-center gap-10 ${className}`}
         style={{
-          animation: `marquee ${speed}s linear infinite`,
+          animation: `marquee ${speed * 2}s linear infinite`,
           width: "max-content",
         }}
       >
