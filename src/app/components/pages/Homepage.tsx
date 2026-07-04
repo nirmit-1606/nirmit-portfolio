@@ -7,6 +7,8 @@ import { Separator } from "../ui/separator";
 import { motion, useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 import { Marquee } from "../Marquee";
+import nirmitFront from "../../../assets/nirmit-front.jpg";
+import nirmitBack  from "../../../assets/nirmit-back.png";
 
 // ── Animation presets ───────────────────────────────────────────────────────
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -25,6 +27,58 @@ const heroLine = {
   hidden:  { opacity: 0, y: 45 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
+
+// ── Flip card ────────────────────────────────────────────────────────────────
+function FlipCard() {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <div
+      style={{ width: 260, height: 260, perspective: 1200 }}
+      className="relative"
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      {/* 3D flip card — CSS transition avoids Framer Motion / preserve-3d conflicts */}
+      <div
+        style={{
+          width: "100%", height: "100%",
+          transformStyle: "preserve-3d",
+          position: "relative",
+          transition: "transform 0.75s cubic-bezier(0.4, 0, 0.2, 1)",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+        }}
+      >
+        {/* Front — clip-path instead of overflow:hidden to preserve 3D context */}
+        <div
+          className="absolute inset-0"
+          style={{ backfaceVisibility: "hidden", clipPath: "circle(50%)" }}
+        >
+          <img src={nirmitFront} alt="Nirmit" className="w-full h-full object-cover" />
+        </div>
+        {/* Back */}
+        <div
+          className="absolute inset-0"
+          style={{ backfaceVisibility: "hidden", clipPath: "circle(50%)", transform: "rotateY(180deg)" }}
+        >
+          <img src={nirmitBack} alt="Nirmit" className="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      {/* Revolving ring — on top of card, masked to show only outer border */}
+      <motion.div
+        className="absolute inset-0 rounded-full pointer-events-none"
+        style={{
+          background: "conic-gradient(from 0deg, transparent, var(--accent-color) 20%, transparent 40%)",
+          mask: "radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))",
+          WebkitMask: "radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))",
+        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+      />
+    </div>
+  );
+}
 
 // ── Count-up stat ────────────────────────────────────────────────────────────
 function StatItem({
@@ -109,90 +163,107 @@ export function Homepage() {
         <div
           className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse 60% 80% at 85% 20%, var(--accent-color-gradient), transparent)"
+            background: "radial-gradient(ellipse 55% 70% at 20% 50%, var(--accent-color-gradient), transparent)"
           }}
           aria-hidden
         />
 
         {/* Decorative asterisk */}
         <div
-          className="absolute top-12 right-6 lg:right-16 text-8xl lg:text-[10rem] select-none pointer-events-none leading-none opacity-20 hidden sm:block"
+          className="absolute top-10 right-6 lg:right-16 text-8xl lg:text-[10rem] select-none pointer-events-none leading-none opacity-12 hidden sm:block"
           style={{ color: "var(--accent-color)" }}
           aria-hidden
         >
           ✦
         </div>
 
-        {/* Available pill */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          className="mb-10"
-        >
-          <span
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm border"
-            style={{ borderColor: "var(--accent-color)", color: "var(--accent-color)" }}
+        {/* Two-column layout */}
+        <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-20 relative z-10">
+
+          {/* Left — text */}
+          <div className="flex-1 min-w-0">
+            {/* Available pill */}
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="mb-10"
+            >
+              <span
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm border"
+                style={{ borderColor: "var(--accent-color)", color: "var(--accent-color)" }}
+              >
+                <span
+                  className="w-2 h-2 rounded-full animate-pulse"
+                  style={{ background: "var(--accent-color)" }}
+                />
+                Available for work
+              </span>
+            </motion.div>
+
+            {/* Headline — staggered lines */}
+            <motion.h1
+              className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold tracking-tight leading-[1.06] mb-8 max-w-3xl"
+              variants={heroStagger}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.span variants={heroLine} className="block text-foreground">
+                I design
+              </motion.span>
+              <motion.span variants={heroLine} className="block">
+                <span className="funky font-normal italic text-foreground-secondary">
+                  clean, user-focused
+                </span>
+              </motion.span>
+              <motion.span variants={heroLine} className="block text-foreground">
+                websites that look
+              </motion.span>
+              <motion.span variants={heroLine} className="block text-foreground">
+                good{" "}
+                <span className="text-foreground-secondary-2">&amp;</span> work well
+              </motion.span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              className="text-lg sm:text-xl text-foreground-secondary mb-10 max-w-lg leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              A freelance designer crafting thoughtful digital experiences through strong
+              UX, visual clarity, and modern aesthetics.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+            >
+              <Button size="lg" asChild className="w-full sm:w-auto">
+                <Link to="/work">
+                  View work <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
+                <Link to="/contact?ref=home">Get in touch</Link>
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Right — flip card, desktop only */}
+          <motion.div
+            className="hidden lg:flex items-center justify-center flex-shrink-0"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           >
-            <span
-              className="w-2 h-2 rounded-full animate-pulse"
-              style={{ background: "var(--accent-color)" }}
-            />
-            Available for work
-          </span>
-        </motion.div>
-
-        {/* Headline — staggered lines */}
-        <motion.h1
-          className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold tracking-tight leading-[1.06] mb-8 max-w-4xl"
-          variants={heroStagger}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.span variants={heroLine} className="block text-foreground">
-            I design
-          </motion.span>
-          <motion.span variants={heroLine} className="block">
-            <span className="funky font-normal italic text-foreground-secondary">
-              clean, user-focused
-            </span>
-          </motion.span>
-          <motion.span variants={heroLine} className="block text-foreground">
-            websites that look
-          </motion.span>
-          <motion.span variants={heroLine} className="block text-foreground">
-            good{" "}
-            <span className="text-foreground-secondary-2">&amp;</span> work well
-          </motion.span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          className="text-lg sm:text-xl text-foreground-secondary mb-10 max-w-lg leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          A freelance designer crafting thoughtful digital experiences through strong
-          UX, visual clarity, and modern aesthetics.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.75 }}
-        >
-          <Button size="lg" asChild className="w-full sm:w-auto">
-            <Link to="/work">
-              View work <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
-            <Link to="/contact?ref=home">Get in touch</Link>
-          </Button>
-        </motion.div>
+            <FlipCard />
+          </motion.div>
+        </div>
 
         {/* Scroll indicator */}
         <motion.div
