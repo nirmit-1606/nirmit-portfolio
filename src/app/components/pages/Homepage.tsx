@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Pin } from "lucide-react";
 import { Button } from "../ui/button";
 import { ImageWithFallback } from "../ImageWithFallback";
 import { getFeaturedCaseStudies } from "../../data/caseStudies";
@@ -144,11 +144,11 @@ const PROCESS = [
 
 // ── Process sticky notes ──────────────────────────────────────────────────────
 const STICKY_COLORS    = ["#FEF08A", "#BFDBFE", "#FBCFE8", "#BBF7D0"];
-const STICKY_ROTATIONS = [-2,  2.5,   1,  -2.5];
+const STICKY_ROTATIONS = [-2,  2.5,   4.5,  -2.5];
 const STICKY_OFFSETS   = [
-  { x:   0, y:  0  },  // Discovery  — anchor
+  { x:   -32, y:  0  },  // Discovery  — anchor
   { x:   -4, y: 42  },  // Strategy   — drop down
-  { x: 12, y: 32  },  // Design     — nudge left + slight drop
+  { x: -18, y: 32  },  // Design     — nudge left + slight drop
   { x:  12, y: 64 },  // Development — nudge right + lift
 ];
 
@@ -163,7 +163,7 @@ function ProcessNotes() {
             whileInView={{ opacity: 1, x: STICKY_OFFSETS[i].x, y: STICKY_OFFSETS[i].y }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: i * 0.1, ease: EASE }}
-            className="relative p-4 sm:p-5"
+            className="relative p-5 sm:p-6"
             style={{
               rotate: STICKY_ROTATIONS[i],
               backgroundColor: STICKY_COLORS[i],
@@ -171,6 +171,16 @@ function ProcessNotes() {
               boxShadow: "3px 5px 16px rgba(0,0,0,0.2)",
             }}
           >
+            {/* Pin */}
+            <Pin
+              size={18}
+              className="absolute top-1.5 right-1.5 pointer-events-none"
+              style={{
+                color: "#555",
+                filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.35))",
+                transform: "translateX(-50%) rotate(45deg)",
+              }}
+            />
             {/* Folded bottom-right corner */}
             <div
               className="absolute bottom-0 right-0 pointer-events-none"
@@ -181,13 +191,13 @@ function ProcessNotes() {
                 borderBottom: "22px solid rgba(0,0,0,0.13)",
               }}
             />
-            <span className="block text-xs font-mono mb-1" style={{ color: "rgba(0,0,0,0.38)" }}>
+            <span className="block font-mono mb-1 mt-2" style={{ fontSize: 12, color: "rgba(0,0,0,0.38)" }}>
               {String(i + 1).padStart(2, "0")}
             </span>
-            <h4 className="mb-1.5" style={{ fontSize: 20, fontWeight: 600, color: "#111" }}>
+            <h4 className="mb-2" style={{ fontSize: 24, fontWeight: 600, color: "#111" }}>
               {step.title}
             </h4>
-            <p style={{ fontSize: 14, color: "#3a3a3a", lineHeight: 1.5 }}>
+            <p style={{ fontSize: 16, color: "#3a3a3a", lineHeight: 1.5 }}>
               {step.desc}
             </p>
           </motion.div>
@@ -440,66 +450,68 @@ export function Homepage() {
 
       <Separator />
 
-      {/* ── What I do + Process ── */}
+      {/* ── What I do ── */}
       <section className="relative px-6 lg:px-8 py-24">
         <div
           className="absolute top-0 bottom-0 w-screen left-1/2 -translate-x-1/2"
           style={{ background: "var(--accent-color-muted)" }}
         />
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Services */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-2">
-              Expertise
-            </p>
-            <h2 className="text-3xl text-foreground mb-5">What I do</h2>
-            <p className="text-foreground-secondary leading-relaxed mb-10">
-              I work with businesses of all sizes to create digital experiences that are
-              both beautiful and functional. My approach focuses on understanding user
-              needs, crafting clear visual systems, and building websites that perform.
-            </p>
-            <div className="space-y-0 divide-y divide-border">
-              {SERVICES.map((service, i) => (
-                <motion.div
-                  key={service}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.07, ease: EASE }}
-                  className="flex items-center gap-4 py-4 group"
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-transform duration-300 group-hover:scale-150"
-                    style={{ background: "var(--accent-color)" }}
-                  />
-                  <span className="text-foreground group-hover:translate-x-1 transition-transform duration-300">
-                    {service}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        <motion.div
+          className="relative max-w-2xl"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-2">
+            Expertise
+          </p>
+          <h2 className="text-3xl text-foreground mb-5">What I do</h2>
+          <p className="text-foreground-secondary leading-relaxed mb-10">
+            I work with businesses of all sizes to create digital experiences that are
+            both beautiful and functional. My approach focuses on understanding user
+            needs, crafting clear visual systems, and building websites that perform.
+          </p>
+          <div className="space-y-0 divide-y divide-border">
+            {SERVICES.map((service, i) => (
+              <motion.div
+                key={service}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.07, ease: EASE }}
+                className="flex items-center gap-4 py-4 group"
+              >
+                <span
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-transform duration-300 group-hover:scale-150"
+                  style={{ background: "var(--accent-color)" }}
+                />
+                <span className="text-foreground group-hover:translate-x-1 transition-transform duration-300">
+                  {service}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
 
-          {/* Process */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ delay: 0.15 }}
-          >
-            <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-2">
-              Approach
-            </p>
-            <h3 className="text-3xl text-foreground mb-8">My process</h3>
-            <ProcessNotes />
-          </motion.div>
-        </div>
+      <Separator />
+
+      {/* ── My Process ── */}
+      <section className="px-6 lg:px-8 py-24">
+        <motion.div
+          className="max-w-2xl ml-auto"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          <p className="text-xs tracking-widest uppercase text-foreground-secondary-2 mb-2">
+            Approach
+          </p>
+          <h3 className="text-3xl text-foreground mb-8">My process</h3>
+          <ProcessNotes />
+        </motion.div>
       </section>
 
       <Separator />
