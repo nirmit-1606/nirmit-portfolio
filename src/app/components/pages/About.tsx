@@ -21,16 +21,16 @@ const PROCESS = [
 
 const VALUES = [
   {
-    title: "User-centered thinking",
-    desc: "Every design decision starts with understanding user needs and behaviors",
+    title: "Actually usable",
+    desc: "If someone can't find what they need in a few seconds, the design failed, no matter how it looks",
   },
   {
-    title: "Clean aesthetics",
-    desc: "Visual clarity and restraint create more intuitive, timeless experiences",
+    title: "No unnecessary parts",
+    desc: "I've swapped out CMS setups and plugin stacks for a handful of fast pages that do the job. Simpler tools when simpler tools are enough",
   },
   {
-    title: "Practical design",
-    desc: "Beautiful work that ships and performs in the real world",
+    title: "Built to be maintained",
+    desc: "A client-facing tool should give the client an actual off-ramp, not a reason to keep calling me for every small change",
   },
 ];
 
@@ -76,23 +76,22 @@ export function About() {
 
             <div className="space-y-6 text-base sm:text-lg text-foreground-secondary leading-relaxed">
               <p>
-                I'm a web designer who believes the best digital experiences are
-                the ones that feel <Accent>effortless</Accent>. My work focuses
-                on <Accent>clarity</Accent>, <Accent>usability</Accent>, and
-                visual systems that scale—whether it's a small business website
-                or a growing product.
+                I design and I develop. Most projects only need one of those, so
+                I show up for whichever part is missing: just the <Accent>interface</Accent>,
+                a design that already exists and needs building, a <Accent>UX pass</Accent> on
+                something that already ships, or the whole thing from a blank
+                page to code running in production. No handoff. No guessing
+                what the other person meant.
               </p>
               <p>
-                Good design isn't about complexity. It's about understanding
-                what people need, removing what doesn't serve them, and
-                presenting what remains with <Accent>intention</Accent> and
-                care. I approach every project with curiosity, attention to
-                detail, and a focus on outcomes.
+                Most of my work starts by cutting things, not adding them. A
+                client shows up with a bloated menu, five plugins doing one
+                job, or a page trying to say everything at once. I find
+                the <Accent>smallest version</Accent> that still works, then build that.
               </p>
               <p>
-                When I'm not designing, you'll find me exploring coffee shops,
-                experimenting with new tools, or learning about{" "}
-                <Accent>design systems</Accent> and{" "}
+                Outside client work, I'm usually in a coffee shop, testing some
+                new tool, or reading about <Accent>design systems</Accent> and{" "}
                 <Accent>accessibility</Accent>.
               </p>
             </div>
@@ -256,8 +255,8 @@ export function About() {
             <span className="text-foreground-secondary">together</span>
           </h2>
           <p className="text-foreground-secondary mb-8 leading-relaxed">
-            I'm always interested in working with thoughtful teams and clients
-            who value good design.
+            Got something that needs design, development, or both? That's
+            exactly the kind of project I want to hear about.
           </p>
           <div className="flex flex-col sm:flex-row sm:justify-end gap-4">
             <Button size="lg" asChild>
