@@ -48,7 +48,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "3": {
     id: "3",
     title: "Deccan Cafe",
-    subtitle: "Built to a deadline, then improved by necessity — the site that finally forced the admin tool into existence.",
+    subtitle: "Built to a deadline, then improved by necessity: the site that finally forced the admin tool into existence.",
     role: "Designer & Developer",
     tools: ["Figma", "Eleventy", "Supabase", "JavaScript", "Netlify"],
     timeline: "4 weeks",
@@ -61,7 +61,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "4": {
     id: "4",
     title: "TradeMind",
-    subtitle: "Joined a startup of 25 after launch to improve the UX of a live trading journal — redesigning core surfaces, rebuilding the journal from scratch, and shipping every change in code myself.",
+    subtitle: "Joined a startup of 25 after launch to improve the UX of a live trading journal, redesigning core surfaces, rebuilding the journal from scratch, and shipping every change in code myself.",
     role: "UI/UX Designer & Frontend Engineer",
     tools: ["React", "TypeScript", "TipTap", "Figma", "CSS"],
     timeline: "8 months",
