@@ -50,7 +50,7 @@ export function DeccanCafeCaseStudy() {
         tools={META.tools}
         heroImage={META.images.hero}
         heroBg={META.images.heroBg}
-        eyebrow="Freelance · Designer & Developer · Same client, second restaurant"
+        eyebrow="Designer & Developer · Same client, second restaurant"
       />
 
       <div className="max-w-4xl mx-auto">
@@ -61,11 +61,11 @@ export function DeccanCafeCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>A second location, a different identity</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              Deccan Cafe is the same client's second restaurant — a <A>purely vegetarian South Indian
+              Deccan Cafe is the same client's second restaurant, a <A>purely vegetarian South Indian
               concept</A> with its own coffee-and-café energy, distinct from Deccan House. They needed a
               site live before opening day. While the space itself was still being finished, I worked
               with them on designing and finalising the logo. Once that was approved, I built the site
-              in about <A>two weeks</A> — reusing the Eleventy layout and structure from Deccan House,
+              in about <A>two weeks</A>, reusing the Eleventy layout and structure from Deccan House,
               with a fully redesigned colour system for the new brand, and the copy, images, and menu
               swapped for the new concept.
             </p>
@@ -73,11 +73,11 @@ export function DeccanCafeCaseStudy() {
             {/* Logo design sequence */}
             <div className="mt-8">
               <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">
-                A few rounds of sketching landed on a peacock — a recurring motif in Deccan and Hyderabadi visual identity
+                A few rounds of sketching landed on a peacock, a recurring motif in Deccan and Hyderabadi visual identity
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
                 {[
-                  { src: logoSketch,  alt: "Logo sketch", caption: "Early exploration — pencil sketches of peacock motifs and Charminar-style arches" },
+                  { src: logoSketch,  alt: "Logo sketch", caption: "Early exploration: pencil sketches of peacock motifs and Charminar-style arches" },
                   { src: logoPeacock, alt: "Peacock mark", caption: "Refining the peacock mark on its own, before adding type" },
                   { src: logoFinal,   alt: "Final logo",   caption: "Final logo, approved by the client" },
                 ].map(({ src, alt, caption }, i) => (
@@ -98,11 +98,11 @@ export function DeccanCafeCaseStudy() {
               </div>
             </div>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
-              The menu was already in good shape from the Deccan House migration — Supabase-backed and
+              The menu was already in good shape from the Deccan House migration, Supabase-backed and
               server-rendered, so it would reflect database changes without a redeploy. What it still
               didn't have was a way for the client to make those changes themselves. Menu updates still
               meant me opening the database directly and <A>editing rows by hand</A>. The portal wasn't
-              part of this build — that came two weeks later, once the site was live and the same need
+              part of this build. That came two weeks later, once the site was live and the same need
               resurfaced.
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-6">
@@ -124,7 +124,7 @@ export function DeccanCafeCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The second time the pain showed up, I fixed it</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-6">
-              I'd already felt this exact friction once on Deccan House — but the first time, it was
+              I'd already felt this exact friction once on Deccan House, but the first time, it was
               easy to treat as a one-off. Doing the same manual database edits for the same client's
               second restaurant made the pattern obvious: this wasn't a one-time fluke, it was a
               <A> gap in how I was building these sites</A>.
@@ -140,8 +140,8 @@ export function DeccanCafeCaseStudy() {
               </p>
             </blockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
-              I built a <A>protected admin portal</A> — a separate route on each site, backed by the
-              same Supabase database — so the client could manage both menus directly. Once it
+              I built a <A>protected admin portal</A> (a separate route on each site, backed by the
+              same Supabase database) so the client could manage both menus directly. Once it
               was working for Deccan Cafe, I brought the same tool back to Deccan House so both
               restaurants had it.
             </p>
@@ -164,12 +164,12 @@ export function DeccanCafeCaseStudy() {
             {
               label: "Smart defaults",
               title: "Pre-populated category",
-              description: "Adding an item while filtered to a category pre-fills that field — one less thing to fill in every time.",
+              description: "Adding an item while filtered to a category pre-fills that field, one less thing to fill in every time.",
             },
             {
               label: "Soft hide",
               title: "Item visibility toggle",
-              description: "Items can be hidden from the live menu temporarily — for out-of-stock dishes — without deleting the record.",
+              description: "Items can be hidden from the live menu temporarily (for out-of-stock dishes) without deleting the record.",
             },
             {
               label: "Batched writes",
@@ -181,8 +181,8 @@ export function DeccanCafeCaseStudy() {
           {/* Admin portal screenshots */}
           <div className="flex flex-col gap-8 mt-8">
             {[
-              { src: adminFiltered,   caption: "Menu items tab filtered to a category — Desserts" },
-              { src: adminPending,    caption: "Pending state — edited row in yellow, deleted in red, new item in blue" },
+              { src: adminFiltered,   caption: "Menu items tab filtered to a category: Desserts" },
+              { src: adminPending,    caption: "Pending state: edited row in yellow, deleted in red, new item in blue" },
               { src: adminCategories, caption: "Categories tab" },
             ].map(({ src, caption }, i) => (
               <motion.figure
@@ -210,11 +210,11 @@ export function DeccanCafeCaseStudy() {
           </motion.div>
           <BugCards items={[
             {
-              edgeCase: "Deleting a category left its menu items orphaned in the database — no valid category attached — which showed up as items sorting strangely on the live menu.",
+              edgeCase: "Deleting a category left its menu items orphaned in the database, no valid category attached, which showed up as items sorting strangely on the live menu.",
               fix: "Traced the odd sorting back to the orphaned records, then changed category deletion to account for items still attached to it.",
             },
             {
-              edgeCase: "Opening one of those orphaned items in the portal to edit it showed a blank category field — a required field with nothing valid to select.",
+              edgeCase: "Opening one of those orphaned items in the portal to edit it showed a blank category field, a required field with nothing valid to select.",
               fix: "Closed the gap so the edit form always resolves to a valid category state, even for items affected by the earlier bug.",
             },
           ]} />
@@ -233,11 +233,11 @@ export function DeccanCafeCaseStudy() {
               {[
                 {
                   src: analyticsRequests,
-                  caption: "Web requests — combined account usage increased noticeably after April 7, with customers across both restaurants using the live sites",
+                  caption: "Web requests: combined account usage increased noticeably after April 7, with customers across both restaurants using the live sites",
                 },
                 {
                   src: analyticsBandwidth,
-                  caption: "Bandwidth — despite more users and two sites, total bandwidth dropped after the Deccan Cafe build, because the same optimisations were applied to both sites",
+                  caption: "Bandwidth: despite more users and two sites, total bandwidth dropped after the Deccan Cafe build, because the same optimisations were applied to both sites",
                 },
               ].map(({ src, caption }, i) => (
                 <motion.figure
@@ -264,12 +264,11 @@ export function DeccanCafeCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Outcome</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              Deccan House and Deccan Cafe each now run their own instance of the same admin portal —
+              Deccan House and Deccan Cafe each now run their own instance of the same admin portal,
               built because doing the same manual work for the <P>same client's two restaurants</P> made
               the real problem obvious. The client now manages both menus directly. No calls, no emails,
-              no waiting on me. Building it the second time, knowing exactly what the first version had
-              missed, meant shipping something <P>considerably more complete</P> than if it had been
-              planned from the start.
+              no waiting on me. Building it the second time meant I already knew what the first version
+              had missed, so the portal shipped with that <P>gap already closed</P>.
             </p>
           </motion.div>
         </CaseStudySection>
