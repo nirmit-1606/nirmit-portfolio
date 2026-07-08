@@ -63,8 +63,8 @@ export function DeccanCafeCaseStudy() {
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               Deccan Cafe is the same client's second restaurant, a <A>purely vegetarian South Indian
               concept</A> with its own coffee-and-café energy, distinct from Deccan House. They needed a
-              site live before opening day. While the space itself was still being finished, I worked
-              with them on designing and finalising the logo. Once that was approved, I built the site
+              site live before opening day. The space itself was still being finished, and I worked
+              with them on designing and finalising the logo in parallel. Once that was approved, I built the site
               in about <A>two weeks</A>, reusing the Eleventy layout and structure from Deccan House,
               with a fully redesigned colour system for the new brand, and the copy, images, and menu
               swapped for the new concept.
@@ -78,7 +78,7 @@ export function DeccanCafeCaseStudy() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
                 {[
                   { src: logoSketch,  alt: "Logo sketch", caption: "Early exploration: pencil sketches of peacock motifs and Charminar-style arches" },
-                  { src: logoPeacock, alt: "Peacock mark", caption: "Refining the peacock mark on its own, before adding type" },
+                  { src: logoPeacock, alt: "Peacock mark", caption: "Refining the peacock mark on its own, ahead of adding type" },
                   { src: logoFinal,   alt: "Final logo",   caption: "Final logo, approved by the client" },
                 ].map(({ src, alt, caption }, i) => (
                   <motion.figure
@@ -164,7 +164,7 @@ export function DeccanCafeCaseStudy() {
             {
               label: "Smart defaults",
               title: "Pre-populated category",
-              description: "Adding an item while filtered to a category pre-fills that field, one less thing to fill in every time.",
+              description: "Adding an item with a category filter active pre-fills that field, one less thing to fill in every time.",
             },
             {
               label: "Soft hide",
@@ -237,7 +237,7 @@ export function DeccanCafeCaseStudy() {
                 },
                 {
                   src: analyticsBandwidth,
-                  caption: "Bandwidth: despite more users and two sites, total bandwidth dropped after the Deccan Cafe build, because the same optimisations were applied to both sites",
+                  caption: "Bandwidth: usage grew across both sites, but total bandwidth dropped after the Deccan Cafe build. The same optimisations now applied to both sites",
                 },
               ].map(({ src, caption }, i) => (
                 <motion.figure
@@ -264,11 +264,12 @@ export function DeccanCafeCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Outcome</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              Deccan House and Deccan Cafe each now run their own instance of the same admin portal,
-              built because doing the same manual work for the <P>same client's two restaurants</P> made
-              the real problem obvious. The client now manages both menus directly. No calls, no emails,
-              no waiting on me. Building it the second time meant I already knew what the first version
-              had missed, so the portal shipped with that <P>gap already closed</P>.
+              Deccan House and Deccan Cafe each now run their own instance of the same admin portal.
+              Doing the same manual work for the <P>same client's two restaurants</P> made the real
+              problem obvious, and building the portal was the fix. The client now manages both menus
+              directly. No calls, no emails, no waiting on me. Building it the second time meant I
+              already knew what the first version had missed, so the portal shipped with that
+              <P> gap already closed</P>.
             </p>
           </motion.div>
         </CaseStudySection>

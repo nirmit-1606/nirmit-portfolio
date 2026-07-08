@@ -138,9 +138,9 @@ export function DeccanHouseCaseStudy() {
             <SectionLabel>The starting point</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               Deccan House has <A>no physical menu</A>. The website is the only menu their customers ever
-              see, whether they're browsing on their phone at the table or deciding what to order before
-              they walk in. That made the <A>menu page the most important surface</A> on the entire site,
-              not just a content section.
+              see. They browse it at the table on their phone, or they check it ahead of a visit. That
+              made the <A>menu page the most important surface</A> on the entire site, not just a
+              content section.
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
               They came to me with a WordPress site that didn't reflect the restaurant: generic
@@ -153,7 +153,7 @@ export function DeccanHouseCaseStudy() {
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                Because there's no paper backup, any bug in the menu (a wrong price, a missing
+                There's no paper backup. Any bug in the menu (a wrong price, a missing
                 category, a broken filter) is a bug a customer sees in the moment they're deciding
                 what to order. That's the lens everything downstream got built through.
               </p>
@@ -189,8 +189,7 @@ export function DeccanHouseCaseStudy() {
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4 mb-8">
               I <A>designed in Figma first</A>, building out a real colour system and layout direction
-              from their brand and food photography, before writing a line of code. Once the client
-              signed off, I moved to build.
+              from their brand and food photography. Code came only after the client signed off.
             </p>
             <TechChips items={[
               "Eleventy",
@@ -294,7 +293,7 @@ export function DeccanHouseCaseStudy() {
             {[
               {
                 title: "Started with Notion as a database",
-                description: "Notion was the fast way to get the menu live, no backend needed for a static site. It worked fine while the menu was stable.",
+                description: "Notion was the fast way to get the menu live, no backend needed for a static site. The menu was stable, and it worked fine.",
               },
               {
                 title: "Menu updates became frequent",
@@ -334,7 +333,7 @@ export function DeccanHouseCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>Menu UX, twice</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-2xl">
-              The menu page went through <P>two real iterations</P> as the restaurant's category count grew.
+              The restaurant's category count grew, and the menu page went through <P>two real iterations</P>.
             </p>
           </motion.div>
           <HighlightCards items={[
@@ -346,7 +345,7 @@ export function DeccanHouseCaseStudy() {
             {
               label: "Later pass",
               title: "Scrolling tab list",
-              description: "As I modernised the site further, moved to a horizontally scrolling category list with a more current menu item layout. What's live today.",
+              description: "I modernised the site further and moved to a horizontally scrolling category list with a more current menu item layout. What's live today.",
             },
           ]} />
 
@@ -437,8 +436,8 @@ export function DeccanHouseCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The part nobody asked for</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-6">
-              While Notion was the data source, every menu change meant me going back into the database
-              manually, then redeploying. When I moved to Supabase, I used that moment to also build a
+              Notion was the data source, and every menu change meant me going back into the database
+              manually, then redeploying. I moved to Supabase, and I used that moment to build a
               <A> lightweight admin portal</A> (a protected route on the same site) so the client
               could manage items and prices themselves. The backend migration and the portal were the
               same decision: <A>stop being the bottleneck</A>.
@@ -460,8 +459,8 @@ export function DeccanHouseCaseStudy() {
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-8">
               Updating the menu still meant me editing the database by hand, something that only became
-              a real problem once I was doing it for a second restaurant too. When Deccan House's second
-              location, Deccan Cafe, launched on the same setup, I built an admin portal to finally
+              a real problem once I was doing it for a second restaurant too. Deccan House's second
+              location, Deccan Cafe, launched on the same setup. I built an admin portal to finally
               <P> take the manual editing out of the picture</P>, then brought that same tool back here,
               so both restaurants could manage their own menus directly.
             </p>

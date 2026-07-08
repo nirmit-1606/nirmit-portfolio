@@ -22,11 +22,11 @@ const PROCESS = [
 const VALUES = [
   {
     title: "Actually usable",
-    desc: "If someone can't find what they need in a few seconds, the design failed, no matter how it looks",
+    desc: "A design that makes people hunt for what they need has already failed, no matter how it looks",
   },
   {
     title: "No unnecessary parts",
-    desc: "I've swapped out CMS setups and plugin stacks for a handful of fast pages that do the job. Simpler tools when simpler tools are enough",
+    desc: "I've swapped out CMS setups and plugin stacks for a handful of fast pages that do the job. I add extra tools only where a project actually needs them",
   },
   {
     title: "Built to be maintained",

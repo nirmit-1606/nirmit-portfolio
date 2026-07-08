@@ -468,12 +468,11 @@ export function Homepage() {
           </p>
           <h2 className="text-3xl text-foreground mb-5">What I do</h2>
           <p className="text-foreground-secondary leading-relaxed mb-10">
-            I design and I develop, so I can slot in wherever a project actually needs
-            help. Just need the design? I'll do that. Already have a design and need it
-            built? I'll do that too. Product's UX needs work? Same thing. And if you want
-            the whole thing handled, from the first wireframe to the code running in
-            production, I can take it there myself without handing anything off along
-            the way.
+            I design and I develop, so I can slot in wherever a project needs help.
+            Just need the design? I'll do that. Already have a design and need it
+            built? I'll do that too. Product's UX needs work? Same thing. Want the
+            whole thing handled? I'll take it from the first wireframe to the code
+            running in production, and I won't hand anything off along the way.
           </p>
           <div className="space-y-0 divide-y divide-border">
             {SERVICES.map((service, i) => (

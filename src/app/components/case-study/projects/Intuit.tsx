@@ -57,8 +57,8 @@ export function IntuitCaseStudy() {
               modules layered on top.
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
-              When a business creates a new IES account or upgrades from QBO, they land in a product
-              with significantly more power and complexity than anything they've used before. There
+              A business creates a new IES account or upgrades from QBO. They land in a product
+              with far more power and complexity than anything they've used before. There
               was <A>no onboarding experience</A> to guide them through it.
             </p>
           </motion.div>
@@ -147,7 +147,7 @@ export function IntuitCaseStudy() {
             </p>
             <ul className="space-y-5 max-w-3xl">
               {[
-                { icon: Sparkles, text: <>The design showed a <P>”completed”</P> text label on finished tasks. I flagged it as redundant, since the component already showed completion visually. We dropped the label.</> },
+                { icon: Sparkles, text: <>The design showed a <P>”completed”</P> text label on finished tasks. I flagged it as redundant. The component already showed completion visually. We dropped the label.</> },
                 { icon: Smartphone, text: <>For mobile, I proposed swapping one of the task panels for a <P>dropdown</P> instead of a collapsed list, for better <P>thumb reach</P> and less jarring on a small screen. The designer agreed, and it shipped that way.</> },
               ].map(({ icon: Icon, text }, i) => (
                 <motion.li

@@ -194,7 +194,7 @@ export function TradeMindCaseStudy() {
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               TradeMind is a trading journal built by Vcrypt Financial, a startup building tools to
               help traders track performance, review trades, and develop strategy. The algorithms and
-              core software were already in place when I joined. The team had moved fast to get to
+              core software were already built. I joined after that. The team had moved fast to get to
               launch, and <A>UX hadn't kept pace with the product's ambition</A>.
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
@@ -245,7 +245,7 @@ export function TradeMindCaseStudy() {
               created Figma mockups of the software to illustrate the app's surfaces, and added
               annotated callouts with arrows to explain what each section does. Multiple images under
               a single section <A>animate automatically</A>, cycling through content on a timer. I
-              also added a glowing background treatment around the product images to make them stand
+              added a glowing background treatment around the product images too, to make them stand
               out against the dark aesthetic.
             </p>
           </motion.div>
@@ -331,7 +331,7 @@ export function TradeMindCaseStudy() {
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
                 The trickiest part was persistence. Each component needed to store its own state so
-                the journal renders exactly as the user left it. The editor was built on TipTap, which
+                the journal renders exactly the way the user left it. The editor was built on TipTap, which
                 gave us the extensible node architecture needed to register custom slash command
                 components. The serialization challenge was making sure each widget's state survived
                 the markdown round-trip intact, storing data in a way that the right widget could be
@@ -340,7 +340,7 @@ export function TradeMindCaseStudy() {
             </blockquote>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-8">
               To make sure new users weren't faced with a blank page on first open, I built a template
-              system into the journal. Two default templates ship out of the box, one for pre-trade
+              system into the journal. Two default templates come pre-built, one for pre-trade
               planning and one for post-trade review, covering the most common journaling patterns.
               Users can customise either template, save their own, and build up a{" "}
               <P>personal library of entry formats</P> suited to their workflow.
@@ -368,7 +368,7 @@ export function TradeMindCaseStudy() {
             <AppShot src={mentorOld} alt="Original Mentor page, three panels on one screen" caption="Before: three congested panels, no mentor mode indicator" />
           </div>
           <BeforeAfter
-            before="Three panels on one screen: members list, selected member's trades, selected trade view. Too congested to use comfortably. No indication when browsing a member's trade that you're in mentor mode."
+            before="Three panels on one screen: members list, selected member's trades, selected trade view. Too congested to use comfortably. Browsing a member's trade gave no indication that you're in mentor mode."
             after="Two panels on the Mentor page: members and their trades. Clicking a trade navigates to the actual Trade page. A persistent banner in the app layout shows which member's trades are being reviewed throughout."
             className="mt-8"
           />
