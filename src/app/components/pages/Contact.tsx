@@ -66,7 +66,8 @@ export function Contact() {
             <span className="text-foreground-secondary">together</span>
           </h1>
           <p className="text-lg text-foreground-secondary leading-relaxed">
-            Have a project in mind or just want to say hello? I'd love to hear from you.
+            Need design, development, or both? Tell me what you're working on.
+            Just want to say hello? That works too.
           </p>
         </motion.div>
       </section>
