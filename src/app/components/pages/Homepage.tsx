@@ -129,10 +129,10 @@ function StatItem({
 
 // ── Services data ────────────────────────────────────────────────────────────
 const SERVICES = [
-  "Web Design & UX",
-  "Brand Identity Systems",
-  "Responsive Development",
-  "User Research & Testing",
+  "UI & UX Design",
+  "Design-to-code implementation",
+  "UX audits & upgrades",
+  "Full end-to-end builds",
 ];
 
 const PROCESS = [
@@ -297,8 +297,8 @@ export function Homepage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              A freelance designer crafting thoughtful digital experiences through strong
-              UX, visual clarity, and modern aesthetics.
+              Design, development, or both. I fit wherever your project
+              actually needs help, start to finish.
             </motion.p>
 
             {/* CTAs */}
@@ -468,9 +468,12 @@ export function Homepage() {
           </p>
           <h2 className="text-3xl text-foreground mb-5">What I do</h2>
           <p className="text-foreground-secondary leading-relaxed mb-10">
-            I work with businesses of all sizes to create digital experiences that are
-            both beautiful and functional. My approach focuses on understanding user
-            needs, crafting clear visual systems, and building websites that perform.
+            I design and I develop, so I can slot in wherever a project actually needs
+            help. Just need the design? I'll do that. Already have a design and need it
+            built? I'll do that too. Product's UX needs work? Same thing. And if you want
+            the whole thing handled, from the first wireframe to the code running in
+            production, I can take it there myself without handing anything off along
+            the way.
           </p>
           <div className="space-y-0 divide-y divide-border">
             {SERVICES.map((service, i) => (
@@ -549,8 +552,8 @@ export function Homepage() {
             <span className="text-foreground-secondary">together</span>
           </h2>
           <p className="text-lg text-foreground-secondary mb-10 leading-relaxed">
-            I'm currently available for new projects. Whether you need a new website,
-            a redesign, or help refining your digital experience, let's talk.
+            Have a project that needs someone to design it and build it? That's
+            usually where I come in.
           </p>
           <Button size="lg" asChild>
             <Link to="/contact?ref=home">
