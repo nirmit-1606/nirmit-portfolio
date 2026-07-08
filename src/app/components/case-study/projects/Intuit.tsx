@@ -50,7 +50,7 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The product</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              Intuit Enterprise Suite (IES) is a <A>cloud-based ERP</A> built for <A>mid-market businesses</A> —
+              Intuit Enterprise Suite (IES) is a <A>cloud-based ERP</A> built for <A>mid-market businesses</A>:
               multi-entity firms, construction companies, healthcare orgs, and non-profits that have
               outgrown <A>QuickBooks Online</A>. It consolidates financials across entities, handles
               intercompany journal entries, native payroll, HR, and bill pay, with industry-specific
@@ -76,13 +76,13 @@ export function IntuitCaseStudy() {
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
                 New users had <P>no clear starting point</P>, <P>no visible progress</P>, and <P>no path</P> to getting
                 their business set up. A construction firm and a non-profit need completely different
-                setup flows — neither was getting either.
+                setup flows, and neither was getting either.
               </p>
             </blockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               My job was to build that experience: a dedicated <A>setup tasks page</A>, a personalized flow
               based on the user's <A>industry vertical</A>, and entry points to reach it from the homepage
-              and tasks panel — all within a <A>micro-frontend architecture</A>, shipped under a <A>feature flag</A>.
+              and tasks panel, all within a <A>micro-frontend architecture</A>, shipped under a <A>feature flag</A>.
             </p>
           </motion.div>
         </CaseStudySection>
@@ -94,8 +94,8 @@ export function IntuitCaseStudy() {
             <SectionLabel>Architecture context</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
               IES is built as a <A>micro-frontend</A> with multiple <A>independent plugins</A>. Nothing here is a
-              single monolith — the homepage, the tasks panel, and our new setup page each live in
-              separate plugins. Work that seems simple often requires <A>coordinating across two or
+              single monolith. The homepage, the tasks panel, and our new setup page each live in
+              separate plugins, so work that looks simple often requires <A>coordinating across two or
               three teams</A>.
             </p>
             <TechChips items={[
@@ -142,13 +142,13 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Design input</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-2xl mb-8">
-              Figma designs were provided by our designer, but <A>engineers had input</A> on component
-              behaviour and layout. A couple of things I pushed on:
+              Figma designs came from our product designer, but <A>engineers still had input</A> on how
+              components behaved and laid out. Two things came up during implementation:
             </p>
             <ul className="space-y-5 max-w-3xl">
               {[
-                { icon: Sparkles, text: <>The design showed a <P>”completed”</P> text label on finished tasks. I suggested removing it — the component already communicated completion visually, and the label created <P>unnecessary noise</P>. Shipped without it.</> },
-                { icon: Smartphone, text: <>For mobile, I proposed converting one of the task panels into a <P>dropdown</P> instead of a collapsed list — better for <P>thumb reach</P> and less jarring on small viewports. Made it in.</> },
+                { icon: Sparkles, text: <>The design showed a <P>”completed”</P> text label on finished tasks. I flagged it as redundant, since the component already showed completion visually. We dropped the label.</> },
+                { icon: Smartphone, text: <>For mobile, I proposed swapping one of the task panels for a <P>dropdown</P> instead of a collapsed list, for better <P>thumb reach</P> and less jarring on a small screen. The designer agreed, and it shipped that way.</> },
               ].map(({ icon: Icon, text }, i) => (
                 <motion.li
                   key={i}
@@ -177,7 +177,7 @@ export function IntuitCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-12">
             <SectionLabel>How it shipped</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-2xl">
-              The feature launched behind a <P>feature flag</P> — first to a non-production environment as
+              The feature launched behind a <P>feature flag</P>, first to a non-production environment as
               an <P>MVP</P>, then rolled out rapidly to new IES account creation. Onboarding is only ever
               seen by new users, so we could move fast. Post-launch I monitored <P>Splunk</P> logs to catch
               errors in real time, debugged issues, and deployed fixes. A cleanup pass followed the
