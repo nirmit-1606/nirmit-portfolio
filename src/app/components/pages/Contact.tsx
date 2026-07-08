@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Form, FormItem, FormLabel, FormControl, FormMessage } from "../ui/form";
+import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import { motion } from "motion/react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -39,14 +40,8 @@ export function Contact() {
     else if (ref === "home")  setValue("subject", "Work with me");
   }, [searchParams, setValue]);
 
-  const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
-    const mailtoLink = `mailto:nirmitpatel1606@gmail.com?subject=${encodeURIComponent(
-      data.subject
-    )}&body=${encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
-    )}`;
-    window.location.href = mailtoLink;
-  };
+  // Form isn't wired up to a real send yet, so submitting is a no-op.
+  const onSubmit: SubmitHandler<ContactFormValues> = () => {};
 
   return (
     <>
@@ -156,6 +151,15 @@ export function Contact() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
           >
+            <div
+              className="rounded-lg border px-4 py-3 mb-6"
+              style={{ borderColor: "var(--accent-color)", background: "var(--accent-color-muted)" }}
+            >
+              <p className="text-sm leading-relaxed" style={{ color: "var(--accent-color)" }}>
+                This form is still under construction and won't actually send yet.
+                Email me directly for now.
+              </p>
+            </div>
             <Form {...form} onSubmit={form.handleSubmit(onSubmit)}>
               <div className="space-y-6">
                 {/* Name + Email side by side */}
@@ -215,9 +219,21 @@ export function Contact() {
                   <FormMessage />
                 </FormItem>
 
-                <Button type="submit" size="lg">
-                  Send message
-                </Button>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      type="submit"
+                      size="lg"
+                      aria-disabled="true"
+                      className="opacity-60 cursor-not-allowed"
+                    >
+                      Send message
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Still under construction. Not wired up yet.
+                  </TooltipContent>
+                </Tooltip>
               </div>
             </Form>
           </motion.div>
