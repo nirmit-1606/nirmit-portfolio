@@ -192,13 +192,13 @@ export function TradeMindCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The context</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              TradeMind is a trading journal built by Vcrypt Financial — a startup building tools to
+              TradeMind is a trading journal built by Vcrypt Financial, a startup building tools to
               help traders track performance, review trades, and develop strategy. The algorithms and
-              core software were already in place when I joined. The team had moved fast to get to
+              core software were already built. I joined after that. The team had moved fast to get to
               launch, and <A>UX hadn't kept pace with the product's ambition</A>.
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
-              I came in as the <A>only person focused on UI/UX</A> across a team of 25 — working
+              I came in as the <A>only person focused on UI/UX</A> across a team of 25, working
               directly alongside one of the co-founders, who had built much of the app itself. My
               remit was to identify where the experience was breaking down, propose improvements, get
               stakeholder sign-off on wireframes, and then build them out in React and TypeScript myself.
@@ -220,12 +220,12 @@ export function TradeMindCaseStudy() {
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
                 For every change: wireframe in Figma → stakeholder review → final design → build in
-                code. Nothing shipped without approval, and nothing got handed off — I owned each
+                code. Nothing shipped without approval, and nothing got handed off. I owned each
                 change from first sketch to production.
               </p>
             </blockquote>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              Some changes came from stakeholder direction. Others I identified and pitched myself —
+              Some changes came from stakeholder direction. Others I identified and pitched myself,
               pointing out where the UI was creating friction and proposing a better approach. The
               co-founder I worked with was close enough to the codebase to give real technical
               feedback, which meant the design and implementation conversations happened together
@@ -234,49 +234,49 @@ export function TradeMindCaseStudy() {
           </motion.div>
         </CaseStudySection>
 
-        {/* 1 — Marketing site */}
+        {/* 1. Marketing site */}
         <Separator />
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
-            <SectionLabel>1 — Marketing site</SectionLabel>
+            <SectionLabel>1. Marketing site</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              The first contribution was to the marketing site — <a href="https://trademind.pro/demo" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:opacity-70 transition-opacity duration-150">trademind.pro/demo</a> — which needed to
+              The first contribution was to the marketing site, <a href="https://trademind.pro/demo" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:opacity-70 transition-opacity duration-150">trademind.pro/demo</a>, which needed to
               actually show what the product looked like. I added product imagery to the homepage,
               created Figma mockups of the software to illustrate the app's surfaces, and added
               annotated callouts with arrows to explain what each section does. Multiple images under
               a single section <A>animate automatically</A>, cycling through content on a timer. I
-              also added a glowing background treatment around the product images to make them stand
+              added a glowing background treatment around the product images too, to make them stand
               out against the dark aesthetic.
             </p>
           </motion.div>
           <div className="mt-8">
             <ImageCarousel images={[
-              { src: marketingDashboard,       alt: "Annotated dashboard on the TradeMind marketing site",        caption: "Dashboard — annotated product image on the marketing site" },
-              { src: marketingJournal,         alt: "Journal view on the TradeMind marketing site",              caption: "Journal — freeform editor with custom slash command components" },
-              { src: marketingTemplateManager, alt: "Template manager on the TradeMind marketing site",           caption: "Template manager — browse, customise, and save personal journal templates" },
+              { src: marketingDashboard,       alt: "Annotated dashboard on the TradeMind marketing site",        caption: "Dashboard: annotated product image on the marketing site" },
+              { src: marketingJournal,         alt: "Journal view on the TradeMind marketing site",              caption: "Journal: freeform editor with custom slash command components" },
+              { src: marketingTemplateManager, alt: "Template manager on the TradeMind marketing site",           caption: "Template manager: browse, customise, and save personal journal templates" },
             ]} />
           </div>
         </CaseStudySection>
 
-        {/* 2 — Trade page layout */}
+        {/* 2. Trade page layout */}
         <Separator />
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
-            <SectionLabel>2 — Trade page layout</SectionLabel>
+            <SectionLabel>2. Trade page layout</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              The original Trade page put everything — the chart, trade details, journal, and other
-              data — in a <A>single long scroll view</A>. It worked as a prototype but fell apart as
+              The original Trade page put everything (the chart, trade details, journal, and other
+              data) in a <A>single long scroll view</A>. It worked as a prototype but fell apart as
               a daily tool: users had to scroll constantly, context was hard to hold, and switching
               between trades meant going back to a list view entirely.
             </p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
-            <AppShot src={tradePageOld} alt="Original Trade page — single scroll view" caption="Before — single scroll view" />
-            <AppShot src={tradePageNew} alt="Redesigned Trade page — multi-section with trade navigator" caption="After — trade navigator sidebar, collapsible journal" />
+            <AppShot src={tradePageOld} alt="Original Trade page, single scroll view" caption="Before: single scroll view" />
+            <AppShot src={tradePageNew} alt="Redesigned Trade page, multi-section with trade navigator" caption="After: trade navigator sidebar, collapsible journal" />
           </div>
           <BeforeAfter
-            before="Single scroll view with all content — chart, data, journal — stacked vertically. Generic sidebar for app navigation. Going to another trade required leaving the page."
-            after="Multi-section layout with dedicated areas for the chart, trade details, and a new journal section. Left sidebar replaced with a trade-specific navigator — users jump directly between trades without leaving the view."
+            before="Single scroll view with all content (chart, data, journal) stacked vertically. Generic sidebar for app navigation. Going to another trade required leaving the page."
+            after="Multi-section layout with dedicated areas for the chart, trade details, and a new journal section. Left sidebar replaced with a trade-specific navigator. Users jump directly between trades without leaving the view."
             className="mt-8"
           />
           <motion.p
@@ -288,41 +288,41 @@ export function TradeMindCaseStudy() {
           >
             The left sidebar shift was a meaningful UX decision: the sidebar in the original layout
             navigated the app globally. In the new layout, that space becomes a list of the user's
-            trades for the current context — so the <P>whole page becomes a self-contained review
+            trades for the current context, so the <P>whole page becomes a self-contained review
             environment</P>.
           </motion.p>
         </CaseStudySection>
 
-        {/* 3 — Customizable journaling */}
+        {/* 3. Customizable journaling */}
         <Separator />
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
-            <SectionLabel>3 — Customizable journaling</SectionLabel>
+            <SectionLabel>3. Customizable journaling</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              The original journal was a <A>fixed set of static form fields</A> — you could fill in
+              The original journal was a <A>fixed set of static form fields</A>. You could fill in
               what those fields expected and nothing else. Traders who wanted to capture their
               reasoning, annotate a setup, or document a lesson learned had no good way to do it.
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={journalOld} alt="Original journal — fixed form fields" caption="Before — fixed form fields, no freeform input" />
+            <AppShot src={journalOld} alt="Original journal, fixed form fields" caption="Before: fixed form fields, no freeform input" />
           </div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              The customisable journal itself came out of a direct customer request — the fixed fields
+              The customisable journal itself came out of a direct customer request: the fixed fields
               weren't meeting how traders actually think and write. The goal was to build something
               flexible enough to serve every user's workflow, not just the one who asked.
             </p>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mt-4">
               Taking Notion as a reference point, I redesigned the journal as a{" "}
-              <A>fully customizable document</A> — a freeform writing surface with a slash command
+              <A>fully customizable document</A>, a freeform writing surface with a slash command
               menu that inserts purpose-built trading components: charts, trade summaries, performance
               stats, and more. The user composes their journal entry the way they want, mixing prose
               and structured widgets.
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={journalNew} alt="Redesigned journal — freeform TipTap editor with trading components" caption="After — freeform editor with custom slash command components" />
+            <AppShot src={journalNew} alt="Redesigned journal, freeform TipTap editor with trading components" caption="After: freeform editor with custom slash command components" />
           </div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
             <blockquote
@@ -330,34 +330,34 @@ export function TradeMindCaseStudy() {
               style={{ borderColor: "var(--accent-color)" }}
             >
               <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                The trickiest part was persistence — each component needed to store its own state so
-                the journal renders exactly as the user left it. The editor was built on TipTap, which
+                The trickiest part was persistence. Each component needed to store its own state so
+                the journal renders exactly the way the user left it. The editor was built on TipTap, which
                 gave us the extensible node architecture needed to register custom slash command
                 components. The serialization challenge was making sure each widget's state survived
-                the markdown round-trip intact — storing data in a way that the right widget could be
+                the markdown round-trip intact, storing data in a way that the right widget could be
                 re-rendered with the right selections and entries every time.
               </p>
             </blockquote>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-8">
               To make sure new users weren't faced with a blank page on first open, I built a template
-              system into the journal. Two default templates ship out of the box — one for pre-trade
-              planning and one for post-trade review — covering the most common journaling patterns.
+              system into the journal. Two default templates come pre-built, one for pre-trade
+              planning and one for post-trade review, covering the most common journaling patterns.
               Users can customise either template, save their own, and build up a{" "}
               <P>personal library of entry formats</P> suited to their workflow.
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={marketingTemplateManager} alt="Journal template manager" caption="Template manager — browse, customise, and save personal journal templates" />
+            <AppShot src={marketingTemplateManager} alt="Journal template manager" caption="Template manager: browse, customise, and save personal journal templates" />
           </div>
         </CaseStudySection>
 
-        {/* 4 — Mentor page */}
+        {/* 4. Mentor page */}
         <Separator />
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
-            <SectionLabel>4 — Mentor page</SectionLabel>
+            <SectionLabel>4. Mentor page</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              TradeMind has a mentor feature — senior traders can review a member's trades, leave
+              TradeMind has a mentor feature: senior traders can review a member's trades, leave
               feedback, and track their progress. The original Mentor page tried to show{" "}
               <A>three things at once</A>: a members panel, the selected member's trades, and a trade
               detail view. All three on one screen made each panel too narrow to read from
@@ -365,16 +365,16 @@ export function TradeMindCaseStudy() {
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={mentorOld} alt="Original Mentor page — three panels on one screen" caption="Before — three congested panels, no mentor mode indicator" />
+            <AppShot src={mentorOld} alt="Original Mentor page, three panels on one screen" caption="Before: three congested panels, no mentor mode indicator" />
           </div>
           <BeforeAfter
-            before="Three panels on one screen: members list, selected member's trades, selected trade view. Too congested to use comfortably. No indication when browsing a member's trade that you're in mentor mode."
+            before="Three panels on one screen: members list, selected member's trades, selected trade view. Too congested to use comfortably. Browsing a member's trade gave no indication that you're in mentor mode."
             after="Two panels on the Mentor page: members and their trades. Clicking a trade navigates to the actual Trade page. A persistent banner in the app layout shows which member's trades are being reviewed throughout."
             className="mt-8"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
-            <AppShot src={mentorWireframe} alt="Mentor page wireframe — two-panel layout" caption="Finalized wireframe — two panels, admin mode banner at top" />
-            <AppShot src={mentorNew} alt="Delivered Mentor page — two-panel layout with admin view" caption="After — two-panel layout, delivered in code" />
+            <AppShot src={mentorWireframe} alt="Mentor page wireframe, two-panel layout" caption="Finalized wireframe: two panels, admin mode banner at top" />
+            <AppShot src={mentorNew} alt="Delivered Mentor page, two-panel layout with admin view" caption="After: two-panel layout, delivered in code" />
           </div>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -383,20 +383,20 @@ export function TradeMindCaseStudy() {
             transition={{ duration: 0.45, ease: EASE }}
             className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-8"
           >
-            The <P>mentor mode banner was my initiative</P> — once a mentor navigated into a
-            member's trade via the new flow, there was no visual signal they were no longer viewing
-            their own data. The banner, placed in the global app layout, makes the context explicit
-            regardless of where in the app the mentor navigates.
+            Once a mentor navigated into a member's trade through the new flow, there was no visual
+            signal they'd left their own data. I flagged this and added a{" "}
+            <P>banner in the global app layout</P>, so the context stays explicit no matter where
+            the mentor navigates.
           </motion.p>
         </CaseStudySection>
 
-        {/* 5 — New theme */}
+        {/* 5. New theme */}
         <Separator />
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
-            <SectionLabel>5 — New theme</SectionLabel>
+            <SectionLabel>5. New theme</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              The app shipped with an existing set of themes. I added a <A>neutral dark option</A> —
+              The app shipped with an existing set of themes. I added a <A>neutral dark option</A>:
               a lower-contrast, softer dark mode for users who found the default too intense for long
               sessions.
             </p>
@@ -429,13 +429,11 @@ export function TradeMindCaseStudy() {
             <SectionLabel>Outcome</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
               TradeMind shipped these improvements to its existing user base. The product is now in a{" "}
-              <P>stable state</P> — Vcrypt Financial is maintaining the product for current customers
-              rather than continuing active development. Each change went from an identified problem
-              to a wireframe to a stakeholder-approved design to shipped code,
-              with me owning every step. Working as the sole designer inside a technical team meant
-              the feedback loop was tight and the decisions were grounded in what was actually
-              buildable — which made the collaboration with the co-founder{" "}
-              <P>unusually direct and efficient</P>.
+              <P>stable state</P>. Vcrypt Financial is maintaining it for current customers rather
+              than continuing active development. Each change went from an identified problem, to a
+              wireframe, to a stakeholder-approved design, to shipped code, with me owning every step.
+              Working as the sole designer inside a technical team kept the feedback loop tight, and
+              decisions stayed grounded in what was actually <P>buildable</P>.
             </p>
           </motion.div>
         </CaseStudySection>
