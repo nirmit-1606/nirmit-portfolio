@@ -2,6 +2,9 @@ import intuitHero from "../../assets/intuit_enterprise_suite.png";
 import deccanHouseHero from "../../assets/deccan_house_mockup.png";
 import deccanCafeHero from "../../assets/deccan_cafe_mockup.png";
 import trademindHero from "../../assets/trademind/hero.png";
+import tutorReserveHero from "../../assets/tutor_reserve/hero.png";
+import smartplateHero from "../../assets/smartplate/hero.png";
+import campingSuppliesHero from "../../assets/camping_supplies/hero.png";
 
 /** Listing metadata — used by Work page, Homepage cards, and the sidebar. */
 export interface CaseStudyMeta {
@@ -69,6 +72,45 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     images: {
       hero: trademindHero,
       heroBg: "#100820",
+    },
+  },
+  "5": {
+    id: "5",
+    title: "TutorReserve",
+    subtitle: "Designing a mobile booking app that helps parents find, vet, and schedule sessions with trusted local tutors — a Google UX Design Certificate project.",
+    role: "UX Designer",
+    tools: ["Figma"],
+    timeline: "4 weeks · Aug–Sep 2024",
+    featured: false,
+    images: {
+      hero: tutorReserveHero,
+      heroBg: "#f5ede8",
+    },
+  },
+  "6": {
+    id: "6",
+    title: "SmartPlate",
+    subtitle: "A grocery management app that tracks expiration dates and surfaces recipes to help users cut food waste — a Google UX Design Certificate project.",
+    role: "UX Designer",
+    tools: ["Figma"],
+    timeline: "Course project · 2024",
+    featured: false,
+    images: {
+      hero: smartplateHero,
+      heroBg: "#d4ead4",
+    },
+  },
+  "7": {
+    id: "7",
+    title: "Camping Supplies Store",
+    subtitle: "Designing a beginner-friendly e-commerce site for camping gear, grounded in user interviews, competitive analysis, and iterative mockups — a Google UX Design Certificate project.",
+    role: "UX Designer",
+    tools: ["Figma"],
+    timeline: "Course project · 2024",
+    featured: false,
+    images: {
+      hero: campingSuppliesHero,
+      heroBg: "#e8edd8",
     },
   },
 };

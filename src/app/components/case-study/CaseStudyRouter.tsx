@@ -5,12 +5,18 @@ import { IntuitCaseStudy } from "./projects/Intuit";
 import { DeccanHouseCaseStudy } from "./projects/DeccanHouse";
 import { DeccanCafeCaseStudy } from "./projects/DeccanCafe";
 import { TradeMindCaseStudy } from "./projects/Trademind";
+import { TutorReserveCaseStudy } from "./projects/TutorReserve";
+import { SmartPlateCaseStudy } from "./projects/SmartPlate";
+import { CampingSuppliesCaseStudy } from "./projects/CampingSupplies";
 
 const PROJECTS: Record<string, React.ComponentType> = {
   "1": IntuitCaseStudy,
   "2": DeccanHouseCaseStudy,
   "3": DeccanCafeCaseStudy,
   "4": TradeMindCaseStudy,
+  "5": TutorReserveCaseStudy,
+  "6": SmartPlateCaseStudy,
+  "7": CampingSuppliesCaseStudy,
 };
 
 export function CaseStudyRouter() {
