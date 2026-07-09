@@ -92,10 +92,10 @@ export function TutorReserveCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The problem</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              Parents looking for tutors face two problems at once: finding someone <A>qualified and trustworthy</A>, and coordinating scheduling once found. Most existing platforms skew toward large national marketplaces that feel impersonal, or depend on word-of-mouth that doesn't scale. The goal was to design a mobile app that solved both — discovery and booking — in a single, low-friction flow.
+              Parents looking for tutors face two problems at once: finding someone <A>qualified and trustworthy</A>, and coordinating scheduling once found. Most existing platforms skew toward large national marketplaces that feel impersonal, or depend on word-of-mouth that doesn't scale. The goal was to design a mobile app that solved both (discovery and booking) in a single, low-friction flow.
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-6">
-              Secondary research through online forums and platform reviews shifted my initial assumption. I expected cost to be the primary concern. What the data showed was that <P>safety, trustworthiness, and scheduling flexibility</P> ranked equally high — sometimes higher.
+              Secondary research through online forums and platform reviews shifted my initial assumption. I expected cost to be the primary concern. What the data showed was that <P>safety, trustworthiness, and scheduling flexibility</P> ranked equally high. Sometimes higher.
             </p>
           </motion.div>
         </CaseStudySection>
@@ -110,7 +110,7 @@ export function TutorReserveCaseStudy() {
             {
               label: "Discovery",
               title: "Browse by subject",
-              description: "Filter tutors by subject, session type (in-person or online), and availability — with a Favorites tab for returning to saved profiles.",
+              description: "Filter tutors by subject, session type (in-person or online), and availability, with a Favorites tab for returning to saved profiles.",
             },
             {
               label: "Trust signals",
@@ -120,7 +120,7 @@ export function TutorReserveCaseStudy() {
             {
               label: "Scheduling",
               title: "Consolidated booking",
-              description: "Day and time selection combined into one screen, with a recurring session checkbox — both changes came directly from usability testing.",
+              description: "Day and time selection combined into one screen, with a recurring session checkbox. Both changes came directly from usability testing.",
             },
             {
               label: "Confirmation",
@@ -139,20 +139,20 @@ export function TutorReserveCaseStudy() {
               <div>
                 <p className="text-sm sm:text-base text-foreground font-medium mb-1">Booking process</p>
                 <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
-                  I combined the day and time selection into a single screen to simplify the slot selection process. Keeping them separate added an extra step that made scheduling feel slower than it needed to be — merging them <A>reduced confusion and improved the flow</A>.
+                  I combined the day and time selection into a single screen to simplify the slot selection process. Keeping them separate added an extra step that made scheduling feel slower than it needed to be. Merging them <A>reduced confusion and improved the flow</A>.
                 </p>
               </div>
               <div>
                 <p className="text-sm sm:text-base text-foreground font-medium mb-1">Recurring sessions</p>
                 <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
-                  I added a checkbox for recurring bookings, letting users schedule multiple sessions in one go without repeating the process each time. This came directly from usability testing — a user mentioned offhand that they'd need the same slot every week.
+                  I added a checkbox for recurring bookings, letting users schedule multiple sessions in one go without repeating the process each time. This came directly from usability testing. A user mentioned offhand that they'd need the same slot every week.
                 </p>
               </div>
             </div>
           </motion.div>
           <DeliverableImage
             src={screens}
-            alt="Updated booking screens — combined day and time selection, recurring sessions checkbox"
+            alt="Updated booking screens: combined day and time selection, recurring sessions checkbox"
             caption="Updated booking wireframes: combined day and time selection (left), recurring sessions checkbox (right)"
           />
         </CaseStudySection>
@@ -196,7 +196,7 @@ export function TutorReserveCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Design system</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
-              A small component library — subject icons, tutor list items, booking cards, navigation, and filter tokens — defined in Figma before building individual screens.
+              A small component library (subject icons, tutor list items, booking cards, navigation, and filter tokens) defined in Figma before building individual screens.
             </p>
           </motion.div>
           <DeliverableImage
@@ -221,7 +221,7 @@ export function TutorReserveCaseStudy() {
               {[
                 {
                   value: "persona",
-                  label: "Persona — Carlos Rodriguez",
+                  label: "Persona: Carlos Rodriguez",
                   sublabel: "Primary user archetype: a father seeking reliable tutoring for his child",
                   src: persona,
                   alt: "User persona for Carlos Rodriguez",
@@ -295,7 +295,7 @@ export function TutorReserveCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>What I took away</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              The most useful moment in this project was when testing exposed an assumption I hadn't questioned: that separating date and time selection was the natural pattern. Users didn't see it that way — they wanted to pick a day and see available times immediately on the same screen. The fix was simple once the problem was clear. The <P>recurring booking toggle</P> came from a different source entirely: a user mentioning offhand that they'd need the same slot every week. Neither change came from my original design. Both came from listening.
+              The most useful moment in this project came during testing. It exposed an assumption I hadn't questioned: that separating date and time selection was the natural pattern. Users didn't see it that way. They wanted to pick a day and see available times immediately on the same screen. The fix was simple once the problem was clear. The <P>recurring booking toggle</P> came from a different source entirely: a user mentioning offhand that they'd need the same slot every week. Neither change came from my original design. Both came from listening.
             </p>
           </motion.div>
         </CaseStudySection>

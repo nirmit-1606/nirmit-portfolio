@@ -88,10 +88,10 @@ export function SmartPlateCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The problem</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              When I moved away from home for the first time, managing groceries became unexpectedly hard. Things would expire before I got to them, I'd forget what I already had, and I'd end up buying duplicates or throwing away food I'd barely touched. It wasn't a lack of effort — <A>it was a lack of visibility</A>.
+              I moved away from home for the first time, and managing groceries became unexpectedly hard. Food expired without me noticing. I forgot what I already had, bought duplicates, and threw away food I'd barely touched. It wasn't a lack of effort. <A>It was a lack of visibility</A>.
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-6">
-              I designed SmartPlate during a class project, but the problem was real and personal. The goal: a mobile app that made it easy to track what's in the fridge, <P>get notified before things expire</P>, and surface recipe ideas using what's already on hand.
+              I designed SmartPlate during a class project, but the problem was real and personal. The goal: a mobile app that made it easy to track what's in the fridge, <P>send early alerts on food about to expire</P>, and surface recipe ideas using what's already on hand.
             </p>
           </motion.div>
         </CaseStudySection>
@@ -111,7 +111,7 @@ export function SmartPlateCaseStudy() {
             {
               label: "Alerts",
               title: "Expiration reminders",
-              description: "Notifications before items expire give enough lead time to use them, freeze them, or plan around them.",
+              description: "Notifications about soon-to-expire items give enough lead time to use them, freeze them, or plan around them.",
             },
             {
               label: "Recipes",
@@ -132,7 +132,7 @@ export function SmartPlateCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>High-fidelity screens</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
-              The final mockups across the full app — inventory management, expiration tracking, recipe discovery, and the waste log.
+              The final mockups across the full app: inventory management, expiration tracking, recipe discovery, and the waste log.
             </p>
           </motion.div>
           <DeliverableImage
@@ -148,7 +148,7 @@ export function SmartPlateCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-8">
             <SectionLabel>UX process deliverables</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              The research and design artifacts produced across the project — from early sketches to high-fidelity wireframes.
+              The research and design artifacts produced across the project, from early sketches to high-fidelity wireframes.
             </p>
           </motion.div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
@@ -184,15 +184,15 @@ export function SmartPlateCaseStudy() {
                   sublabel: "Digital wireframes of the complete app before applying visual design",
                   src: screensA,
                   alt: "High-fidelity wireframes for the full SmartPlate app",
-                  caption: "Full-app hi-fi wireframes built in Figma — structure and interaction patterns locked before styling",
+                  caption: "Full-app hi-fi wireframes built in Figma, structure and interaction patterns locked before styling",
                 },
                 {
                   value: "prototype-map",
                   label: "Prototype connections map",
-                  sublabel: "Figma prototype wiring for all screens and modals — my first prototype in Figma",
+                  sublabel: "Figma prototype wiring for all screens and modals, my first prototype in Figma",
                   src: screensC,
                   alt: "Figma prototype connections map for SmartPlate",
-                  caption: "The prototype connection map looks dense — this was my first Figma project and I was learning as I went. The prototype itself worked exactly as intended.",
+                  caption: "The prototype connection map looks dense. This was my first Figma project, and I was still learning the tool. The prototype itself worked exactly as intended.",
                 },
               ].map(({ value, label, sublabel, src, alt, caption }) => (
                 <AccordionItem key={value} value={value} className="border-0 bg-secondary/40 transition-colors">
@@ -228,7 +228,7 @@ export function SmartPlateCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>What I took away</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              This was my first project in Figma, and the prototype connections map shows it. But the thing I'm proud of is that the <P>prototype worked exactly as intended</P> — every flow, every modal, every transition. The messiness was in the tool, not the product. Designing something you personally needed also changed how I approached decisions: I wasn't guessing at user motivation, I was the user. That made it easier to cut features that felt clever but wouldn't actually help, and harder to skip details that seemed small but mattered in practice.
+              This was my first project in Figma, and the prototype connections map shows it. But the thing I'm proud of is that the <P>prototype worked exactly as intended</P>: every flow, every modal, every transition. The messiness was in the tool, not the product. Designing something you personally needed changed how I approached decisions. I wasn't guessing at user motivation. I was the user. That made it easier to cut features that felt clever but wouldn't actually help, and harder to skip details that seemed small but mattered in practice.
             </p>
           </motion.div>
         </CaseStudySection>

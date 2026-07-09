@@ -77,7 +77,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "5": {
     id: "5",
     title: "TutorReserve",
-    subtitle: "Designing a mobile booking app that helps parents find, vet, and schedule sessions with trusted local tutors — a Google UX Design Certificate project.",
+    subtitle: "Designing a mobile booking app that helps parents find, vet, and schedule sessions with trusted local tutors. A Google UX Design Certificate project.",
     role: "UX Designer",
     tools: ["Figma"],
     timeline: "4 weeks · Aug–Sep 2024",
@@ -90,7 +90,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "6": {
     id: "6",
     title: "Camping Supplies",
-    subtitle: "Designing a beginner-friendly e-commerce site for camping gear, grounded in user interviews, competitive analysis, and iterative mockups — a Google UX Design Certificate project.",
+    subtitle: "Designing a beginner-friendly e-commerce site for camping gear, grounded in user interviews, competitive analysis, and iterative mockups. A Google UX Design Certificate project.",
     role: "UX Designer",
     tools: ["Figma"],
     timeline: "Course project · 2024",
@@ -103,7 +103,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "7": {
     id: "7",
     title: "SmartPlate",
-    subtitle: "A grocery management app for tracking expiration dates and surfacing recipes — designed to solve a real problem I ran into when living away from home for the first time.",
+    subtitle: "A grocery management app for tracking expiration dates and surfacing recipes. I designed it to solve a real problem I ran into after living away from home for the first time.",
     role: "UX Designer",
     tools: ["Figma"],
     timeline: "Course project · 2024",

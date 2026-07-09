@@ -89,10 +89,10 @@ export function CampingSuppliesCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The problem</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
-              People getting into camping for the first time face a specific kind of overwhelm: the gear is technical, the jargon is dense, and existing e-commerce sites are built for people who already know what they need. <A>Beginners don't know what they don't know</A> — and most sites make that worse, not better.
+              People getting into camping for the first time face a specific kind of overwhelm: the gear is technical, the jargon is dense, and existing e-commerce sites are built for people who already know what they need. <A>Beginners don't know what they don't know</A>, and most sites make that worse, not better.
             </p>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-6">
-              The goal was to design an e-commerce experience that <P>met beginners where they were</P> — with clear guidance, helpful context at the right moments, and a browsing structure that didn't assume prior knowledge.
+              The goal was to design an e-commerce experience that <P>met beginners where they were</P>, with clear guidance, helpful context at the right moments, and a browsing structure that didn't assume prior knowledge.
             </p>
           </motion.div>
         </CaseStudySection>
@@ -107,12 +107,12 @@ export function CampingSuppliesCaseStudy() {
             {
               label: "Discovery",
               title: "Beginner-friendly browsing",
-              description: "Category structure and product labels designed for people without prior gear knowledge — activity-based navigation over technical specifications.",
+              description: "Category structure and product labels designed for people without prior gear knowledge: activity-based navigation over technical specifications.",
             },
             {
               label: "Context",
               title: "Inline guidance",
-              description: "Key product pages surface short explanations of what an item does and when you'd need it, reducing the need to search elsewhere.",
+              description: "Key product pages surface short explanations of what an item does and why you might need it, reducing the need to search elsewhere.",
             },
             {
               label: "Trust",
@@ -122,7 +122,7 @@ export function CampingSuppliesCaseStudy() {
             {
               label: "Checkout",
               title: "Streamlined purchase flow",
-              description: "A minimal checkout with clear order summary and no unexpected steps — designed to reduce drop-off at the final stage.",
+              description: "A minimal checkout with clear order summary and no unexpected steps, designed to reduce drop-off at the final stage.",
             },
           ]} />
         </CaseStudySection>
@@ -133,7 +133,7 @@ export function CampingSuppliesCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>High-fidelity screens</SectionLabel>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
-              The final mockups covering the core shopping experience — home, category browsing, product detail, and checkout.
+              The final mockups covering the core shopping experience: home, category browsing, product detail, and checkout.
             </p>
           </motion.div>
           <DeliverableImage
@@ -149,7 +149,7 @@ export function CampingSuppliesCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mb-8">
             <SectionLabel>UX process deliverables</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              Research and definition artifacts from across the project — from user research to wireframes.
+              Research and definition artifacts from across the project, from user research to wireframes.
             </p>
           </motion.div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
@@ -158,7 +158,7 @@ export function CampingSuppliesCaseStudy() {
                 {
                   value: "personas",
                   label: "User personas",
-                  sublabel: "Sarah, Dave, Mark, and Emily — four archetypes across experience levels and budgets",
+                  sublabel: "Sarah, Dave, Mark, and Emily, four archetypes across experience levels and budgets",
                   src: personas,
                   alt: "Four user personas for the Camping Supplies Store",
                   caption: "Sarah (25, first-time camper), Dave (45, seasoned camper), Mark (35, time-pressed), and Emily (30, budget-conscious)",
@@ -169,7 +169,7 @@ export function CampingSuppliesCaseStudy() {
                   sublabel: "Screenshots and audit of KingCamp, REI, Cabela's, and Walmart",
                   src: competitors,
                   alt: "Competitive analysis of KingCamp, REI, Cabela's, and Walmart",
-                  caption: "Competitive analysis of four existing outdoor retail sites — evaluating navigation structure, beginner guidance, and content clarity",
+                  caption: "Competitive analysis of four existing outdoor retail sites, evaluating navigation structure, beginner guidance, and content clarity",
                 },
                 {
                   value: "journey",
@@ -177,7 +177,7 @@ export function CampingSuppliesCaseStudy() {
                   sublabel: "Individual journey maps for all four personas across the research-to-purchase flow",
                   src: journeyMap,
                   alt: "Journey maps for all four Camping Supplies Store personas",
-                  caption: "Four journey maps — one per persona — charting emotional highs and lows from initial research through to purchase",
+                  caption: "Four journey maps, one per persona, charting emotional highs and lows from initial research through to purchase",
                 },
                 {
                   value: "statements",
@@ -190,7 +190,7 @@ export function CampingSuppliesCaseStudy() {
                 {
                   value: "wireframes",
                   label: "Wireframes",
-                  sublabel: "Wireframes of the three core screens — home, product list, and product detail",
+                  sublabel: "Wireframes of the three core screens: home, product list, and product detail",
                   src: wireframes,
                   alt: "Wireframes for the Camping Supplies Store",
                   caption: "Wireframes for the home, product listing, and product detail screens before moving into high-fidelity design",
@@ -234,7 +234,7 @@ export function CampingSuppliesCaseStudy() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>What I took away</SectionLabel>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
-              The most useful shift in this project was moving away from thinking about features and toward thinking about <P>what a user needs to feel confident</P> at each step. The competitive analysis showed that most outdoor retail sites had all the right products but failed beginners at the content level — not the cart level. That reframing changed where I focused: less on optimizing the checkout, more on reducing the anxiety that stops people from getting there in the first place.
+              The most useful shift in this project was moving away from thinking about features and toward thinking about <P>what a user needs to feel confident</P> at each step. The competitive analysis showed that most outdoor retail sites had all the right products but failed beginners at the content level, not the cart level. That reframing changed where I focused: less on optimizing the checkout, more on reducing the anxiety that stops people from getting there in the first place.
             </p>
           </motion.div>
         </CaseStudySection>
