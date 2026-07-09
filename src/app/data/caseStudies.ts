@@ -89,19 +89,6 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   },
   "6": {
     id: "6",
-    title: "SmartPlate",
-    subtitle: "A grocery management app for tracking expiration dates and surfacing recipes — designed to solve a real problem I ran into when living away from home for the first time.",
-    role: "UX Designer",
-    tools: ["Figma"],
-    timeline: "Course project · 2024",
-    featured: false,
-    images: {
-      hero: smartplateHero,
-      heroBg: "#d4ead4",
-    },
-  },
-  "7": {
-    id: "7",
     title: "Camping Supplies",
     subtitle: "Designing a beginner-friendly e-commerce site for camping gear, grounded in user interviews, competitive analysis, and iterative mockups — a Google UX Design Certificate project.",
     role: "UX Designer",
@@ -111,6 +98,19 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     images: {
       hero: campingSuppliesHero,
       heroBg: "#e8edd8",
+    },
+  },
+  "7": {
+    id: "7",
+    title: "SmartPlate",
+    subtitle: "A grocery management app for tracking expiration dates and surfacing recipes — designed to solve a real problem I ran into when living away from home for the first time.",
+    role: "UX Designer",
+    tools: ["Figma"],
+    timeline: "Course project · 2024",
+    featured: false,
+    images: {
+      hero: smartplateHero,
+      heroBg: "#d4ead4",
     },
   },
 };

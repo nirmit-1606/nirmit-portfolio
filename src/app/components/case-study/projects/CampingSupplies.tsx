@@ -62,7 +62,7 @@ function DeliverableImage({ src, alt, caption, bg = "" }: { src: string; alt: st
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-const META = getCaseStudyById("7")!;
+const META = getCaseStudyById("6")!;
 
 export function CampingSuppliesCaseStudy() {
   const all = getAllCaseStudies();

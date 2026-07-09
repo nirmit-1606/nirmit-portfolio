@@ -61,7 +61,7 @@ function DeliverableImage({ src, alt, caption, bg = "" }: { src: string; alt: st
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
-const META = getCaseStudyById("6")!;
+const META = getCaseStudyById("7")!;
 
 export function SmartPlateCaseStudy() {
   const all = getAllCaseStudies();

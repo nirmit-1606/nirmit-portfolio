@@ -15,8 +15,8 @@ const PROJECTS: Record<string, React.ComponentType> = {
   "3": DeccanCafeCaseStudy,
   "4": TradeMindCaseStudy,
   "5": TutorReserveCaseStudy,
-  "6": SmartPlateCaseStudy,
-  "7": CampingSuppliesCaseStudy,
+  "6": CampingSuppliesCaseStudy,
+  "7": SmartPlateCaseStudy,
 };
 
 export function CaseStudyRouter() {
