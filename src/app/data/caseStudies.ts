@@ -90,7 +90,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   "6": {
     id: "6",
     title: "SmartPlate",
-    subtitle: "A grocery management app that tracks expiration dates and surfaces recipes to help users cut food waste — a Google UX Design Certificate project.",
+    subtitle: "A grocery management app for tracking expiration dates and surfacing recipes — designed to solve a real problem I ran into when living away from home for the first time.",
     role: "UX Designer",
     tools: ["Figma"],
     timeline: "Course project · 2024",
