@@ -102,7 +102,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
   },
   "7": {
     id: "7",
-    title: "Camping Supplies Store",
+    title: "Camping Supplies",
     subtitle: "Designing a beginner-friendly e-commerce site for camping gear, grounded in user interviews, competitive analysis, and iterative mockups — a Google UX Design Certificate project.",
     role: "UX Designer",
     tools: ["Figma"],
