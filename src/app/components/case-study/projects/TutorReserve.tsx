@@ -130,6 +130,33 @@ export function TutorReserveCaseStudy() {
           ]} />
         </CaseStudySection>
 
+        {/* Updating wireframes */}
+        <Separator />
+        <CaseStudySection>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
+            <SectionLabel>Updating wireframes</SectionLabel>
+            <div className="flex flex-col gap-6 max-w-3xl mb-8">
+              <div>
+                <p className="text-sm sm:text-base text-foreground font-medium mb-1">Booking process</p>
+                <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
+                  I combined the day and time selection into a single screen to simplify the slot selection process. Keeping them separate added an extra step that made scheduling feel slower than it needed to be — merging them <A>reduced confusion and improved the flow</A>.
+                </p>
+              </div>
+              <div>
+                <p className="text-sm sm:text-base text-foreground font-medium mb-1">Recurring sessions</p>
+                <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
+                  I added a checkbox for recurring bookings, letting users schedule multiple sessions in one go without repeating the process each time. This came directly from usability testing — a user mentioned offhand that they'd need the same slot every week.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+          <DeliverableImage
+            src={screens}
+            alt="Updated booking screens — combined day and time selection, recurring sessions checkbox"
+            caption="Updated booking wireframes: combined day and time selection (left), recurring sessions checkbox (right)"
+          />
+        </CaseStudySection>
+
         {/* Wireframe → mockup */}
         <Separator />
         <CaseStudySection>
@@ -147,7 +174,7 @@ export function TutorReserveCaseStudy() {
           />
         </CaseStudySection>
 
-        {/* Full flow + design system */}
+        {/* Full booking flow */}
         <Separator />
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
@@ -156,18 +183,11 @@ export function TutorReserveCaseStudy() {
               The complete prototype covers the end-to-end journey: browsing by subject, viewing a tutor profile, scheduling, and completing payment.
             </p>
           </motion.div>
-          <div className="flex flex-col gap-8">
-            <DeliverableImage
-              src={mockupFlow}
-              alt="Full TutorReserve mockup flow showing all screens connected"
-              caption="Complete flow: home → subject list → tutor profile → schedule → payment → confirmation"
-            />
-            <DeliverableImage
-              src={screens}
-              alt="High-fidelity screens across the booking flow"
-              caption="High-fidelity screens showing the subject browsing and tutor selection experience"
-            />
-          </div>
+          <DeliverableImage
+            src={mockupFlow}
+            alt="Full TutorReserve mockup flow showing all screens connected"
+            caption="Complete flow: home → subject list → tutor profile → schedule → payment → confirmation"
+          />
         </CaseStudySection>
 
         {/* Design system */}
