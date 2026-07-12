@@ -19,8 +19,8 @@ import wireframes  from "../../../../assets/camping_supplies/wireframes.jpeg";
 import screens     from "../../../../assets/camping_supplies/screens.png";
 
 // ─── Figma links ─────────────────────────────────────────────────────────────
-const FIGMA_LO_FI = "";
-const FIGMA_HI_FI = "";
+const FIGMA_LO_FI = "https://www.figma.com/proto/CLTaOt29IZaBfllsvJA14l/Product-design?node-id=0-1&t=tSJdkMXoBJ5ZXkzE-1";
+const FIGMA_HI_FI = "https://www.figma.com/proto/CLTaOt29IZaBfllsvJA14l/Product-design?node-id=131-2507&t=tSJdkMXoBJ5ZXkzE-1";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 const A = ({ children }: { children: ReactNode }) => (
