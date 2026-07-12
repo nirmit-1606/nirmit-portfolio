@@ -159,16 +159,40 @@ function ProcessNotes() {
         {PROCESS.map((step, i) => (
           <motion.div
             key={step.title}
-            initial={{ opacity: 0, x: STICKY_OFFSETS[i].x, y: STICKY_OFFSETS[i].y + 22 }}
-            whileInView={{ opacity: 1, x: STICKY_OFFSETS[i].x, y: STICKY_OFFSETS[i].y }}
+            variants={{
+              hidden: {
+                opacity: 0,
+                x: STICKY_OFFSETS[i].x,
+                y: STICKY_OFFSETS[i].y + 22,
+                rotate: STICKY_ROTATIONS[i],
+                scale: 1,
+                boxShadow: "3px 5px 16px rgba(0,0,0,0.2)",
+              },
+              visible: {
+                opacity: 1,
+                x: STICKY_OFFSETS[i].x,
+                y: STICKY_OFFSETS[i].y,
+                rotate: STICKY_ROTATIONS[i],
+                scale: 1,
+                boxShadow: "3px 5px 16px rgba(0,0,0,0.2)",
+                transition: { duration: 0.45, delay: i * 0.1, ease: EASE },
+              },
+              hover: {
+                rotate: 0,
+                scale: 1.05,
+                y: STICKY_OFFSETS[i].y - 10,
+                boxShadow: "8px 18px 44px rgba(0,0,0,0.28)",
+                transition: { duration: 0.22, ease: [0.23, 1, 0.32, 1] },
+              },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            whileHover="hover"
             viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: i * 0.1, ease: EASE }}
-            className="relative p-5 sm:p-6"
+            className="relative p-5 sm:p-6 cursor-default"
             style={{
-              rotate: STICKY_ROTATIONS[i],
               backgroundColor: STICKY_COLORS[i],
               fontFamily: "'Caveat', cursive",
-              boxShadow: "3px 5px 16px rgba(0,0,0,0.2)",
             }}
           >
             {/* Pin */}
@@ -406,13 +430,13 @@ export function Homepage() {
 
                 {/* Image */}
                 <div
-                  className="relative aspect-[1200/627] overflow-hidden rounded-lg mb-5 z-10"
+                  className="relative aspect-[1200/627] overflow-hidden rounded-lg mb-5 z-10 border border-border"
                   style={study.images.heroBg ? { backgroundColor: study.images.heroBg } : undefined}
                 >
                   <ImageWithFallback
                     src={study.images.hero}
                     alt={study.title}
-                    className={`w-full h-full transition-transform duration-700 group-hover:scale-[1.05] ${study.images.heroBg ? "object-contain" : "object-cover"}`}
+                    className="w-full h-full transition-transform duration-700 group-hover:scale-[1.05] object-cover"
                   />
                   {/* Accent overlay on hover */}
                   <div
@@ -474,7 +498,7 @@ export function Homepage() {
             whole thing handled? I'll take it from the first wireframe to the code
             running in production, and I won't hand anything off along the way.
           </p>
-          <div className="space-y-0 divide-y divide-border">
+          <div className="space-y-0">
             {SERVICES.map((service, i) => (
               <motion.div
                 key={service}
@@ -521,8 +545,8 @@ export function Homepage() {
       {/* ── Stats ── */}
       <section className="px-6 lg:px-8 py-24">
         <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
-          <StatItem value={8}   suffix="+" label="Years experience"   delay={0} />
-          <StatItem value={50}  suffix="+" label="Projects delivered"  delay={0.1} />
+          <StatItem value={4}   suffix="+" label="Years experience"   delay={0} />
+          <StatItem value={8}  suffix="+" label="Projects delivered"  delay={0.1} />
           <StatItem value={100} suffix="%" label="Client satisfaction" delay={0.2} />
         </div>
       </section>

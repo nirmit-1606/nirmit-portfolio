@@ -68,7 +68,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     role: "UI/UX Designer & Frontend Engineer",
     tools: ["React", "TypeScript", "TipTap", "Figma", "CSS"],
     timeline: "8 months",
-    featured: false,
+    featured: true,
     images: {
       hero: trademindHero,
       heroBg: "#100820",
@@ -81,7 +81,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     role: "UX Designer",
     tools: ["Figma"],
     timeline: "4 weeks · Aug–Sep 2024",
-    featured: false,
+    featured: true,
     images: {
       hero: tutorReserveHero,
       heroBg: "#f5ede8",
