@@ -40,6 +40,7 @@ export function IntuitCaseStudy() {
         timeline={META.timeline}
         tools={META.tools}
         heroImage={META.images.hero}
+        eyebrow="Engineering · Enterprise SaaS · First-run onboarding"
       />
 
       <div className="max-w-4xl mx-auto">

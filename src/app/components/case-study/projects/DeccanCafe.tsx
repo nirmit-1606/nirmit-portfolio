@@ -50,7 +50,7 @@ export function DeccanCafeCaseStudy() {
         tools={META.tools}
         heroImage={META.images.hero}
         heroBg={META.images.heroBg}
-        eyebrow="Designer & Developer · Same client, second restaurant"
+        eyebrow="Design & development · Same client, second site"
       />
 
       <div className="max-w-4xl mx-auto">

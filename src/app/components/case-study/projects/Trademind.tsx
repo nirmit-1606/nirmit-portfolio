@@ -175,12 +175,11 @@ export function TradeMindCaseStudy() {
         tools={META.tools}
         heroImage={META.images.hero}
         heroBg={META.images.heroBg}
-        eyebrow="UI/UX Designer & Frontend Engineer · Vcrypt Financial · TradeMind"
+        eyebrow="Product design · Frontend · Live trading journal"
         metaItems={[
-          { label: "Role",    value: "UI/UX Designer & Frontend Engineer" },
-          { label: "Company", value: "Vcrypt Financial" },
-          { label: "Team",    value: "25 people · sole UI/UX" },
-          { label: "Stack",   value: "React · TypeScript · TipTap · CSS · Figma" },
+          { label: "Role",     value: "UI/UX Designer & Frontend Engineer" },
+          { label: "Team",     value: "25 people · sole UI/UX" },
+          { label: "Stack",    value: "React · TypeScript · TipTap · CSS · Figma" },
         ]}
       />
 
