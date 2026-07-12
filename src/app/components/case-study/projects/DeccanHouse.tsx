@@ -128,6 +128,10 @@ export function DeccanHouseCaseStudy() {
         heroImage={META.images.hero}
         heroBg={META.images.heroBg}
         eyebrow="Design & development · Restaurant website"
+        metaItems={[
+          { label: "Role",     value: META.role },
+          { label: "Timeline", value: META.timeline },
+        ]}
       />
 
       <div className="max-w-4xl mx-auto">

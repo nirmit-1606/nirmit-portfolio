@@ -179,7 +179,6 @@ export function TradeMindCaseStudy() {
         metaItems={[
           { label: "Role",     value: "UI/UX Designer & Frontend Engineer" },
           { label: "Team",     value: "25 people · sole UI/UX" },
-          { label: "Stack",    value: "React · TypeScript · TipTap · CSS · Figma" },
         ]}
       />
 

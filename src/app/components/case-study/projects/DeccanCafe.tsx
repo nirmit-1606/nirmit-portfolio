@@ -51,6 +51,10 @@ export function DeccanCafeCaseStudy() {
         heroImage={META.images.hero}
         heroBg={META.images.heroBg}
         eyebrow="Design & development · Same client, second site"
+        metaItems={[
+          { label: "Role",     value: META.role },
+          { label: "Timeline", value: META.timeline },
+        ]}
       />
 
       <div className="max-w-4xl mx-auto">

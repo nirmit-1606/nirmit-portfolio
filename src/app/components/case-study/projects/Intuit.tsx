@@ -41,6 +41,10 @@ export function IntuitCaseStudy() {
         tools={META.tools}
         heroImage={META.images.hero}
         eyebrow="Engineering · Enterprise SaaS · First-run onboarding"
+        metaItems={[
+          { label: "Role",     value: META.role },
+          { label: "Timeline", value: META.timeline },
+        ]}
       />
 
       <div className="max-w-4xl mx-auto">
