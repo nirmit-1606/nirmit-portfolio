@@ -19,7 +19,7 @@ import screensB         from "../../../../assets/smartplate/screens_b.png";
 import screensC         from "../../../../assets/smartplate/screens_c.png";
 
 // ─── Figma link ───────────────────────────────────────────────────────────────
-const FIGMA_PROTO = "https://www.figma.com/proto/PaUTP7XGXikv2QrYrQsL1p/SmartPlate-design?node-id=683-3963";
+const FIGMA_PROTO = "https://www.figma.com/proto/PaUTP7XGXikv2QrYrQsL1p/SmartPlate-design?node-id=683-3963&t=yITH4nf8ZEYOQ6vP-1&scaling=scale-down&content-scaling=fixed&page-id=683%3A3519&starting-point-node-id=683%3A3963";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 const A = ({ children }: { children: ReactNode }) => (
