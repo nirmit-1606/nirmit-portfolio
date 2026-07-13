@@ -172,7 +172,7 @@ export function DeccanHouseCaseStudy() {
           />
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-6">
-            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-6">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-8">
               Moving to a static site on Eleventy meant there was no CMS to host, and with pages already
               lightweight and <P>bandwidth optimized</P>, the site comfortably runs within Netlify's free tier.
               The only recurring cost left is the domain they'd be paying for either way.
@@ -355,7 +355,7 @@ export function DeccanHouseCaseStudy() {
               same decision: <A>stop being the bottleneck</A>.
             </p>
           </motion.div>
-          <div className="mt-2">
+          <div className="mt-8">
             <DesktopShot src={adminPortal} alt="Admin portal" natural />
           </div>
         </CaseStudySection>

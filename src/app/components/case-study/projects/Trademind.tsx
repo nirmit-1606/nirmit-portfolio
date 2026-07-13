@@ -269,7 +269,7 @@ export function TradeMindCaseStudy() {
               reasoning, annotate a setup, or document a lesson learned had no good way to do it.
             </p>
           </motion.div>
-          <div className="mt-6">
+          <div className="mt-8">
             <CaseStudyImage src={journalOld} alt="Original journal, fixed form fields" caption="Before: fixed form fields, no freeform input" centerCaption />
           </div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
@@ -286,7 +286,7 @@ export function TradeMindCaseStudy() {
               and structured widgets.
             </p>
           </motion.div>
-          <div className="mt-6">
+          <div className="mt-8">
             <CaseStudyImage src={journalNew} alt="Redesigned journal, freeform TipTap editor with trading components" caption="After: freeform editor with custom slash command components" centerCaption />
           </div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
@@ -306,7 +306,7 @@ export function TradeMindCaseStudy() {
               <P>personal library of entry formats</P> suited to their workflow.
             </p>
           </motion.div>
-          <div className="mt-6">
+          <div className="mt-8">
             <CaseStudyImage src={marketingTemplateManager} alt="Journal template manager" caption="Template manager: browse, customise, and save personal journal templates" centerCaption />
           </div>
         </CaseStudySection>
@@ -324,7 +324,7 @@ export function TradeMindCaseStudy() {
               comfortably, and the whole layout felt congested.
             </p>
           </motion.div>
-          <div className="mt-6">
+          <div className="mt-8">
             <CaseStudyImage src={mentorOld} alt="Original Mentor page, three panels on one screen" caption="Before: three congested panels, no mentor mode indicator" centerCaption />
           </div>
           <BeforeAfter
@@ -332,7 +332,7 @@ export function TradeMindCaseStudy() {
             after="Two panels on the Mentor page: members and their trades. Clicking a trade navigates to the actual Trade page. A persistent banner in the app layout shows which member's trades are being reviewed throughout."
             className="mt-8"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
             <CaseStudyImage src={mentorWireframe} alt="Mentor page wireframe, two-panel layout" caption="Finalized wireframe: two panels, admin mode banner at top" centerCaption />
             <CaseStudyImage src={mentorNew} alt="Delivered Mentor page, two-panel layout with admin view" caption="After: two-panel layout, delivered in code" centerCaption />
           </div>
