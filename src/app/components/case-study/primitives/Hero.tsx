@@ -16,7 +16,7 @@ interface CaseStudyHeroProps {
   /** Optional override for the small accent eyebrow above the title. Defaults to `role`. */
   eyebrow?: string;
   /** When provided, replaces the default Role / Timeline / Tools meta strip. */
-  metaItems?: { label: string; value: string }[];
+  metaItems?: { label: string; value: string; href?: string }[];
   /** Use object-contain instead of object-cover — for logos or images that shouldn't be cropped. */
   heroContain?: boolean;
 }
@@ -72,12 +72,16 @@ export function CaseStudyHero({ title, subtitle, role, timeline, tools, heroImag
             {/* Meta strip */}
             {metaItems ? (
               <div className="flex flex-wrap items-start gap-x-10 gap-y-4 text-sm">
-                {metaItems.map(({ label, value }, i) => (
+                {metaItems.map(({ label, value, href }, i) => (
                   <Fragment key={label}>
                     {i > 0 && <div className="w-px h-8 bg-border hidden sm:block self-center" />}
                     <div>
                       <span className="text-foreground-secondary-2 block mb-0.5 text-xs uppercase tracking-wider">{label}</span>
-                      <span className="text-foreground">{value}</span>
+                      {href ? (
+                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-foreground hover:opacity-70 transition-opacity duration-150 underline underline-offset-2">{value}</a>
+                      ) : (
+                        <span className="text-foreground">{value}</span>
+                      )}
                     </div>
                   </Fragment>
                 ))}

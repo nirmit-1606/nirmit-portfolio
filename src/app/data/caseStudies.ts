@@ -29,7 +29,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     subtitle: "Designing and building the first-run onboarding experience for a cloud ERP platform serving mid-market and multi-entity businesses",
     role: "Frontend Engineer",
     tools: ["React", "TypeScript", "Zustand", "GraphQL"],
-    timeline: "Dec 2024 – Present",
+    timeline: "Dec 2025 – Present",
     featured: true,
     images: {
       hero: intuitHero,
@@ -41,7 +41,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     subtitle: "Migrating a restaurant off WordPress, designing a faster site from scratch, and cutting hosting costs to almost nothing.",
     role: "Designer & Developer",
     tools: ["Figma", "Eleventy", "Supabase", "JavaScript", "Netlify"],
-    timeline: "12 weeks",
+    timeline: "12 weeks · Sep–Dec 2025",
     featured: true,
     images: {
       hero: deccanHouseHero,
@@ -54,7 +54,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     subtitle: "Built to a deadline, then improved by necessity: the site that finally forced the admin tool into existence.",
     role: "Designer & Developer",
     tools: ["Figma", "Eleventy", "Supabase", "JavaScript", "Netlify"],
-    timeline: "4 weeks",
+    timeline: "4 weeks · Mar–Apr 2026",
     featured: false,
     images: {
       hero: deccanCafeHero,
@@ -67,8 +67,8 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     subtitle: "Joined a startup of 25 after launch to improve the UX of a live trading journal, redesigning core surfaces, rebuilding the journal from scratch, and shipping every change in code myself.",
     role: "UI/UX Designer & Frontend Engineer",
     tools: ["React", "TypeScript", "TipTap", "Figma", "CSS"],
-    timeline: "8 months",
-    featured: false,
+    timeline: "9 months · Mar–Nov 2025",
+    featured: true,
     images: {
       hero: trademindHero,
       heroBg: "#100820",
@@ -81,7 +81,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     role: "UX Designer",
     tools: ["Figma"],
     timeline: "4 weeks · Aug–Sep 2024",
-    featured: false,
+    featured: true,
     images: {
       hero: tutorReserveHero,
       heroBg: "#f5ede8",

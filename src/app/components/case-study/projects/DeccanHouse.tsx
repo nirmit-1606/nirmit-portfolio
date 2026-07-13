@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import type { ReactNode } from "react";
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
@@ -10,6 +9,9 @@ import { TechChips } from "../primitives/TechChips";
 import { NextProject } from "../primitives/NextProject";
 import { BeforeAfter } from "../primitives/BeforeAfter";
 import { fadeUp, EASE } from "../animations";
+import { A, P } from "../primitives/Keywords";
+import { CaseStudyBlockquote } from "../primitives/Blockquote";
+import { DesktopShot, MobileShot } from "../primitives/CaseStudyImage";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import desktopHomeV0    from "../../../../assets/deccan_house/desktop_home_v0.png";
@@ -22,92 +24,6 @@ import mobileMenuV21    from "../../../../assets/deccan_house/mobile_menu_v2_1.p
 import desktopMenuV3    from "../../../../assets/deccan_house/desktop_menu_v3.png";
 import mobileMenuV3     from "../../../../assets/deccan_house/mobile_menu_v3.png";
 import adminPortal      from "../../../../assets/deccan_house/admin.png";
-
-// ─── Keyword helpers ──────────────────────────────────────────────────────────
-
-/** Accent-colored keyword — use inside primary (text-foreground) paragraphs. */
-const A = ({ children }: { children: ReactNode }) => (
-  <span style={{ color: "var(--accent-color)" }} className="font-medium">{children}</span>
-);
-
-/** Primary-colored keyword — use inside secondary (text-foreground-secondary) paragraphs. */
-const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-foreground font-semibold">{children}</span>
-);
-
-// ─── Screenshot helpers ───────────────────────────────────────────────────────
-
-/** Tall desktop screenshot.
- *  - Default: fixed height, cropped.
- *  - natural: renders at full proportional height (no crop).
- *  - scrollable: fixed height with vertical scroll on desktop; cropped on mobile. */
-function FadedDesktopShot({
-  src, alt, caption,
-  height = "h-[480px] sm:h-[680px]",
-  natural = false,
-  scrollable = false,
-}: {
-  src: string; alt: string; caption?: string;
-  height?: string;
-  natural?: boolean;
-  scrollable?: boolean;
-}) {
-  return (
-    <motion.figure
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: EASE }}
-      className="flex flex-col gap-2"
-    >
-      {natural ? (
-        <div className="overflow-hidden rounded-xl border border-border hover:scale-[1.02] transition-transform duration-500">
-          <img src={src} alt={alt} className="w-full h-auto" />
-        </div>
-      ) : scrollable ? (
-        <div className="rounded-xl border border-border overflow-hidden hover:scale-[1.01] transition-transform duration-500">
-          <div
-            className={`overflow-hidden sm:overflow-y-auto ${height}
-              [&::-webkit-scrollbar]:w-1.5
-              [&::-webkit-scrollbar-track]:bg-transparent
-              [&::-webkit-scrollbar-thumb]:rounded-full
-              [&::-webkit-scrollbar-thumb]:bg-[color-mix(in_srgb,var(--muted-foreground)_40%,transparent)]
-              [&::-webkit-scrollbar-thumb:hover]:bg-[color-mix(in_srgb,var(--muted-foreground)_70%,transparent)]`}
-          >
-            <img src={src} alt={alt} className="w-full h-auto" />
-          </div>
-        </div>
-      ) : (
-        <div className={`relative overflow-hidden rounded-xl border border-border ${height} hover:scale-[1.03] transition-transform duration-500`}>
-          <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
-        </div>
-      )}
-      {caption && (
-        <figcaption className="text-xs text-foreground-secondary-2 text-center">{caption}</figcaption>
-      )}
-    </motion.figure>
-  );
-}
-
-/** Mobile screenshot at a natural portrait size. */
-function MobileShot({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
-  return (
-    <motion.figure
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: EASE }}
-      className="flex flex-col gap-2 items-center"
-    >
-      <div className="overflow-hidden rounded-xl border border-border w-[180px] sm:w-[200px] aspect-[428/926] hover:scale-[1.03] transition-transform duration-500">
-        <img src={src} alt={alt} className="w-full h-full object-cover object-top" />
-      </div>
-      {caption && (
-        <figcaption className="text-xs text-foreground-secondary-2 text-center w-[180px] sm:w-[200px]">{caption}</figcaption>
-      )}
-    </motion.figure>
-  );
-}
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -127,6 +43,12 @@ export function DeccanHouseCaseStudy() {
         tools={META.tools}
         heroImage={META.images.hero}
         heroBg={META.images.heroBg}
+        eyebrow="Design & development · Restaurant website"
+        metaItems={[
+          { label: "Role",     value: META.role },
+          { label: "Timeline", value: META.timeline },
+          { label: "Live site", value: "deccanhouse.ca", href: "https://deccanhouse.ca/" },
+        ]}
       />
 
       <div className="max-w-4xl mx-auto">
@@ -148,22 +70,17 @@ export function DeccanHouseCaseStudy() {
               something that felt like the actual place: bold Hyderabadi flavours, warm hospitality,
               a menu that's easy to browse on a phone.
             </p>
-            <blockquote
-              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mt-6 max-w-3xl"
-              style={{ borderColor: "var(--accent-color)" }}
-            >
-              <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                There's no paper backup. Any bug in the menu (a wrong price, a missing
-                category, a broken filter) is a bug a customer sees in the moment they're deciding
-                what to order. That's the lens everything downstream got built through.
-              </p>
-            </blockquote>
+            <CaseStudyBlockquote>
+              There's no paper backup. Any bug in the menu (a wrong price, a missing
+              category, a broken filter) is a bug a customer sees in the moment they're deciding
+              what to order. That's the lens everything downstream got built through.
+            </CaseStudyBlockquote>
           </motion.div>
 
           {/* Before screenshots */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
-            <FadedDesktopShot src={desktopHomeV0} alt="Original WordPress home page" caption="Home: WordPress" scrollable />
-            <FadedDesktopShot src={desktopMenuV0} alt="Original WordPress menu page" caption="Menu: WordPress" natural />
+            <DesktopShot src={desktopHomeV0} alt="Original WordPress home page" caption="Home: WordPress" scrollable />
+            <DesktopShot src={desktopMenuV0} alt="Original WordPress menu page" caption="Menu: WordPress" natural />
           </div>
         </CaseStudySection>
 
@@ -172,16 +89,11 @@ export function DeccanHouseCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>Why I moved off WordPress</SectionLabel>
-            <blockquote
-              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mb-6 max-w-3xl"
-              style={{ borderColor: "var(--accent-color)" }}
-            >
-              <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                A restaurant site like this doesn't need a CMS with plugins, themes, and constant
-                updates. It needs five fast pages and an easy way to update the menu. WordPress was
-                solving problems they didn't have.
-              </p>
-            </blockquote>
+            <CaseStudyBlockquote>
+              A restaurant site like this doesn't need a CMS with plugins, themes, and constant
+              updates. It needs five fast pages and an easy way to update the menu. WordPress was
+              solving problems they didn't have.
+            </CaseStudyBlockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               I picked up <A>Eleventy</A> specifically for this project, rebuilt the site in plain HTML,
               CSS, and JS, and shipped something considerably <A>faster than what it replaced</A>, with
@@ -202,8 +114,8 @@ export function DeccanHouseCaseStudy() {
 
           {/* Wireframe → delivered */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
-            <FadedDesktopShot src={desktopWireframe} alt="Home page wireframe" caption="Wireframe" scrollable />
-            <FadedDesktopShot src={desktopHomeV2}    alt="Delivered home page" caption="Delivered" scrollable />
+            <DesktopShot src={desktopWireframe} alt="Home page wireframe" caption="Wireframe" scrollable />
+            <DesktopShot src={desktopHomeV2}    alt="Delivered home page" caption="Delivered" scrollable />
           </div>
         </CaseStudySection>
 
@@ -260,7 +172,7 @@ export function DeccanHouseCaseStudy() {
           />
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-6">
-            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-6">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mb-8">
               Moving to a static site on Eleventy meant there was no CMS to host, and with pages already
               lightweight and <P>bandwidth optimized</P>, the site comfortably runs within Netlify's free tier.
               The only recurring cost left is the domain they'd be paying for either way.
@@ -364,7 +276,7 @@ export function DeccanHouseCaseStudy() {
             <p className="text-xs font-medium uppercase tracking-widest text-foreground-secondary-2 mb-5">Later pass</p>
             <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
               <div className="flex-1 min-w-0">
-                <FadedDesktopShot src={desktopMenuV3} alt="Desktop menu with scrolling tab list" caption="Desktop" height="h-[480px] sm:h-[433px]" scrollable />
+                <DesktopShot src={desktopMenuV3} alt="Desktop menu with scrolling tab list" caption="Desktop" height="h-[480px] sm:h-[433px]" scrollable />
               </div>
               <div className="flex-shrink-0 flex justify-center">
                 <MobileShot src={mobileMenuV3} alt="Mobile menu with scrolling tab list" caption="Mobile" />
@@ -443,8 +355,8 @@ export function DeccanHouseCaseStudy() {
               same decision: <A>stop being the bottleneck</A>.
             </p>
           </motion.div>
-          <div className="mt-2">
-            <FadedDesktopShot src={adminPortal} alt="Admin portal" natural />
+          <div className="mt-8">
+            <DesktopShot src={adminPortal} alt="Admin portal" natural />
           </div>
         </CaseStudySection>
 

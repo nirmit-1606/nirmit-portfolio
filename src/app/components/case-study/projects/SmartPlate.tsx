@@ -1,14 +1,15 @@
 import { motion } from "motion/react";
-import type { ReactNode } from "react";
-import { ExternalLink } from "lucide-react";
 import { Separator } from "../../ui/separator";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../../ui/accordion";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
 import { CaseStudySection, SectionLabel } from "../primitives/Section";
 import { HighlightCards } from "../primitives/HighlightCards";
 import { NextProject } from "../primitives/NextProject";
-import { fadeUp, EASE } from "../animations";
+import { fadeUp } from "../animations";
+import { A, P } from "../primitives/Keywords";
+import { FigmaLink } from "../primitives/FigmaLink";
+import { CaseStudyImage } from "../primitives/CaseStudyImage";
+import { DeliverableAccordion } from "../primitives/DeliverableAccordion";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import persona          from "../../../../assets/smartplate/persona.png";
@@ -20,45 +21,6 @@ import screensC         from "../../../../assets/smartplate/screens_c.png";
 
 // ─── Figma link ───────────────────────────────────────────────────────────────
 const FIGMA_PROTO = "https://www.figma.com/proto/PaUTP7XGXikv2QrYrQsL1p/SmartPlate-design?node-id=683-3963&t=yITH4nf8ZEYOQ6vP-1&scaling=scale-down&content-scaling=fixed&page-id=683%3A3519&starting-point-node-id=683%3A3963";
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-const A = ({ children }: { children: ReactNode }) => (
-  <span style={{ color: "var(--accent-color)" }} className="font-medium">{children}</span>
-);
-const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-foreground font-semibold">{children}</span>
-);
-
-function FigmaLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-border text-sm font-medium text-foreground hover:border-foreground-secondary transition-colors duration-200"
-    >
-      <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--accent-color)" }} />
-      {label}
-    </a>
-  );
-}
-
-function DeliverableImage({ src, alt, caption, bg = "" }: { src: string; alt: string; caption: string; bg?: string }) {
-  return (
-    <motion.figure
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45, ease: EASE }}
-      className="flex flex-col gap-2"
-    >
-      <div className={`rounded-xl border border-border overflow-hidden ${bg}`}>
-        <img src={src} alt={alt} className="w-full h-auto block" />
-      </div>
-      <figcaption className="text-xs text-foreground-secondary-2 leading-relaxed">{caption}</figcaption>
-    </motion.figure>
-  );
-}
 
 // ─── Component ────────────────────────────────────────────────────────────────
 const META = getCaseStudyById("7")!;
@@ -135,7 +97,7 @@ export function SmartPlateCaseStudy() {
               The final mockups across the full app: inventory management, expiration tracking, recipe discovery, and the waste log.
             </p>
           </motion.div>
-          <DeliverableImage
+          <CaseStudyImage
             src={screensB}
             alt="SmartPlate high-fidelity mockup screens showing the full app"
             caption="Full app mockups: pantry inventory, expiration status, recipe suggestions, and waste history"
@@ -151,64 +113,48 @@ export function SmartPlateCaseStudy() {
               The research and design artifacts produced across the project, from early sketches to high-fidelity wireframes.
             </p>
           </motion.div>
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
-            <Accordion type="multiple" className="rounded-xl overflow-hidden divide-y divide-border border border-border">
-              {[
-                {
-                  value: "persona",
-                  label: "Persona",
-                  sublabel: "Primary user archetype built from personal experience and research into first-time independent living",
-                  src: persona,
-                  alt: "User persona for SmartPlate",
-                  caption: "Persona grounded in the real frustrations of managing groceries solo for the first time",
-                },
-                {
-                  value: "paper-hifi",
-                  label: "Paper hi-fi wireframes",
-                  sublabel: "Hand-drawn high-fidelity layouts before translating into digital mockups",
-                  src: paperWireframesA,
-                  alt: "Hand-drawn high-fidelity paper wireframes for SmartPlate",
-                  caption: "Detailed paper sketches of the final screen layouts, used as direct reference for the Figma build",
-                },
-                {
-                  value: "lo-fi",
-                  label: "Low-fidelity wireframes",
-                  sublabel: "Paper wireframes laying out all screens before moving into Figma",
-                  src: paperWireframesB,
-                  alt: "Low-fidelity paper wireframes for SmartPlate",
-                  caption: "Hand-drawn lo-fi wireframes covering the full app: inventory, alerts, recipes, and onboarding",
-                },
-                {
-                  value: "hifi-wireframes",
-                  label: "High-fidelity wireframes",
-                  sublabel: "Digital wireframes of the complete app before applying visual design",
-                  src: screensA,
-                  alt: "High-fidelity wireframes for the full SmartPlate app",
-                  caption: "Full-app hi-fi wireframes built in Figma, structure and interaction patterns locked before styling",
-                },
-                {
-                  value: "prototype-map",
-                  label: "Prototype connections map",
-                  sublabel: "Figma prototype wiring for all screens and modals, my first prototype in Figma",
-                  src: screensC,
-                  alt: "Figma prototype connections map for SmartPlate",
-                  caption: "The prototype connection map looks dense. This was my first Figma project, and I was still learning the tool. The prototype itself worked exactly as intended.",
-                },
-              ].map(({ value, label, sublabel, src, alt, caption }) => (
-                <AccordionItem key={value} value={value} className="border-0 bg-secondary/40 transition-colors">
-                  <AccordionTrigger className="px-5 hover:no-underline hover:bg-foreground/[0.04] transition-all">
-                    <div>
-                      <p className="text-sm font-medium text-foreground">{label}</p>
-                      <p className="text-xs text-foreground-secondary-2 font-normal mt-0.5">{sublabel}</p>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-5 pb-6 pt-2">
-                    <DeliverableImage src={src} alt={alt} caption={caption} />
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </motion.div>
+          <DeliverableAccordion items={[
+            {
+              value: "persona",
+              label: "Persona",
+              sublabel: "Primary user archetype built from personal experience and research into first-time independent living",
+              src: persona,
+              alt: "User persona for SmartPlate",
+              caption: "Persona grounded in the real frustrations of managing groceries solo for the first time",
+            },
+            {
+              value: "paper-hifi",
+              label: "Paper hi-fi wireframes",
+              sublabel: "Hand-drawn high-fidelity layouts before translating into digital mockups",
+              src: paperWireframesA,
+              alt: "Hand-drawn high-fidelity paper wireframes for SmartPlate",
+              caption: "Detailed paper sketches of the final screen layouts, used as direct reference for the Figma build",
+            },
+            {
+              value: "lo-fi",
+              label: "Low-fidelity wireframes",
+              sublabel: "Paper wireframes laying out all screens before moving into Figma",
+              src: paperWireframesB,
+              alt: "Low-fidelity paper wireframes for SmartPlate",
+              caption: "Hand-drawn lo-fi wireframes covering the full app: inventory, alerts, recipes, and onboarding",
+            },
+            {
+              value: "hifi-wireframes",
+              label: "High-fidelity wireframes",
+              sublabel: "Digital wireframes of the complete app before applying visual design",
+              src: screensA,
+              alt: "High-fidelity wireframes for the full SmartPlate app",
+              caption: "Full-app hi-fi wireframes built in Figma, structure and interaction patterns locked before styling",
+            },
+            {
+              value: "prototype-map",
+              label: "Prototype connections map",
+              sublabel: "Figma prototype wiring for all screens and modals, my first prototype in Figma",
+              src: screensC,
+              alt: "Figma prototype connections map for SmartPlate",
+              caption: "The prototype connection map looks dense. This was my first Figma project, and I was still learning the tool. The prototype itself worked exactly as intended.",
+            },
+          ]} />
         </CaseStudySection>
 
         {/* Prototype link */}

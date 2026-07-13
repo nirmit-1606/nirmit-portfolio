@@ -1,14 +1,15 @@
 import { motion } from "motion/react";
-import type { ReactNode } from "react";
-import { ExternalLink } from "lucide-react";
 import { Separator } from "../../ui/separator";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../../ui/accordion";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
 import { CaseStudySection, SectionLabel } from "../primitives/Section";
 import { HighlightCards } from "../primitives/HighlightCards";
 import { NextProject } from "../primitives/NextProject";
-import { fadeUp, EASE } from "../animations";
+import { fadeUp } from "../animations";
+import { A, P } from "../primitives/Keywords";
+import { FigmaLink } from "../primitives/FigmaLink";
+import { CaseStudyImage } from "../primitives/CaseStudyImage";
+import { DeliverableAccordion } from "../primitives/DeliverableAccordion";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import personas    from "../../../../assets/camping_supplies/personas.png";
@@ -21,45 +22,6 @@ import screens     from "../../../../assets/camping_supplies/screens.png";
 // ─── Figma links ─────────────────────────────────────────────────────────────
 const FIGMA_LO_FI = "https://www.figma.com/proto/CLTaOt29IZaBfllsvJA14l/Product-design?node-id=0-1&t=tSJdkMXoBJ5ZXkzE-1";
 const FIGMA_HI_FI = "https://www.figma.com/proto/CLTaOt29IZaBfllsvJA14l/Product-design?node-id=131-2507&t=tSJdkMXoBJ5ZXkzE-1";
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-const A = ({ children }: { children: ReactNode }) => (
-  <span style={{ color: "var(--accent-color)" }} className="font-medium">{children}</span>
-);
-const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-foreground font-semibold">{children}</span>
-);
-
-function FigmaLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-border text-sm font-medium text-foreground hover:border-foreground-secondary transition-colors duration-200"
-    >
-      <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--accent-color)" }} />
-      {label}
-    </a>
-  );
-}
-
-function DeliverableImage({ src, alt, caption, bg = "" }: { src: string; alt: string; caption: string; bg?: string }) {
-  return (
-    <motion.figure
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45, ease: EASE }}
-      className="flex flex-col gap-2"
-    >
-      <div className={`rounded-xl border border-border overflow-hidden ${bg}`}>
-        <img src={src} alt={alt} className="w-full h-auto block" />
-      </div>
-      <figcaption className="text-xs text-foreground-secondary-2 leading-relaxed">{caption}</figcaption>
-    </motion.figure>
-  );
-}
 
 // ─── Component ────────────────────────────────────────────────────────────────
 const META = getCaseStudyById("6")!;
@@ -136,7 +98,7 @@ export function CampingSuppliesCaseStudy() {
               The final mockups covering the core shopping experience: home, category browsing, product detail, and checkout.
             </p>
           </motion.div>
-          <DeliverableImage
+          <CaseStudyImage
             src={screens}
             alt="Camping Supplies Store high-fidelity mockup screens"
             caption="High-fidelity screens: home, product listing, and product detail"
@@ -152,64 +114,48 @@ export function CampingSuppliesCaseStudy() {
               Research and definition artifacts from across the project, from user research to wireframes.
             </p>
           </motion.div>
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
-            <Accordion type="multiple" className="rounded-xl overflow-hidden divide-y divide-border border border-border">
-              {[
-                {
-                  value: "personas",
-                  label: "User personas",
-                  sublabel: "Sarah, Dave, Mark, and Emily, four archetypes across experience levels and budgets",
-                  src: personas,
-                  alt: "Four user personas for the Camping Supplies Store",
-                  caption: "Sarah (25, first-time camper), Dave (45, seasoned camper), Mark (35, time-pressed), and Emily (30, budget-conscious)",
-                },
-                {
-                  value: "competitors",
-                  label: "Competitive analysis",
-                  sublabel: "Screenshots and audit of KingCamp, REI, Cabela's, and Walmart",
-                  src: competitors,
-                  alt: "Competitive analysis of KingCamp, REI, Cabela's, and Walmart",
-                  caption: "Competitive analysis of four existing outdoor retail sites, evaluating navigation structure, beginner guidance, and content clarity",
-                },
-                {
-                  value: "journey",
-                  label: "Journey maps",
-                  sublabel: "Individual journey maps for all four personas across the research-to-purchase flow",
-                  src: journeyMap,
-                  alt: "Journey maps for all four Camping Supplies Store personas",
-                  caption: "Four journey maps, one per persona, charting emotional highs and lows from initial research through to purchase",
-                },
-                {
-                  value: "statements",
-                  label: "Problem, hypothesis & goal statements",
-                  sublabel: "Problem statements, hypothesis statements, and goal statements for each of the four personas",
-                  src: statements,
-                  alt: "Problem, hypothesis, and goal statements for Camping Supplies Store personas",
-                  caption: "Per-persona synthesis: problem statements grounded in research, hypothesis statements, and design goal statements for Sarah, Dave, Mark, and Emily",
-                },
-                {
-                  value: "wireframes",
-                  label: "Wireframes",
-                  sublabel: "Wireframes of the three core screens: home, product list, and product detail",
-                  src: wireframes,
-                  alt: "Wireframes for the Camping Supplies Store",
-                  caption: "Wireframes for the home, product listing, and product detail screens before moving into high-fidelity design",
-                },
-              ].map(({ value, label, sublabel, src, alt, caption }) => (
-                <AccordionItem key={value} value={value} className="border-0 bg-secondary/40 transition-colors">
-                  <AccordionTrigger className="px-5 hover:no-underline hover:bg-foreground/[0.04] transition-all">
-                    <div>
-                      <p className="text-sm font-medium text-foreground">{label}</p>
-                      <p className="text-xs text-foreground-secondary-2 font-normal mt-0.5">{sublabel}</p>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-5 pb-6 pt-2">
-                    <DeliverableImage src={src} alt={alt} caption={caption} />
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </motion.div>
+          <DeliverableAccordion items={[
+            {
+              value: "personas",
+              label: "User personas",
+              sublabel: "Sarah, Dave, Mark, and Emily, four archetypes across experience levels and budgets",
+              src: personas,
+              alt: "Four user personas for the Camping Supplies Store",
+              caption: "Sarah (25, first-time camper), Dave (45, seasoned camper), Mark (35, time-pressed), and Emily (30, budget-conscious)",
+            },
+            {
+              value: "competitors",
+              label: "Competitive analysis",
+              sublabel: "Screenshots and audit of KingCamp, REI, Cabela's, and Walmart",
+              src: competitors,
+              alt: "Competitive analysis of KingCamp, REI, Cabela's, and Walmart",
+              caption: "Competitive analysis of four existing outdoor retail sites, evaluating navigation structure, beginner guidance, and content clarity",
+            },
+            {
+              value: "journey",
+              label: "Journey maps",
+              sublabel: "Individual journey maps for all four personas across the research-to-purchase flow",
+              src: journeyMap,
+              alt: "Journey maps for all four Camping Supplies Store personas",
+              caption: "Four journey maps, one per persona, charting emotional highs and lows from initial research through to purchase",
+            },
+            {
+              value: "statements",
+              label: "Problem, hypothesis & goal statements",
+              sublabel: "Problem statements, hypothesis statements, and goal statements for each of the four personas",
+              src: statements,
+              alt: "Problem, hypothesis, and goal statements for Camping Supplies Store personas",
+              caption: "Per-persona synthesis: problem statements grounded in research, hypothesis statements, and design goal statements for Sarah, Dave, Mark, and Emily",
+            },
+            {
+              value: "wireframes",
+              label: "Wireframes",
+              sublabel: "Wireframes of the three core screens: home, product list, and product detail",
+              src: wireframes,
+              alt: "Wireframes for the Camping Supplies Store",
+              caption: "Wireframes for the home, product listing, and product detail screens before moving into high-fidelity design",
+            },
+          ]} />
         </CaseStudySection>
 
         {/* Prototype links — shown only when links are filled in */}
