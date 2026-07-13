@@ -29,7 +29,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     subtitle: "Designing and building the first-run onboarding experience for a cloud ERP platform serving mid-market and multi-entity businesses",
     role: "Frontend Engineer",
     tools: ["React", "TypeScript", "Zustand", "GraphQL"],
-    timeline: "Dec 2024 – Present",
+    timeline: "Dec 2025 – Present",
     featured: true,
     images: {
       hero: intuitHero,
@@ -67,7 +67,7 @@ const caseStudies: Record<string, CaseStudyMeta> = {
     subtitle: "Joined a startup of 25 after launch to improve the UX of a live trading journal, redesigning core surfaces, rebuilding the journal from scratch, and shipping every change in code myself.",
     role: "UI/UX Designer & Frontend Engineer",
     tools: ["React", "TypeScript", "TipTap", "Figma", "CSS"],
-    timeline: "8 months",
+    timeline: "9 months",
     featured: true,
     images: {
       hero: trademindHero,

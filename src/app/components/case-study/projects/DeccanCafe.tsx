@@ -54,6 +54,7 @@ export function DeccanCafeCaseStudy() {
         metaItems={[
           { label: "Role",     value: META.role },
           { label: "Timeline", value: META.timeline },
+          { label: "Live site", value: "deccancafe.ca", href: "https://deccancafe.ca/" },
         ]}
       />
 
@@ -144,8 +145,8 @@ export function DeccanCafeCaseStudy() {
               </p>
             </blockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
-              I built a <A>protected admin portal</A> (a separate route on each site, backed by the
-              same Supabase database) so the client could manage both menus directly. Once it
+              I built a <A>protected admin portal</A> (a separate route on each site, backed by
+              Supabase database) so the client could manage both menus directly. Once it
               was working for Deccan Cafe, I brought the same tool back to Deccan House so both
               restaurants had it.
             </p>

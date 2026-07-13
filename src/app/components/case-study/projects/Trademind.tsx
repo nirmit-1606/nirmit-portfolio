@@ -178,6 +178,7 @@ export function TradeMindCaseStudy() {
         eyebrow="Product design · Frontend · Live trading journal"
         metaItems={[
           { label: "Role",     value: "UI/UX Designer & Frontend Engineer" },
+          { label: "Timeline", value: META.timeline },
           { label: "Team",     value: "25 people · sole UI/UX" },
         ]}
       />

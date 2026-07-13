@@ -131,6 +131,7 @@ export function DeccanHouseCaseStudy() {
         metaItems={[
           { label: "Role",     value: META.role },
           { label: "Timeline", value: META.timeline },
+          { label: "Live site", value: "deccanhouse.ca", href: "https://deccanhouse.ca/" },
         ]}
       />
 
