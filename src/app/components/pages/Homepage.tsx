@@ -4,11 +4,18 @@ import { Button } from "../ui/button";
 import { ImageWithFallback } from "../ImageWithFallback";
 import { getFeaturedCaseStudies } from "../../data/caseStudies";
 import { Separator } from "../ui/separator";
-import { motion, useInView } from "motion/react";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "motion/react";
+import { useState } from "react";
 import { Marquee } from "../Marquee";
 import nirmitFront from "../../../assets/nirmit-front.jpg";
 import nirmitBack  from "../../../assets/nirmit-back.png";
+import {
+  SiReact, SiTypescript, SiJavascript, SiFigma, SiTailwindcss,
+  SiSupabase, SiGraphql, SiNetlify, SiGit, SiNodedotjs,
+  SiPython, SiVite, SiPostgresql, SiEleventy, SiCss,
+  SiSpringboot, SiOpengl, SiCplusplus,
+} from "react-icons/si";
+import { TechChips } from "../case-study/primitives/TechChips";
 
 // ── Animation presets ───────────────────────────────────────────────────────
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -80,50 +87,63 @@ function FlipCard() {
   );
 }
 
-// ── Count-up stat ────────────────────────────────────────────────────────────
-function StatItem({
-  value,
-  suffix,
-  label,
-  delay,
-}: {
-  value: number;
-  suffix: string;
-  label: string;
-  delay: number;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
+// ── Tech stack ───────────────────────────────────────────────────────────────
+const TECH_GROUPS = [
+  {
+    label: "Design",
+    items: [
+      { icon: SiFigma, name: "Figma" },
+      "Canva",
+      "Adobe Illustrator",
+    ],
+  },
+  {
+    label: "Frontend",
+    items: [
+      { icon: SiReact,       name: "React" },
+      { icon: SiTypescript,  name: "TypeScript" },
+      { icon: SiJavascript,  name: "JavaScript" },
+      { icon: SiCss,         name: "CSS" },
+      { icon: SiTailwindcss, name: "Tailwind" },
+      { icon: SiVite,        name: "Vite" },
+    ],
+  },
+  {
+    label: "Backend & data",
+    items: [
+      { icon: SiNodedotjs,   name: "Node.js" },
+      { icon: SiSupabase,    name: "Supabase" },
+      { icon: SiPostgresql,  name: "PostgreSQL" },
+      { icon: SiGraphql,     name: "GraphQL" },
+      "Java",
+      { icon: SiSpringboot,  name: "Spring Boot" },
+      { icon: SiCplusplus,   name: "C++" },
+      { icon: SiOpengl,      name: "OpenGL" },
+    ],
+  },
+  {
+    label: "Tooling",
+    items: [
+      { icon: SiGit,         name: "Git" },
+      { icon: SiNetlify,     name: "Netlify" },
+      { icon: SiEleventy,    name: "Eleventy" },
+      { icon: SiPython,      name: "Python" },
+    ],
+  },
+];
 
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 1200;
-    const start = Date.now();
-    const timer = setInterval(() => {
-      const progress = Math.min((Date.now() - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * value));
-      if (progress >= 1) clearInterval(timer);
-    }, 16);
-    return () => clearInterval(timer);
-  }, [isInView, value]);
-
+function TechStack() {
   return (
-    <motion.div
-      ref={ref}
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ delay }}
-      className="text-center"
-    >
-      <div className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-2 tabular-nums" style={{ color: "var(--accent-color)" }}>
-        {count}{suffix}
-      </div>
-      <div className="text-foreground-secondary text-sm tracking-wide">{label}</div>
-    </motion.div>
+    <div className="space-y-6">
+      {TECH_GROUPS.map((group, gi) => (
+        <div key={group.label} className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6">
+          <span className="text-xs uppercase tracking-widest sm:w-28 sm:pt-2.5 flex-shrink-0 text-foreground">
+            {group.label}
+          </span>
+          <TechChips items={group.items} entryDelayBase={gi * 0.05} />
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -146,7 +166,7 @@ const PROCESS = [
 const STICKY_COLORS    = ["#FEF08A", "#BFDBFE", "#FBCFE8", "#BBF7D0"];
 const STICKY_ROTATIONS = [-2,  2.5,   4.5,  -2.5];
 const STICKY_OFFSETS   = [
-  { x:   -32, y:  0  },  // Discovery  — anchor
+  { x:   -20, y:  0  },  // Discovery  — anchor
   { x:   -4, y: 42  },  // Strategy   — drop down
   { x: -18, y: 32  },  // Design     — nudge left + slight drop
   { x:  12, y: 64 },  // Development — nudge right + lift
@@ -542,12 +562,13 @@ export function Homepage() {
 
       <Separator />
 
-      {/* ── Stats ── */}
-      <section className="px-6 lg:px-8 py-24">
-        <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
-          <StatItem value={4}   suffix="+" label="Years experience"   delay={0} />
-          <StatItem value={8}  suffix="+" label="Projects delivered"  delay={0.1} />
-          <StatItem value={100} suffix="%" label="Client satisfaction" delay={0.2} />
+      {/* ── Tech stack ── */}
+      <section className="px-6 lg:px-8 py-20">
+        <div className=" mx-auto">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
+            <p className="text-xs tracking-widest uppercase mb-8 text-foreground-secondary-2">Technologies</p>
+            <TechStack />
+          </motion.div>
         </div>
       </section>
 
