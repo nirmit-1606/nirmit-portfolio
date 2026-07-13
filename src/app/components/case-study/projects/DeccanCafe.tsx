@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import type { ReactNode } from "react";
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
@@ -9,6 +8,8 @@ import { TechChips } from "../primitives/TechChips";
 import { BugCards } from "../primitives/BugCards";
 import { NextProject } from "../primitives/NextProject";
 import { fadeUp, EASE } from "../animations";
+import { A, P } from "../primitives/Keywords";
+import { CaseStudyBlockquote } from "../primitives/Blockquote";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import logoSketch       from "../../../../assets/deccan_cafe/logo-sketch.jpg";
@@ -19,18 +20,6 @@ import adminPending     from "../../../../assets/deccan_cafe/admin_pending_edit.
 import adminCategories  from "../../../../assets/deccan_cafe/admin_category_tab.png";
 import analyticsRequests from "../../../../assets/deccan_cafe/analytics_web_requests.png";
 import analyticsBandwidth from "../../../../assets/deccan_cafe/analytics_bandwidth.png";
-
-// ─── Keyword helpers ──────────────────────────────────────────────────────────
-
-/** Accent-colored keyword — use inside primary (text-foreground) paragraphs. */
-const A = ({ children }: { children: ReactNode }) => (
-  <span style={{ color: "var(--accent-color)" }} className="font-medium">{children}</span>
-);
-
-/** Primary-colored keyword — use inside secondary (text-foreground-secondary) paragraphs. */
-const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-foreground font-semibold">{children}</span>
-);
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -134,16 +123,11 @@ export function DeccanCafeCaseStudy() {
               second restaurant made the pattern obvious: this wasn't a one-time fluke, it was a
               <A> gap in how I was building these sites</A>.
             </p>
-            <blockquote
-              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mb-8 max-w-3xl"
-              style={{ borderColor: "var(--accent-color)" }}
-            >
-              <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                The client didn't ask for this. But editing menu data by hand for a second restaurant,
-                for the same client, was the point where it stopped being a minor inconvenience and
-                started being a problem worth solving properly.
-              </p>
-            </blockquote>
+            <CaseStudyBlockquote>
+              The client didn't ask for this. But editing menu data by hand for a second restaurant,
+              for the same client, was the point where it stopped being a minor inconvenience and
+              started being a problem worth solving properly.
+            </CaseStudyBlockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl mb-8">
               I built a <A>protected admin portal</A> (a separate route on each site, backed by
               Supabase database) so the client could manage both menus directly. Once it

@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect, useRef } from "react";
-import type { ReactNode } from "react";
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
@@ -10,6 +9,9 @@ import { NextProject } from "../primitives/NextProject";
 import { BeforeAfter } from "../primitives/BeforeAfter";
 import { fadeUp, EASE } from "../animations";
 import { Pause, Play } from "lucide-react";
+import { A, P } from "../primitives/Keywords";
+import { CaseStudyBlockquote } from "../primitives/Blockquote";
+import { CaseStudyImage } from "../primitives/CaseStudyImage";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import tradePageOld     from "../../../../assets/trademind/trade_page_old.png";
@@ -22,37 +24,6 @@ import marketingTemplateManager  from "../../../../assets/trademind/marketing_te
 import mentorOld        from "../../../../assets/trademind/mentor_old.png";
 import mentorNew        from "../../../../assets/trademind/mentor_new.png";
 import mentorWireframe  from "../../../../assets/trademind/mentor_wireframe.png";
-
-// ─── Keyword helpers ──────────────────────────────────────────────────────────
-
-const A = ({ children }: { children: ReactNode }) => (
-  <span style={{ color: "var(--accent-color)" }} className="font-medium">{children}</span>
-);
-
-const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-foreground font-semibold">{children}</span>
-);
-
-// ─── Screenshot helper ────────────────────────────────────────────────────────
-
-function AppShot({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
-  return (
-    <motion.figure
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: EASE }}
-      className="flex flex-col gap-2"
-    >
-      <div className="overflow-hidden rounded-xl border border-border hover:scale-[1.01] transition-transform duration-500">
-        <img src={src} alt={alt} className="w-full h-auto" />
-      </div>
-      {caption && (
-        <figcaption className="text-xs text-foreground-secondary-2 text-center">{caption}</figcaption>
-      )}
-    </motion.figure>
-  );
-}
 
 // ─── Image carousel ──────────────────────────────────────────────────────────
 
@@ -213,16 +184,11 @@ export function TradeMindCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>How I worked</SectionLabel>
-            <blockquote
-              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 max-w-3xl mb-6"
-              style={{ borderColor: "var(--accent-color)" }}
-            >
-              <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                For every change: wireframe in Figma → stakeholder review → final design → build in
-                code. Nothing shipped without approval, and nothing got handed off. I owned each
-                change from first sketch to production.
-              </p>
-            </blockquote>
+            <CaseStudyBlockquote>
+              For every change: wireframe in Figma → stakeholder review → final design → build in
+              code. Nothing shipped without approval, and nothing got handed off. I owned each
+              change from first sketch to production.
+            </CaseStudyBlockquote>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
               Some changes came from stakeholder direction. Others I identified and pitched myself,
               pointing out where the UI was creating friction and proposing a better approach. The
@@ -270,8 +236,8 @@ export function TradeMindCaseStudy() {
             </p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
-            <AppShot src={tradePageOld} alt="Original Trade page, single scroll view" caption="Before: single scroll view" />
-            <AppShot src={tradePageNew} alt="Redesigned Trade page, multi-section with trade navigator" caption="After: trade navigator sidebar, collapsible journal" />
+            <CaseStudyImage src={tradePageOld} alt="Original Trade page, single scroll view" caption="Before: single scroll view" centerCaption />
+            <CaseStudyImage src={tradePageNew} alt="Redesigned Trade page, multi-section with trade navigator" caption="After: trade navigator sidebar, collapsible journal" centerCaption />
           </div>
           <BeforeAfter
             before="Single scroll view with all content (chart, data, journal) stacked vertically. Generic sidebar for app navigation. Going to another trade required leaving the page."
@@ -304,7 +270,7 @@ export function TradeMindCaseStudy() {
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={journalOld} alt="Original journal, fixed form fields" caption="Before: fixed form fields, no freeform input" />
+            <CaseStudyImage src={journalOld} alt="Original journal, fixed form fields" caption="Before: fixed form fields, no freeform input" centerCaption />
           </div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl">
@@ -321,22 +287,17 @@ export function TradeMindCaseStudy() {
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={journalNew} alt="Redesigned journal, freeform TipTap editor with trading components" caption="After: freeform editor with custom slash command components" />
+            <CaseStudyImage src={journalNew} alt="Redesigned journal, freeform TipTap editor with trading components" caption="After: freeform editor with custom slash command components" centerCaption />
           </div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="mt-8">
-            <blockquote
-              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 max-w-3xl"
-              style={{ borderColor: "var(--accent-color)" }}
-            >
-              <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                The trickiest part was persistence. Each component needed to store its own state so
-                the journal renders exactly the way the user left it. The editor was built on TipTap, which
-                gave us the extensible node architecture needed to register custom slash command
-                components. The serialization challenge was making sure each widget's state survived
-                the markdown round-trip intact, storing data in a way that the right widget could be
-                re-rendered with the right selections and entries every time.
-              </p>
-            </blockquote>
+            <CaseStudyBlockquote>
+              The trickiest part was persistence. Each component needed to store its own state so
+              the journal renders exactly the way the user left it. The editor was built on TipTap, which
+              gave us the extensible node architecture needed to register custom slash command
+              components. The serialization challenge was making sure each widget's state survived
+              the markdown round-trip intact, storing data in a way that the right widget could be
+              re-rendered with the right selections and entries every time.
+            </CaseStudyBlockquote>
             <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-3xl mt-8">
               To make sure new users weren't faced with a blank page on first open, I built a template
               system into the journal. Two default templates come pre-built, one for pre-trade
@@ -346,7 +307,7 @@ export function TradeMindCaseStudy() {
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={marketingTemplateManager} alt="Journal template manager" caption="Template manager: browse, customise, and save personal journal templates" />
+            <CaseStudyImage src={marketingTemplateManager} alt="Journal template manager" caption="Template manager: browse, customise, and save personal journal templates" centerCaption />
           </div>
         </CaseStudySection>
 
@@ -364,7 +325,7 @@ export function TradeMindCaseStudy() {
             </p>
           </motion.div>
           <div className="mt-6">
-            <AppShot src={mentorOld} alt="Original Mentor page, three panels on one screen" caption="Before: three congested panels, no mentor mode indicator" />
+            <CaseStudyImage src={mentorOld} alt="Original Mentor page, three panels on one screen" caption="Before: three congested panels, no mentor mode indicator" centerCaption />
           </div>
           <BeforeAfter
             before="Three panels on one screen: members list, selected member's trades, selected trade view. Too congested to use comfortably. Browsing a member's trade gave no indication that you're in mentor mode."
@@ -372,8 +333,8 @@ export function TradeMindCaseStudy() {
             className="mt-8"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
-            <AppShot src={mentorWireframe} alt="Mentor page wireframe, two-panel layout" caption="Finalized wireframe: two panels, admin mode banner at top" />
-            <AppShot src={mentorNew} alt="Delivered Mentor page, two-panel layout with admin view" caption="After: two-panel layout, delivered in code" />
+            <CaseStudyImage src={mentorWireframe} alt="Mentor page wireframe, two-panel layout" caption="Finalized wireframe: two panels, admin mode banner at top" centerCaption />
+            <CaseStudyImage src={mentorNew} alt="Delivered Mentor page, two-panel layout with admin view" caption="After: two-panel layout, delivered in code" centerCaption />
           </div>
           <motion.p
             initial={{ opacity: 0, y: 12 }}

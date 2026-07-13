@@ -1,16 +1,5 @@
 import { motion } from "motion/react";
 import { Sparkles, Smartphone } from "lucide-react";
-import type { ReactNode } from "react";
-
-/** Accent-colored keyword — use inside primary (text-foreground) paragraphs. */
-const A = ({ children }: { children: ReactNode }) => (
-  <span style={{ color: "var(--accent-color)" }} className="font-medium">{children}</span>
-);
-
-/** Primary-colored keyword — use inside secondary (text-foreground-secondary) paragraphs. */
-const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-foreground font-semibold">{children}</span>
-);
 import { Separator } from "../../ui/separator";
 import { getCaseStudyById, getAllCaseStudies } from "../../../data/caseStudies";
 import { CaseStudyHero } from "../primitives/Hero";
@@ -21,6 +10,8 @@ import { MetricsGrid } from "../primitives/MetricsGrid";
 import { ScreenshotGrid } from "../primitives/ScreenshotGrid";
 import { NextProject } from "../primitives/NextProject";
 import { fadeUp } from "../animations";
+import { A, P } from "../primitives/Keywords";
+import { CaseStudyBlockquote } from "../primitives/Blockquote";
 
 const META = getCaseStudyById("1")!;
 
@@ -74,16 +65,11 @@ export function IntuitCaseStudy() {
         <CaseStudySection>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
             <SectionLabel>The challenge</SectionLabel>
-            <blockquote
-              className="border-l-2 pl-5 hover:translate-x-2 transition-transform duration-200 mb-8 max-w-3xl"
-              style={{ borderColor: "var(--accent-color)" }}
-            >
-              <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed italic">
-                New users had <P>no clear starting point</P>, <P>no visible progress</P>, and <P>no path</P> to getting
-                their business set up. A construction firm and a non-profit need completely different
-                setup flows, and neither was getting either.
-              </p>
-            </blockquote>
+            <CaseStudyBlockquote>
+              New users had <P>no clear starting point</P>, <P>no visible progress</P>, and <P>no path</P> to getting
+              their business set up. A construction firm and a non-profit need completely different
+              setup flows, and neither was getting either.
+            </CaseStudyBlockquote>
             <p className="text-sm sm:text-base text-foreground leading-relaxed max-w-3xl">
               My job was to build that experience: a dedicated <A>setup tasks page</A>, a personalized flow
               based on the user's <A>industry vertical</A>, and entry points to reach it from the homepage
