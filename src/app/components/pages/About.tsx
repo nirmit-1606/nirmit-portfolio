@@ -36,7 +36,7 @@ const VALUES = [
 
 const FACTS = [
   { label: "Based in",   value: "Mountain View, CA" },
-  { label: "Experience", value: "8+ years" },
+  { label: "Experience", value: "4+ years" },
 ];
 
 // Wraps a keyword with the accent color
